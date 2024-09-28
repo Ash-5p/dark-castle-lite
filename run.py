@@ -1,4 +1,5 @@
-
+from characters import *
+from utilities import clear_terminal, blank_lines, return_home
 
 def display_instructions_screen():
     """
@@ -19,33 +20,42 @@ def display_instructions_screen():
         else:
             print("> Invalid input. Please try again.")
 
+player_character = {}
 def select_character():
+    """
+    Prompts player to choose their name and select a character
+    """
+    clear_terminal()
     # Player inputs their name
     player_name = input("Enter player name:\n")
     print(f"Welcome {player_name} \n")
 
 
     # Character options
-    print("1) Fighter")
-    print("2) Scholar")
-    print("3) Thief")
+    print("1) Fighter (Might - 3 / Wisdom - 1 / Cunning - 2)")
+    print("2) Scholar (Might - 1 / Wisdom - 3 / Cunning - 2)")
+    print("3) Thief (Might - 2 / Wisdom - 1 / Cunning - 3)\n")
 
-    
     #Player selects character
     while True:
-        player_character = input("Select your character (enter the number):\n")
+        character_selection = input("Select your character (enter the number):\n")
 
-        if player_character == '1':
+        if character_selection == '1':
             print("You chose Fighter!")
+            player_character = fighter
             break
-        elif player_character == '2':
+        elif character_selection == '2':
             print("You chose Scholar!")
+            player_character = scholar
             break
-        elif player_character == '3':
+        elif character_selection == '3':
             print("You chose Thief!")
+            player_character = thief
             break
         else:
             print("Invalid choice.")
+
+    print(player_character)
 
 def homescreen():
     """
@@ -64,8 +74,10 @@ def homescreen():
             select_character()
             break
         else:
-            print("> Invalid input. Please try again.")
-
+            player_choice = input("Invalid input. Please try again.")
+            clear_terminal()
+            homescreen()
+            
 homescreen()
 
 
