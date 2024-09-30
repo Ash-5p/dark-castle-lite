@@ -1,20 +1,20 @@
-fighter = {
-    "might": 3,
-    "wisdom": 1,
-    "cunning": 2,
-    "item": "none"
-}
+class Character:
+    """
+    Character class
+    """
+    def __init__(self, might, wisdom, cunning, item):
+        #properties
+        self.might = might
+        self.wisdom = wisdom
+        self.cunning = cunning
+        self.item = item
 
-scholar = {
-    "might": 1,
-    "wisdom": 3,
-    "cunning": 2,
-    "item": "none"
-}
+    def description(self):
+        """
+        Display character stats
+        """
+        return f"Might: {self.might} / Wisdom: {self.wisdom} / Cunning: {self.cunning}"
 
-thief = {
-    "might": 2,
-    "wisdom": 1,
-    "cunning": 3,
-    "item": "none"
-}
+fighter = Character(3, 1, 2, "none")
+scholar = Character(1, 3, 2, "none")
+thief = Character(2, 1, 3, "none")
