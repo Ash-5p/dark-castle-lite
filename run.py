@@ -1,4 +1,5 @@
 from characters import *
+from chapters import *
 from utilities import clear_terminal, blank_lines, return_home
 
 def display_instructions_screen():
@@ -31,7 +32,7 @@ def select_character():
     while True:
         player_name = input("Enter player name:\n")
 
-        if len(player_name) <= 10:
+        if len(player_name) <= 15:
             clear_terminal()
             print(f"Welcome {player_name} \n")
             break
@@ -41,13 +42,13 @@ def select_character():
             print("Character name must contain at least 1 character.\n")
 
         else:
-            print("Character name cannot be more than 10 characters long.\n")
+            print("Character name cannot be more than 15 characters long.\n")
     
     # Character options
     print("Select your character (enter the number):\n")
     print("1) Fighter (Might: 3 / Wisdom: 1 / Cunning: 2)")
     print("2) Scholar (Might: 1 / Wisdom: 3 / Cunning: 2)")
-    print("3) Thief (Might: 2 / Wisdom: 1 / Cunning: 3)\n")
+    print("3) Thief   (Might: 2 / Wisdom: 1 / Cunning: 3)\n")
 
     #Player selects character
     while True:
