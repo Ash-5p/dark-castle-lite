@@ -1,4 +1,4 @@
-from characters import *
+from classes import *
 from chapters import *
 from utilities import clear_terminal, blank_lines, return_home
 
@@ -74,25 +74,21 @@ def select_character():
     run_game()
 
 def run_game():
-    clear_terminal()
-    print("You awaken and find yourself in a empty, dark room with stone walls. \n\
-You look up to a small window with iron bars in the far corner of the room. \n\
-As your eyes trace the beams of moonlight peering into the room between the bars, \n\
-you notice a thick wooden door which appears to be open ajar.\n")
+    player_health = 20
+    intro_chapter()
 
-    print("Do you wait(w) or try to open the door(o)?\n")
-
-    choice_1 = input()
-
+    player_choice = input()
     while True:
-        if choice_1 == "o":
-            print("You open the door")
+        if player_choice == "o":
+            chapter_1a()
             break
-        elif choice_1 == "w":
-            print("You wait")
+        elif player_choice == "w":
+            chapter_1b()
             break
         else:
             choice_1 = input("You can't do that right now!")
+
+    
     
 def homescreen():
     """
