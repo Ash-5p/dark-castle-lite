@@ -24,11 +24,10 @@ class Enemy:
     """
     Enemy class
     """
-    def __init__(health, nature, stat, damage):
+    def __init__(self, health, nature, damage):
         #properties
         self.health = health
         self.nature = nature
-        self.stat = stat
         self.damage = damage
 
     def description(self):
@@ -37,3 +36,4 @@ class Enemy:
         """
         return f"HP: {self.health} / Nature: {self.nature}"
 
+guard = Enemy(10, "Might", 2)

@@ -1,5 +1,6 @@
 from classes import *
-from chapters import *
+from mechanics import *
+import math
 from utilities import clear_terminal, blank_lines, return_home
 
 def display_instructions_screen():
@@ -22,7 +23,6 @@ def display_instructions_screen():
         else:
             print("> Invalid input. Please try again.")
 
-player_character = {}
 def select_character():
     """
     Prompts player to choose their name and select a character
@@ -44,6 +44,7 @@ def select_character():
         else:
             print("Character name cannot be more than 15 characters long.\n")
     
+    
     # Character options
     print("Select your character (enter the number):\n")
     print("1) Fighter (Might: 3 / Wisdom: 1 / Cunning: 2)")
@@ -53,6 +54,7 @@ def select_character():
     #Player selects character
     while True:
         character_selection = input()
+        global player_character
 
         if character_selection == '1':
             print("You chose Fighter!")
@@ -70,13 +72,52 @@ def select_character():
             print("Invalid choice.")
 
     print(player_character.description())
+    print(player_character.wisdom)
     input("\n Press any button to start your journey...")
     run_game()
 
-def run_game():
-    player_health = 20
-    intro_chapter()
+def intro_chapter():
+    clear_terminal()
+    print("You awaken and find yourself in a empty, dark room with stone walls. \n\
+You look up to a small window with iron bars in the far corner of the room. \n\
+As your eyes trace the beams of moonlight peering into the room between the bars, \n\
+you notice a thick wooden door which appears to be open ajar.\n")
 
+    print("Do you wait(w) or try to open the door(o)?\n")
+
+def chapter_1a():
+    clear_terminal()
+    print("You push the door, which opens with a loud creak. You emerge in a long corridor\n\
+lined with cell blocks line the one you just left. You notice what looks \n\
+to be an unconscious guard clad in chainmail laying still on the floor.\n")
+
+    print("Not knowing what you will face, you toy with the idea of taking the chainmail\n\
+        for yourself")
+
+    input("Do you attempt to take the chainmail? Yes(y) / No(n)")
+
+def chapter_1b():
+    clear_terminal()
+    print("You wait in your cell, pondering how you woke up here. Suddenly, you \n\
+hear a metal clattering sound, followed by a loud creak and bang as your cell door \n\
+slams open\n")
+    
+    print("An enraged, dazed looking guard, clad in chainmail stands blocking the doorway. \n\
+You attempt to reason with him, but your words fall on deaf ears\n")
+
+    print("You must defend yourself!")
+
+    input("Press any key to commence combat...")
+    print(player_character)
+
+    combat(guard, player_character, player_health)
+
+def run_game():
+
+    global player_health 
+    player_health = 20
+
+    intro_chapter()
     player_choice = input()
     while True:
         if player_choice == "o":
@@ -87,8 +128,6 @@ def run_game():
             break
         else:
             choice_1 = input("You can't do that right now!")
-
-    
     
 def homescreen():
     """
