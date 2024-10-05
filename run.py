@@ -66,18 +66,23 @@ def run_game():
     global player_health 
     player_health = 20
 
+    def decision(a, b, chapter_a, chapter_b):
+        while True:
+            player_choice = input()
+            if player_choice == str(a):
+                chapter_a()
+                break
+            elif player_choice == str(b):
+                chapter_b()
+                break
+            else:
+                choice_1 = input("You can't do that right now!")
+
     intro_chapter()
+
+    decision("o", "w", chapter_1a, chapter_1b)
+
     
-    while True:
-        player_choice = input()
-        if player_choice == "o":
-            chapter_1a()
-            break
-        elif player_choice == "w":
-            chapter_1b()
-            break
-        else:
-            choice_1 = input("You can't do that right now!")
 
 def intro_chapter():
     clear_terminal_in_game(player_health, player_character, player_name)
@@ -95,9 +100,32 @@ lined with cell blocks line the one you just left. You notice what looks \n\
 to be an unconscious guard clad in chainmail laying still on the floor.\n")
 
     print("Not knowing what you will face, you toy with the idea of taking the chainmail\n\
-        for yourself")
+for yourself\n")
 
-    input("Do you attempt to take the chainmail? Yes(y) / No(n)")
+    while True:
+
+        take_item = input("Do you attempt to take the chainmail? Yes(y) / No(n)\n")
+
+        if take_item == "y":
+            if random.randrange(1,11) >= 5:
+                print("You manage to remove the Chainmail from the unconcious guard without disturbing him")
+                player_character.item = "Chainmail"
+                break
+            else:
+                print("As you attempt to remove the guards armor he begins to stir, suddenly springing to his feet \n\
+with an enraged look on his face. You attempt to reason with him, but your words fall on deaf ears\n")
+
+                print("You must defend yourself!")
+
+                input("Press any key to commence combat...")
+
+                combat(guard, player_character, player_health, player_name, homescreen)
+                break
+        elif take_item == "n":
+            print("You sneak past the guard, being carful not to wake him")
+            break
+        else:
+            print("You can't do that right now")
 
 def chapter_1b():
     clear_terminal_in_game(player_health, player_character, player_name)

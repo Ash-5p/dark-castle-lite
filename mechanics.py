@@ -58,11 +58,13 @@ def combat(current_enemy, player_character, player_health, player_name, homescre
         run_chance = random.randrange(1,11)
 
         if combat_choice == "l":
-            player_health = light_attack(current_enemy, player_character, player_health)
+            # Handle damage and hit chande of light attack
+            player_health = attack(current_enemy, player_character, player_health, 9, 2)
             input()
             show_combat_details()
         elif combat_choice == "h":
-            player_health = heavy_attack(current_enemy, player_character, player_health)
+            # Handle damage and hit chande of heavy attack
+            player_health = attack(current_enemy, player_character, player_health, 5, 3)
             input()
             show_combat_details()
         elif combat_choice == "r":
@@ -80,7 +82,7 @@ def combat(current_enemy, player_character, player_health, player_name, homescre
 
     death(current_enemy, player_health, player_name, player_character, homescreen_callback)
 
-def light_attack(current_enemy, player_character, player_health):
+def attack(current_enemy, player_character, player_health, accuracy, damage_mult):
     """
     Handles damage dealt and hit chance for light attack
     """
@@ -88,8 +90,8 @@ def light_attack(current_enemy, player_character, player_health):
     enemy_hit_chance = random.randrange(1, 11)  # Enemy hit chance calculated once per turn
     
     if current_enemy.nature == "Might":
-        if hit_chance < 9:  # Attack lands if hit_chance < 9
-            current_enemy.health -= player_character.wisdom * 2 
+        if hit_chance < accuracy:  # Attack lands if hit_chance < 9
+            current_enemy.health -= player_character.wisdom * damage_mult 
             current_enemy.health = max(current_enemy.health, 0)  # Prevent health from dropping below 0
         else:
             print("Your attack missed!")
@@ -100,8 +102,8 @@ def light_attack(current_enemy, player_character, player_health):
             print("You dodged the enemy's attack!")
         
     elif current_enemy.nature == "Wisdom":
-        if hit_chance < 9:
-            current_enemy.health -= player_character.cunning * 2
+        if hit_chance < accuracy:
+            current_enemy.health -= player_character.cunning * damage_mult
             current_enemy.health = max(current_enemy.health, 0)  # Prevent health from dropping below 0
         else:
             print("Your attack missed!")
@@ -112,8 +114,8 @@ def light_attack(current_enemy, player_character, player_health):
             print("You dodged the enemy's attack!")
         
     else:
-        if hit_chance < 9:
-            current_enemy.health -= player_character.might * 2
+        if hit_chance < accuracy:
+            current_enemy.health -= player_character.might * damage_mult
             current_enemy.health = max(current_enemy.health, 0)  # Prevent health from dropping below 0
         else:
             print("Your attack missed!")
@@ -124,49 +126,3 @@ def light_attack(current_enemy, player_character, player_health):
             print("You dodged the enemy's attack!")
 
     return player_health  # Return updated player_health
-
-def heavy_attack(current_enemy, player_character, player_health):
-    """
-    Handles damage dealt and hit chance for heavy attack
-    """
-    hit_chance = random.randrange(1, 11)  # Only calculate once per attack
-    enemy_hit_chance = random.randrange(1, 11)  # Enemy hit chance calculated once per turn
-    
-    if current_enemy.nature == "Might":
-        if hit_chance < 5:  # More difficult to land a heavy attack
-            current_enemy.health -= player_character.wisdom * 3 
-            current_enemy.health = max(current_enemy.health, 0)  # Prevent health from dropping below 0
-        else:
-            print("Your attack missed!")
-        if enemy_hit_chance < 8:
-            player_health -= math.ceil(current_enemy.damage / player_character.wisdom) 
-            player_health = max(player_health, 0) # Prevent health from dropping below 0
-        else: 
-            print("You dodged the enemy's attack!")
-    
-    elif current_enemy.nature == "Wisdom":
-        if hit_chance < 9:
-            current_enemy.health -= player_character.cunning * 3
-            current_enemy.health = max(current_enemy.health, 0)  # Prevent health from dropping below 0
-        else:
-            print("Your attack missed!")
-        if enemy_hit_chance < 8:
-            player_health -= math.ceil(current_enemy.damage / player_character.cunning)
-            player_health = max(player_health, 0) # Prevent health from dropping below 0
-        else: 
-            print("You dodged the enemy's attack!")
-
-    else:
-        if hit_chance < 9:
-            current_enemy.health -= player_character.might * 3
-            current_enemy.health = max(current_enemy.health, 0)  # Prevent health from dropping below 0
-        else:
-            print("Your attack missed!")
-        if enemy_hit_chance < 8:
-            player_health -= math.ceil(current_enemy.damage / player_character.might)
-            player_health = max(player_health, 0) # Prevent health from dropping below 0
-        else: 
-            print("You dodged the enemy's attack!")
-
-    return player_health 
-
