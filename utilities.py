@@ -11,13 +11,12 @@ def clear_terminal():
     # Suggested in stackoverflow. (see Credits section in README)
     print("\033c")
 
-def clear_terminal_in_game(player_health, player_character):
+def clear_terminal_in_game(player_health, player_character, player_name):
     """
-    Clears the terminal
+    Clears the terminal and displays player's health and item
     """
-    # Suggested in stackoverflow. (see Credits section in README)
     print("\033c")
-    print(f'Health: {player_health}hp     Item: {player_character.item} ')
+    print(f"Name: {player_name} | Class: {player_character.name} | Health: {player_health}hp | Item: {player_character.item}")
     print("________________________________________________________________________________")
 
 
@@ -42,11 +41,3 @@ def blank_lines(num_lines, line_type="print_line"):
         num_lines += 0
 
     return "\n" * num_lines
-
-
-def return_home():
-    """
-    Refreshes the game and goes back to home
-    """
-    # Suggested in stackoverflow. (see Credits section in README)
-    os.execv(sys.executable, ['python'] + sys.argv)

@@ -1,32 +1,13 @@
 from classes import *
 from mechanics import *
 import math
-from utilities import clear_terminal, clear_terminal_in_game, blank_lines, return_home
+from utilities import clear_terminal, clear_terminal_in_game, blank_lines
 
-def display_instructions_screen():
+def select_name():
     """
-    Displays instructions screen
+    Prompts player to choose their name
     """
-    clear_terminal()
-    while True:
-        print("How to play\n")
-        print("Play Game (p)")
-        print("Back to main menu (h)")
-        player_choice = input()
-
-        if player_choice == "h":
-            homescreen()
-            break
-        elif player_choice == "p":
-            select_character()
-            break
-        else:
-            print("> Invalid input. Please try again.")
-
-def select_character():
-    """
-    Prompts player to choose their name and select a character
-    """
+    global player_name  # Declare player_name as a global variable
     clear_terminal()
     # Player inputs their name
     while True:
@@ -37,14 +18,19 @@ def select_character():
             print(f"Welcome {player_name} \n")
             break
         
-        #Doesn't work
         elif len(player_name) == 0:
             print("Character name must contain at least 1 character.\n")
 
         else:
             print("Character name cannot be more than 15 characters long.\n")
     
+    select_character()
+    return player_name
     
+def select_character():
+    """
+    Prompts player to select a character
+    """
     # Character options
     print("Select your character (enter the number):\n")
     print("1) Fighter (Might: 3 / Wisdom: 1 / Cunning: 2)")
@@ -81,8 +67,9 @@ def run_game():
     player_health = 20
 
     intro_chapter()
-    player_choice = input()
+    
     while True:
+        player_choice = input()
         if player_choice == "o":
             chapter_1a()
             break
@@ -93,7 +80,7 @@ def run_game():
             choice_1 = input("You can't do that right now!")
 
 def intro_chapter():
-    clear_terminal_in_game(player_health, player_character)
+    clear_terminal_in_game(player_health, player_character, player_name)
     print("You awaken and find yourself in a empty, dark room with stone walls. \n\
 You look up to a small window with iron bars in the far corner of the room. \n\
 As your eyes trace the beams of moonlight peering into the room between the bars, \n\
@@ -102,7 +89,7 @@ you notice a thick wooden door which appears to be open ajar.\n")
     print("Do you wait(w) or try to open the door(o)?\n")
 
 def chapter_1a():
-    clear_terminal_in_game(player_health, player_character)
+    clear_terminal_in_game(player_health, player_character, player_name)
     print("You push the door, which opens with a loud creak. You emerge in a long corridor\n\
 lined with cell blocks line the one you just left. You notice what looks \n\
 to be an unconscious guard clad in chainmail laying still on the floor.\n")
@@ -113,7 +100,7 @@ to be an unconscious guard clad in chainmail laying still on the floor.\n")
     input("Do you attempt to take the chainmail? Yes(y) / No(n)")
 
 def chapter_1b():
-    clear_terminal_in_game(player_health, player_character)
+    clear_terminal_in_game(player_health, player_character, player_name)
     print("You wait in your cell, pondering how you woke up here. Suddenly, you \n\
 hear a metal clattering sound, followed by a loud creak and bang as your cell door \n\
 slams open\n")
@@ -125,9 +112,28 @@ You attempt to reason with him, but your words fall on deaf ears\n")
 
     input("Press any key to commence combat...")
 
-    combat(guard, player_character, player_health)
+    combat(guard, player_character, player_health, player_name, homescreen)
 
 
+def display_instructions_screen():
+    """
+    Displays instructions screen
+    """
+    clear_terminal()
+    while True:
+        print("How to play\n")
+        print("Play Game (p)")
+        print("Back to main menu (h)")
+        player_choice = input()
+
+        if player_choice == "h":
+            homescreen()
+            break
+        elif player_choice == "p":
+            select_name()
+            break
+        else:
+            print("> Invalid input. Please try again.")
     
 def homescreen():
     """
@@ -144,7 +150,7 @@ def homescreen():
             display_instructions_screen()
             break
         elif player_choice == "p":
-            select_character()
+            select_name()
             break
         else:
             player_choice = input("Invalid input. Please try again.")
@@ -152,5 +158,3 @@ def homescreen():
             homescreen()
             
 homescreen()
-
-
