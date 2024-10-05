@@ -8,6 +8,7 @@ def death(current_enemy, player_health, player_name, player_character, homescree
     Handles player & enemy defeat
     """
     random_item = random.choice(ITEMS) # Chooses random item from ITEMS list
+    random_item_chance = random.randrange(1,11)
 
     if player_health == 0:
         clear_terminal_in_game(player_health, player_character, player_name)
@@ -15,23 +16,26 @@ def death(current_enemy, player_health, player_name, player_character, homescree
         input("Press any button to return to main menu...")
         homescreen_callback()
     elif current_enemy.health == 0:
-        print(f'{current_enemy.name} has been defeated!')
-        print(f"{current_enemy.name} has dropped an item: {random_item}\n")
-        print("Do you want to pick it up? (Replaces current item)")
-        print("Yes(y) / No(n)")
+        if random_item_chance <= 5:
+            print(f'{current_enemy.name} has been defeated!')
+        else:
+            print(f'{current_enemy.name} has been defeated!')
+            print(f"{current_enemy.name} has dropped an item: {random_item}\n")
+            print("Do you want to pick it up? (Replaces current item)")
+            print("Yes(y) / No(n)")
 
-        while True:
-            choice = input()
-            if choice == "y":
-                player_character.item = random_item
-                clear_terminal_in_game(player_health, player_character, player_name)
-                break  # Exit loop after picking up
-            elif choice == "n":
-                print("You leave the item behind.")
-                clear_terminal_in_game(player_health, player_character, player_name)
-                break  # Exit loop after leaving
-            else:
-                print("You can't do that right now")
+            while True:
+                choice = input()
+                if choice == "y":
+                    player_character.item = random_item
+                    clear_terminal_in_game(player_health, player_character, player_name)
+                    break  # Exit loop after picking up
+                elif choice == "n":
+                    print("You leave the item behind.")
+                    clear_terminal_in_game(player_health, player_character, player_name)
+                    break  # Exit loop after leaving
+                else:
+                    print("You can't do that right now")
 
 def combat(current_enemy, player_character, player_health, player_name, homescreen_callback):
     """
@@ -48,6 +52,8 @@ def combat(current_enemy, player_character, player_health, player_name, homescre
 
     combat_prompt()
 
+    item_buff(player_character, current_enemy)
+
     def show_combat_details():
         clear_terminal_in_game(player_health, player_character, player_name)    
         combat_prompt()
@@ -56,15 +62,17 @@ def combat(current_enemy, player_character, player_health, player_name, homescre
         
         combat_choice = input()
         run_chance = random.randrange(1,11)
+        light_attack = attack(current_enemy, player_character, player_health, 9, 2)
+        heavy_attack = attack(current_enemy, player_character, player_health, 5, 3)
 
         if combat_choice == "l":
             # Handle damage and hit chande of light attack
-            player_health = attack(current_enemy, player_character, player_health, 9, 2)
+            player_health = light_attack
             input()
             show_combat_details()
         elif combat_choice == "h":
             # Handle damage and hit chande of heavy attack
-            player_health = attack(current_enemy, player_character, player_health, 5, 3)
+            player_health = heavy_attack
             input()
             show_combat_details()
         elif combat_choice == "r":
@@ -126,3 +134,15 @@ def attack(current_enemy, player_character, player_health, accuracy, damage_mult
             print("You dodged the enemy's attack!")
 
     return player_health  # Return updated player_health
+
+def item_buff(player_character, current_enemy):
+    if player_character.item == "Chainmail":
+        current_enemy.damage -= 1
+    elif player_character.item == "Spiked Gloves":
+        player_character.might += 1
+    elif player_character.item == "Hooded Cloak":
+        player_character.cunning += 1
+    elif player_character.item == "Lexicon":
+        player_character.wisdom += 1
+    elif player_character.item == "Focusing Crystal":
+        accuracy += 1

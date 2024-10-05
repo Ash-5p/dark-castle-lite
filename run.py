@@ -82,7 +82,12 @@ def run_game():
 
     decision("o", "w", chapter_1a, chapter_1b)
 
-    
+    clear_terminal_in_game(player_health, player_character, player_name)
+    print("As you approch what looks like the end of the cell block you are met with a fork in the road.\n")
+    print("Do you turn left(l) or right (r)?\n")
+
+    decision("l", "r", chapter_2a, chapter_2b)
+
 
 def intro_chapter():
     clear_terminal_in_game(player_health, player_character, player_name)
@@ -141,6 +146,40 @@ You attempt to reason with him, but your words fall on deaf ears\n")
     input("Press any key to commence combat...")
 
     combat(guard, player_character, player_health, player_name, homescreen)
+
+def chapter_2a():
+    clear_terminal_in_game(player_health, player_character, player_name)
+    print("Following the hallway ")
+
+def chapter_2b():
+    clear_terminal_in_game(player_health, player_character, player_name)
+
+def chapter_3a():
+    clear_terminal_in_game(player_health, player_character, player_name)
+
+def chapter_3b():
+    clear_terminal_in_game(player_health, player_character, player_name)
+
+def chapter_4a():
+    clear_terminal_in_game(player_health, player_character, player_name)
+
+def chapter_4b():
+    clear_terminal_in_game(player_health, player_character, player_name)
+
+def chapter_5a():
+    clear_terminal_in_game(player_health, player_character, player_name)
+
+def chapter_5b():
+    clear_terminal_in_game(player_health, player_character, player_name)
+
+def boss_a():
+    clear_terminal_in_game(player_health, player_character, player_name)
+
+def boss_b():
+    clear_terminal_in_game(player_health, player_character, player_name)
+
+def boss_c():
+    clear_terminal_in_game(player_health, player_character, player_name)
 
 
 def display_instructions_screen():
