@@ -3,12 +3,12 @@ import random
 from classes import ITEMS
 from utilities import clear_terminal_in_game, clear_terminal
 
-def death(current_enemy, player_health, player_name, player_character, homescreen_callback):
+def defeat(current_enemy, player_health, player_name, player_character, homescreen_callback, dropped_item, drop_odds):
     """
     Handles player & enemy defeat
     """
     random_item = random.choice(ITEMS) # Chooses random item from ITEMS list
-    random_item_chance = random.randrange(1,11)
+    random_item_chance = random.randrange(1,11) # Randomizes chance of item drops
 
     if player_health == 0:
         clear_terminal_in_game(player_health, player_character, player_name)
@@ -16,28 +16,29 @@ def death(current_enemy, player_health, player_name, player_character, homescree
         input("Press any button to return to main menu...")
         homescreen_callback()
     elif current_enemy.health == 0:
-        if random_item_chance <= 5:
+        if random_item_chance >= drop_odds: # 10 = 100% Chance
             print(f'{current_enemy.name} has been defeated!')
         else:
             print(f'{current_enemy.name} has been defeated!')
-            print(f"{current_enemy.name} has dropped an item: {random_item}\n")
+            print(f"{current_enemy.name} has dropped an item: {dropped_item}\n")
             print("Do you want to pick it up? (Replaces current item)")
             print("Yes(y) / No(n)")
 
             while True:
                 choice = input()
                 if choice == "y":
-                    player_character.item = random_item
+                    player_character.item = dropped_item
                     clear_terminal_in_game(player_health, player_character, player_name)
                     break  # Exit loop after picking up
                 elif choice == "n":
-                    print("You leave the item behind.")
+                    print("You left the item behind.")
                     clear_terminal_in_game(player_health, player_character, player_name)
                     break  # Exit loop after leaving
                 else:
                     print("You can't do that right now")
 
-def combat(current_enemy, player_character, player_health, player_name, homescreen_callback):
+
+def combat(current_enemy, player_character, player_health, player_name, homescreen_callback, dropped_item, drop_odds):
     """
     Handles the flow of combat within the game
     """
@@ -88,7 +89,7 @@ def combat(current_enemy, player_character, player_health, player_name, homescre
             show_combat_details()
             print("You can't do that right now")
 
-    death(current_enemy, player_health, player_name, player_character, homescreen_callback)
+    defeat(current_enemy, player_health, player_name, player_character, homescreen_callback, dropped_item, drop_odds)
 
 def attack(current_enemy, player_character, player_health, accuracy, damage_mult):
     """

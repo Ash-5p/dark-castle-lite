@@ -1,3 +1,5 @@
+import random
+
 class Character:
     """
     Character class
@@ -37,6 +39,8 @@ class Enemy:
         """
         return f"HP: {self.health} / Nature: {self.nature}"
 
-guard = Enemy("Gaurd", 10, "Might", 2)
+guard = Enemy("Guard", 10, "Might", 2)
+spirit = Enemy("Spirit", 12, "Wisdom", random.randrange(1,3))
+sludge_creature = Enemy("Sludge Creature", 14, "Cunning", random.randrange(1,2))
 
 ITEMS = ["Chainmail", "Spiked Gloves", "Hooded Cloak", "Lexicon", "Apple", "Focusing Crystal"]
