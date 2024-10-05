@@ -11,6 +11,15 @@ def clear_terminal():
     # Suggested in stackoverflow. (see Credits section in README)
     print("\033c")
 
+def clear_terminal_in_game(player_health, player_character):
+    """
+    Clears the terminal
+    """
+    # Suggested in stackoverflow. (see Credits section in README)
+    print("\033c")
+    print(f'Health: {player_health}hp     Item: {player_character.item} ')
+    print("________________________________________________________________________________")
+
 
 def blank_lines(num_lines, line_type="print_line"):
     """

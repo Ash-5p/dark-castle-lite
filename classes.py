@@ -15,9 +15,9 @@ class Character:
         """
         return f"Might: {self.might} / Wisdom: {self.wisdom} / Cunning: {self.cunning}"
 
-fighter = Character(3, 1, 2, "none")
-scholar = Character(1, 3, 2, "none")
-thief = Character(2, 1, 3, "none")
+fighter = Character(3, 1, 2, "None")
+scholar = Character(1, 3, 2, "None")
+thief = Character(2, 1, 3, "None")
 
 
 class Enemy:
