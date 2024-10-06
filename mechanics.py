@@ -8,6 +8,7 @@ def defeat(current_enemy, player_name, player_character, homescreen_callback, dr
     Handles player & enemy defeat
     """
     random_item_chance = random.randrange(1,11) # Randomizes chance of item drops
+    
 
     if player_character.health == 0:
         clear_terminal_in_game(player_character, player_name)
@@ -15,7 +16,7 @@ def defeat(current_enemy, player_name, player_character, homescreen_callback, dr
         input("Press any button to return to main menu...")
         homescreen_callback()
     elif current_enemy.health == 0:
-        if random_item_chance >= drop_odds: # 10 = 100% Chance
+        if random_item_chance >= drop_odds: # 11 = 100% Chance
             print(f'{current_enemy.name} has been defeated!')
         else:
             print(f'{current_enemy.name} has been defeated!')
@@ -30,7 +31,7 @@ def defeat(current_enemy, player_name, player_character, homescreen_callback, dr
                     clear_terminal_in_game(player_character, player_name)
                     break  # Exit loop after picking up
                 elif choice == "n":
-                    print("You left the item behind.")
+                    print(f"You left the {dropped_item} behind.")
                     clear_terminal_in_game(player_character, player_name)
                     break  # Exit loop after leaving
                 else:
@@ -82,13 +83,15 @@ def combat(current_enemy, player_character, player_name, homescreen_callback, dr
 
             # Handles running from combat
         elif combat_choice == "r":
-            if run_chance <= 4:
-                print("You manage to escape!") 
+            if run_chance <= 4 and current_enemy.boss == False:
+                input("You manage to escape!") 
                 break
+            elif current_enemy.boss == True:
+                input("You are unable to escape!")
             else:
                 print("Your attempt at escape was unsuccessful!") 
-                player_character.health -= current_enemy.damage * 2
-                input(f"The {current_enemy.name} lands a crushing blow while you are distracted! (-{current_enemy.damage * 2}hp)")
+                player_character.health -= current_enemy.max_damage * 2
+                input(f"The {current_enemy.name} lands a crushing blow while you are distracted! (-{current_enemy.max_damage * 2}hp)")
             input()
             show_combat_details()
         else:
@@ -99,10 +102,11 @@ def combat(current_enemy, player_character, player_name, homescreen_callback, dr
 
 def attack(current_enemy, player_character, accuracy, damage_mult):
     """
-    Handles damage dealt and hit chance for light attack
+    Handles damage dealt and hit chance for attack type
     """
     hit_chance = random.randrange(1, 11)  # Only calculate once per attack
     enemy_hit_chance = random.randrange(1, 11)  # Enemy hit chance calculated once per turn
+    enemy_damage = current_enemy.get_random_damage()
     
     if current_enemy.nature == "Might":
         if hit_chance < accuracy:  # Attack lands if hit_chance < accuracy
@@ -113,9 +117,9 @@ def attack(current_enemy, player_character, accuracy, damage_mult):
             print("Your attack missed!")
 
         if enemy_hit_chance < 8:  # Enemy attack logic
-            player_character.health -= math.ceil(current_enemy.damage / player_character.wisdom) 
+            player_character.health -= math.ceil(enemy_damage / player_character.wisdom) # Damaged recieved is determined by Wisdom stat
             player_character.health = max(player_character.health, 0) # Prevent health from dropping below 0
-            input(f"You get hit by the {current_enemy.name}! (-{math.ceil(current_enemy.damage / player_character.wisdom)}hp)")
+            input(f"You get hit by the {current_enemy.name}! (-{math.ceil(enemy_damage / player_character.wisdom)}hp)")
         else: 
             print("You dodged the enemy's attack!")
         
@@ -127,9 +131,9 @@ def attack(current_enemy, player_character, accuracy, damage_mult):
         else:
             print("Your attack missed!")
         if enemy_hit_chance < 8:
-            player_character.health -= math.ceil(current_enemy.damage / player_character.cunning)
+            player_character.health -= math.ceil(enemy_damage / player_character.cunning)
             player_character.health = max(player_character.health, 0) # Prevent health from dropping below 0
-            input(f"You get hit by the {current_enemy.name}! (-{math.ceil(current_enemy.damage / player_character.cunning)}hp)")
+            input(f"You get hit by the {current_enemy.name}! (-{math.ceil(enemy_damage / player_character.cunning)}hp)")
         else: 
             print("You dodged the enemy's attack!")
         
@@ -141,9 +145,9 @@ def attack(current_enemy, player_character, accuracy, damage_mult):
         else:
             print("Your attack missed!")
         if enemy_hit_chance < 8:
-            player_character.health -= math.ceil(current_enemy.damage / player_character.might)
+            player_character.health -= math.ceil(enemy_damage / player_character.might)
             player_character.health = max(player_character.health, 0) # Prevent health from dropping below 0
-            input(f"You get hit by the {current_enemy.name}! (-{math.ceil(current_enemy.damage / player_character.might)}hp)")
+            input(f"You get hit by the {current_enemy.name}! (-{math.ceil(enemy_damage / player_character.might)}hp)")
         else: 
             print("You dodged the enemy's attack!")
 
@@ -184,13 +188,15 @@ def item_choice(player_character, item):
         print("You can't do that right now")
 
 def item_buff(player_character, current_enemy):
-    if player_character.item == "Chainmail":
-        current_enemy.damage -= 1
-    elif player_character.item == "Spiked Gloves":
-        player_character.might += 1
-    elif player_character.item == "Hooded Cloak":
-        player_character.cunning += 1
-    elif player_character.item == "Lexicon":
-        player_character.wisdom += 1
-    elif player_character.item == "Focusing Crystal":
-        accuracy += 1
+    while True:
+        enemy_damage = current_enemy.get_random_damage()
+        if player_character.item == "Chainmail":
+            enemy_damage -= 1
+        elif player_character.item == "Spiked Gloves":
+            player_character.might += 1
+        elif player_character.item == "Hooded Cloak":
+            player_character.cunning += 1
+        elif player_character.item == "Lexicon":
+            player_character.wisdom += 1
+        elif player_character.item == "Focusing Crystal":
+            accuracy += 1

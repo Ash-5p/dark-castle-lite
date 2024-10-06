@@ -17,7 +17,7 @@ def clear_terminal_in_game(player_character, player_name):
     """
     print("\033c")
     print(f"Name: {player_name} | Class: {player_character.name} | Health: {player_character.health}hp | Item: {player_character.item} | {player_character.description()}")
-    print("_________________________________________________________________________________")
+    print("________________________________________________________________________________")
 
 
 def blank_lines(num_lines, line_type="print_line"):

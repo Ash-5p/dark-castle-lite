@@ -15,9 +15,15 @@ def select_name():
 
         if len(player_name) == 0:  # Checks if input is empty
             print("Character name must contain at least 1 character.\n")
+            input()
+            clear_terminal()
+            select_name()
 
         elif len(player_name) > 15:  # Check for names longer than 15 characters
             print("Character name cannot be more than 15 characters long.\n")
+            input()
+            clear_terminal()
+            select_name()
 
         else:
             clear_terminal()
@@ -50,7 +56,6 @@ def select_character():
             print("Invalid input. Please enter a number.")
 
     reset_stats(player_character)
-    print(player_character.description())
 
     input("\nPress any button to start your journey...")
     run_game()
@@ -86,21 +91,24 @@ def run_game():
     decision("u", "d", chapter_3a, chapter_3b)
     clear_terminal_in_game(player_character, player_name)
 
+    # clone_nature = player_character.return_highest_stat()
+    # mirror_clone = Enemy(f"Mirror {player_name}", 20, clone_nature, random.randrange(3,6), True)
+
 
 def intro_chapter():
     clear_terminal_in_game(player_character, player_name)
     print("You awaken and find yourself in a empty, dark room with stone walls. \n\
-You look up to a small window with iron bars in the far corner of the room. \n\
-As your eyes trace the beams of moonlight peering into the room between the bars, \n\
-you notice a thick wooden door which appears to be open ajar.\n")
+You look up to a small window with iron bars in the far corner of the room.\n\
+As your eyes trace the beams of moonlight peering into the room between the\n\
+bars, you notice a thick wooden door which appears to be open ajar.\n")
 
     print("Do you wait(w) or try to open the door(o)?\n")
 
 def chapter_1a():
     clear_terminal_in_game(player_character, player_name)
     print("You push the door, which opens with a loud creak. You emerge in a long corridor\n\
-lined with cell blocks line the one you just left. You notice what looks \n\
-to be an unconscious guard clad in chainmail laying still on the floor.\n")
+lined with cell blocks like the one you just left. You notice what looks \n\
+to be an unconscious guard clad in chainmail, laying still on the floor.\n")
 
     print("Not knowing what you will face, you toy with the idea of taking the chainmail\n\
 for yourself\n")
@@ -113,6 +121,7 @@ for yourself\n")
             if random.randrange(1,11) >= 5:
                 print("You manage to remove the Chainmail from the unconcious guard without disturbing him")
                 player_character.item = "Chainmail"
+                input()
                 break
             else:
                 print("As you attempt to remove the guards armor he begins to stir, suddenly springing to his feet \n\
@@ -143,7 +152,7 @@ You attempt to reason with him, but your words fall on deaf ears\n")
 
     input("Press any key to commence combat...")
 
-    combat(guard, player_character, player_name, homescreen, "Chainmail", 10)
+    combat(guard, player_character, player_name, homescreen, "Chainmail", 11)
 
 def chapter_2a():
     clear_terminal_in_game(player_character, player_name)
@@ -206,6 +215,7 @@ around like a viscous liquid. You are taken back by sudden realization that you 
         choice = input("Yes(y) / No(n)\n")
 
         if choice == "y":
+            clear_terminal_in_game(player_character, player_name)
             print("As your finger comes into contact with the mirror, the surface breaks like water and begins to wrap intself\n\
 around your arm in a slithering, tentacle-like fashion. Before you can even attempt to struggle, you are enveloped in\n\
 a living silver goo.\n")
@@ -222,6 +232,7 @@ dissipated, you are left facing the blank wooden frame where the mirror once att
                 input()
                 break
             else:
+                clear_terminal_in_game(player_character, player_name)
                 print(f"The mass of goo constricts tightly. You hear the {player_character.item} in your pocket break.")
                 print("The goo tosses you aside and slithers back to the empty wooden frame in the middle of the room.\n")
                 print("As the amorphous silver blob mounts itself onto the frame you here a faint whisper, as if carried on the wind... \n")
@@ -231,6 +242,7 @@ dissipated, you are left facing the blank wooden frame where the mirror once att
                 input("You loose 5hp and your item was destroyed.")
                 break
         elif choice == "n":
+            clear_terminal_in_game(player_character, player_name)
             print("You resist the urge to touch the mirror and continue to stare at it for another moment before moving on.\n")
             print("You have the strangest feeling you saw something getting closer...\n")
             player_character.mirror = True
@@ -241,6 +253,14 @@ dissipated, you are left facing the blank wooden frame where the mirror once att
 
 def chapter_3b():
     clear_terminal_in_game(player_character, player_name)
+    print("")
+    print("The spirit swoops toward you!")
+
+    print("You must defend yourself!")
+
+    input("Press any key to commence combat...")
+    random_item = random.choice(list(ITEMS.keys()))
+    combat(spirit, player_character, player_name, homescreen, random_item, 5)
 
 def chapter_4a():
     clear_terminal_in_game(player_character, player_name)

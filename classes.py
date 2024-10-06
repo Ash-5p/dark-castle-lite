@@ -43,13 +43,20 @@ class Enemy:
     """
     Enemy class
     """
-    def __init__(self, name, health, nature, damage, boss):
+    def __init__(self, name, health, nature, min_damage, max_damage, boss):
         #properties
         self.name = name
         self.health = health
         self.nature = nature
-        self.damage = damage
+        self.min_damage = min_damage
+        self.max_damage = max_damage
         self.boss = boss
+
+    def get_random_damage(self):
+        """
+        Returns a randomized damage value between the set min and max damage.
+        """
+        return random.randrange(self.min_damage, self.max_damage + 1)
 
     def description(self):
         """
@@ -57,9 +64,10 @@ class Enemy:
         """
         return f"HP: {self.health} / Nature: {self.nature}"
 
-guard = Enemy("Guard", 10, "Might", 2, False)
-spirit = Enemy("Spirit", 12, "Wisdom", random.randrange(1,3), False)
-sludge_creature = Enemy("Sludge Creature", 14, "Cunning", random.randrange(1,2), False)
+guard = Enemy("Guard", 10, "Might", 2, 2, False)
+spirit = Enemy("Spirit", 12, "Wisdom", 1, 3, False)
+sludge_creature = Enemy("Sludge Creature", 14, "Cunning", 1, 2, False)
+
 
 ITEMS = {
     "Chainmail": "Reduces damage taken by 1 while held",
