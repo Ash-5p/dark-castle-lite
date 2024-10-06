@@ -4,9 +4,10 @@ class Character:
     """
     Character class
     """
-    def __init__(self, name, might, wisdom, cunning, item):
+    def __init__(self, name, health, might, wisdom, cunning, item):
         #properties
         self.name = name
+        self.health = health
         self.might = might
         self.wisdom = wisdom
         self.cunning = cunning
@@ -18,9 +19,9 @@ class Character:
         """
         return f"Might: {self.might} / Wisdom: {self.wisdom} / Cunning: {self.cunning}"
 
-fighter = Character("Fighter", 3, 2, 1, "None")
-scholar = Character("Scholar",1, 3, 2, "None")
-thief = Character("Thief",2, 1, 3, "None")
+fighter = Character("Fighter", 20, 3, 2, 1, "None")
+scholar = Character("Scholar", 20, 1, 3, 2, "None")
+thief = Character("Thief", 20, 2, 1, 3, "None")
 
 class Enemy:
     """

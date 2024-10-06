@@ -11,18 +11,18 @@ def select_name():
     clear_terminal()
     # Player inputs their name
     while True:
-        player_name = input("Enter player name:\n")
+        player_name = input("Enter player name:\n").strip()
 
-        if len(player_name) <= 15:
+        if len(player_name) == 0:  # Checks if input is empty
+            print("Character name must contain at least 1 character.\n")
+
+        elif len(player_name) > 15:  # Check for names longer than 15 characters
+            print("Character name cannot be more than 15 characters long.\n")
+
+        else:
             clear_terminal()
             print(f"Welcome {player_name} \n")
             break
-        
-        elif len(player_name) == 0:
-            print("Character name must contain at least 1 character.\n")
-
-        else:
-            print("Character name cannot be more than 15 characters long.\n")
     
     select_character()
     return player_name
