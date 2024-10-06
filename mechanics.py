@@ -88,6 +88,7 @@ def combat(current_enemy, player_character, player_name, homescreen_callback, dr
             else:
                 print("Your attempt at escape was unsuccessful!") 
                 player_character.health -= current_enemy.damage * 2
+                input(f"The {current_enemy.name} lands a crushing blow while you are distracted! (-{current_enemy.damage * 2}hp)")
             input()
             show_combat_details()
         else:
