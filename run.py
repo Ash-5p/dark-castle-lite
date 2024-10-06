@@ -84,6 +84,7 @@ def run_game():
     print("Do you go up(u) or down (d)?\n")
 
     decision("u", "d", chapter_3a, chapter_3b)
+    clear_terminal_in_game(player_character, player_name)
 
 
 def intro_chapter():
@@ -229,12 +230,14 @@ dissipated, you are left facing the blank wooden frame where the mirror once att
                 player_character.health -= 5
                 input("You loose 5hp and your item was destroyed.")
                 break
-        elif choice() == "n":
+        elif choice == "n":
             print("You resist the urge to touch the mirror and continue to stare at it for another moment before moving on.\n")
             print("You have the strangest feeling you saw something getting closer...\n")
             player_character.mirror = True
             input()
             break
+        else:
+            print("You can't do that right now")
 
 def chapter_3b():
     clear_terminal_in_game(player_character, player_name)
