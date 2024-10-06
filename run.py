@@ -62,8 +62,15 @@ def select_character():
     run_game()
 
 def run_game():
-
+    """
+    Main function for handling the flow of the game between chapter functions.
+    Player decisions determine which chapter functions are called.
+    """
+    
     def decision(a, b, chapter_a, chapter_b):
+        """
+        Template function for presenting player with decision
+        """
         while True:
             player_choice = input()
             if player_choice == str(a):
@@ -75,22 +82,44 @@ def run_game():
             else:
                 choice_1 = input("You can't do that right now!")
 
+    # Intro Chapter
     intro_chapter(player_character, player_name)
-
-    decision("o", "w", chapter_1a, chapter_1b)
-
     clear_terminal_in_game(player_character, player_name)
-    print("As you approch what looks like the end of the cell block you are met with a fork in the road.\n")
+
+    # Chapter 1
+    decision("o", "w", chapter_1a, chapter_1b)
+    clear_terminal_in_game(player_character, player_name)
+
+    # Chapter 2
+    print(("As you approch what looks like the end of the cell block you are met with a fork \n"
+            "in the road.\n"))
     print("Do you turn left(l) or right (r)?\n")
 
     decision("l", "r", chapter_2a, chapter_2b)
-
     clear_terminal_in_game(player_character, player_name)
+
+    # Chapter 3
     print("You find yourself in the middle landing of a winding staircase.\n")
     print("Do you go up(u) or down (d)?\n")
 
     decision("u", "d", chapter_3a, chapter_3b)
     clear_terminal_in_game(player_character, player_name)
+
+    # Chapter 4
+    print(("You finally reach the end of a seemingly endless corridor, where you are met \n"
+            "with a large metal door and a narrow passageway on your right\n"))
+
+    print("Do you go through the door(d) or follow the passageway(p)? \n")
+
+    decision("d", "p", chapter_4a, chapter_4b)
+    clear_terminal_in_game(player_character, player_name)
+
+    # Chapter 5
+    mirror = player_character.mirror # Calls chapter 5a if player_character.mirror == True
+    if mirror == True:
+        chapter_5a(player_character, player_name, homescreen)
+    else:
+        chapter_5b(player_character, player_name, homescreen)
 
     # clone_nature = player_character.return_highest_stat()
     # mirror_clone = Enemy(f"Mirror {player_name}", 20, clone_nature, random.randrange(3,6), True)

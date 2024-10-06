@@ -13,7 +13,7 @@ def clear_terminal():
 
 def clear_terminal_in_game(player_character, player_name):
     """
-    Clears the terminal and displays player's health and item
+    Clears the terminal while keeping character information visible
     """
     print("\033c")
     print(f"Name: {player_name} | Class: {player_character.name} | Health: {player_character.health}hp | Item: {player_character.item} | {player_character.description()}")
