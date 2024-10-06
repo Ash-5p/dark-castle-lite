@@ -136,6 +136,21 @@ def attack(current_enemy, player_character, accuracy, damage_mult):
 
     return player_character.health  # Return updated player_character.health
 
+def item_choice(player_character, item):
+    """
+    Handles player choice when picking up an item
+    """
+    choice = input("Yes(y) / No(n) (Replaces current item)")
+    if choice == "y":
+        player_character.item = item
+        print(f"You pick up the {item}")
+        
+    elif choice == "n":
+        print(f"You left the {item} behind.")
+        
+    else:
+        print("You can't do that right now")
+
 def item_buff(player_character, current_enemy):
     if player_character.item == "Chainmail":
         current_enemy.damage -= 1

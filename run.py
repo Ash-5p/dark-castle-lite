@@ -158,16 +158,10 @@ system. It's no longer functional due to decades worth of compacted sludge.")
             if random.randrange(1,5) * player_character.cunning >= 6: # Cunning skill check
                 print("You fish the shiny object out of the compacted sludge without issue")
                 print("It appears to be some sort of Focusing Crystal. Do you wish to keep it?")
-                while True:
-                    choice = input("Yes(y) / No(n) (Replaces current item)")
-                    if choice == "y":
-                        player_character.item = "Focusing Crystal"
-                        break  # Exit loop after picking up
-                    elif choice == "n":
-                        print("You left the item behind.")
-                        break  # Exit loop after leaving
-                    else:
-                        print("You can't do that right now")
+                
+                item_choice(player_character, "Focusing Crystal")
+                break
+
             else:
                 print("As you attempt to free the object, something reaches out of the sludge and grabs your hand.\n\
 You pull your hand away quickly, but lose sight of the shining object. The hand, which appears to be made\n\
@@ -191,6 +185,9 @@ starts to morph into an crude impersonation of a person.\n")
 
 def chapter_2b():
     clear_terminal_in_game(player_character, player_name)
+    print("Walking down a narrow corridor you feel something whistle past your ear, catching your lobe. (You lose 1hp) \n\
+You turn around to see a hooded figure fleeing. You look at the ground in front of you and spot the projectile that was thrown at you.")
+print("\n Do you pick up the Throwing Knife? ")
 
 def chapter_3a():
     clear_terminal_in_game(player_character, player_name)
