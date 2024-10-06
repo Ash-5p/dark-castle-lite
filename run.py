@@ -57,8 +57,9 @@ def select_character():
         else:
             print("Invalid choice.")
 
+    reset_stats(player_character)
     print(player_character.description())
-    input("\n Press any button to start your journey...")
+    input("\nPress any button to start your journey...")
     run_game()
 
 def run_game():
@@ -121,7 +122,7 @@ with an enraged look on his face. You attempt to reason with him, but your words
 
                 input("Press any key to commence combat...")
 
-                combat(guard, player_character, player_name, homescreen, "Chainmail", 10)
+                combat(guard, player_character, player_name, homescreen, "Chainmail", 11)
                 break
         elif take_item == "n":
             print("You sneak past the guard, being carful not to wake him")
@@ -219,6 +220,9 @@ def boss_b():
 def boss_c():
     clear_terminal_in_game(player_character, player_name)
 
+def reset_stats(player_character):
+    player_character.health = 20
+    player_character.item = "None"
 
 def display_instructions_screen():
     """

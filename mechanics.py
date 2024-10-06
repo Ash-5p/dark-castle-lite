@@ -152,12 +152,20 @@ def check_item(player_character):
     """
     Handles item command during combat
     """
+    item = player_character.item.strip()
+
     if player_character.item == "Apple" or player_character.item == "Throwing Knife":
-        print(f"{player_character.item} - {ITEMS.player_character.item.values}")
+        if item in ITEMS:
+            print(f"{item} - {ITEMS[item]}")
+        else:
+            print("Unknown item")
     elif player_character.item == "None":
         print("You don't currently have an item!")
     else:
-        print(f"{player_character.item} - {ITEMS[player_character.item]}")
+        if item in ITEMS:
+            print(f"{item} - {ITEMS[item]}")
+        else:
+            print("Unknown item")
 
 def item_choice(player_character, item):
     """
