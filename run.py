@@ -63,9 +63,6 @@ def select_character():
 
 def run_game():
 
-    global player_health 
-    player_health = 20
-
     def decision(a, b, chapter_a, chapter_b):
         while True:
             player_choice = input()
@@ -82,7 +79,7 @@ def run_game():
 
     decision("o", "w", chapter_1a, chapter_1b)
 
-    clear_terminal_in_game(player_health, player_character, player_name)
+    clear_terminal_in_game(player_character, player_name)
     print("As you approch what looks like the end of the cell block you are met with a fork in the road.\n")
     print("Do you turn left(l) or right (r)?\n")
 
@@ -90,7 +87,7 @@ def run_game():
 
 
 def intro_chapter():
-    clear_terminal_in_game(player_health, player_character, player_name)
+    clear_terminal_in_game(player_character, player_name)
     print("You awaken and find yourself in a empty, dark room with stone walls. \n\
 You look up to a small window with iron bars in the far corner of the room. \n\
 As your eyes trace the beams of moonlight peering into the room between the bars, \n\
@@ -99,7 +96,7 @@ you notice a thick wooden door which appears to be open ajar.\n")
     print("Do you wait(w) or try to open the door(o)?\n")
 
 def chapter_1a():
-    clear_terminal_in_game(player_health, player_character, player_name)
+    clear_terminal_in_game(player_character, player_name)
     print("You push the door, which opens with a loud creak. You emerge in a long corridor\n\
 lined with cell blocks line the one you just left. You notice what looks \n\
 to be an unconscious guard clad in chainmail laying still on the floor.\n")
@@ -124,7 +121,7 @@ with an enraged look on his face. You attempt to reason with him, but your words
 
                 input("Press any key to commence combat...")
 
-                combat(guard, player_character, player_health, player_name, homescreen, "Chainmail", 10)
+                combat(guard, player_character, player_name, homescreen, "Chainmail", 10)
                 break
         elif take_item == "n":
             print("You sneak past the guard, being carful not to wake him")
@@ -133,7 +130,7 @@ with an enraged look on his face. You attempt to reason with him, but your words
             print("You can't do that right now")
 
 def chapter_1b():
-    clear_terminal_in_game(player_health, player_character, player_name)
+    clear_terminal_in_game(player_character, player_name)
     print("You wait in your cell, pondering how you woke up here. Suddenly, you \n\
 hear a metal clattering sound, followed by a loud creak and bang as your cell door \n\
 slams open\n")
@@ -145,10 +142,10 @@ You attempt to reason with him, but your words fall on deaf ears\n")
 
     input("Press any key to commence combat...")
 
-    combat(guard, player_character, player_health, player_name, homescreen, "Chainmail", 10)
+    combat(guard, player_character, player_name, homescreen, "Chainmail", 10)
 
 def chapter_2a():
-    clear_terminal_in_game(player_health, player_character, player_name)
+    clear_terminal_in_game(player_character, player_name)
     print("As you walk the winding hallway you find yourself following what looks to be an old water irrigation \n\
 system. It's no longer functional due to decades worth of compacted sludge.")
     print("You notice something sparkle within the mud filled channel")
@@ -183,7 +180,7 @@ starts to morph into an crude impersonation of a person.\n")
 
                 input("Press any key to commence combat...")
 
-                combat(sludge_creature, player_character, player_health, player_name, homescreen, "Focusing Crystal", 5)
+                combat(sludge_creature, player_character, player_name, homescreen, "Focusing Crystal", 5)
                 break
         elif take_item == "n":
             print("You ignore the object and carry on walking")
@@ -193,34 +190,34 @@ starts to morph into an crude impersonation of a person.\n")
 
 
 def chapter_2b():
-    clear_terminal_in_game(player_health, player_character, player_name)
+    clear_terminal_in_game(player_character, player_name)
 
 def chapter_3a():
-    clear_terminal_in_game(player_health, player_character, player_name)
+    clear_terminal_in_game(player_character, player_name)
 
 def chapter_3b():
-    clear_terminal_in_game(player_health, player_character, player_name)
+    clear_terminal_in_game(player_character, player_name)
 
 def chapter_4a():
-    clear_terminal_in_game(player_health, player_character, player_name)
+    clear_terminal_in_game(player_character, player_name)
 
 def chapter_4b():
-    clear_terminal_in_game(player_health, player_character, player_name)
+    clear_terminal_in_game(player_character, player_name)
 
 def chapter_5a():
-    clear_terminal_in_game(player_health, player_character, player_name)
+    clear_terminal_in_game(player_character, player_name)
 
 def chapter_5b():
-    clear_terminal_in_game(player_health, player_character, player_name)
+    clear_terminal_in_game(player_character, player_name)
 
 def boss_a():
-    clear_terminal_in_game(player_health, player_character, player_name)
+    clear_terminal_in_game(player_character, player_name)
 
 def boss_b():
-    clear_terminal_in_game(player_health, player_character, player_name)
+    clear_terminal_in_game(player_character, player_name)
 
 def boss_c():
-    clear_terminal_in_game(player_health, player_character, player_name)
+    clear_terminal_in_game(player_character, player_name)
 
 
 def display_instructions_screen():

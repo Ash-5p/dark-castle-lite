@@ -3,15 +3,15 @@ import random
 from classes import ITEMS
 from utilities import clear_terminal_in_game, clear_terminal
 
-def defeat(current_enemy, player_health, player_name, player_character, homescreen_callback, dropped_item, drop_odds):
+def defeat(current_enemy, player_name, player_character, homescreen_callback, dropped_item, drop_odds):
     """
     Handles player & enemy defeat
     """
     random_item = random.choice(ITEMS) # Chooses random item from ITEMS list
     random_item_chance = random.randrange(1,11) # Randomizes chance of item drops
 
-    if player_health == 0:
-        clear_terminal_in_game(player_health, player_character, player_name)
+    if player_character.health == 0:
+        clear_terminal_in_game(player_character, player_name)
         print("You have been defeated!")
         input("Press any button to return to main menu...")
         homescreen_callback()
@@ -28,21 +28,21 @@ def defeat(current_enemy, player_health, player_name, player_character, homescre
                 choice = input()
                 if choice == "y":
                     player_character.item = dropped_item
-                    clear_terminal_in_game(player_health, player_character, player_name)
+                    clear_terminal_in_game(player_character, player_name)
                     break  # Exit loop after picking up
                 elif choice == "n":
                     print("You left the item behind.")
-                    clear_terminal_in_game(player_health, player_character, player_name)
+                    clear_terminal_in_game(player_character, player_name)
                     break  # Exit loop after leaving
                 else:
                     print("You can't do that right now")
 
 
-def combat(current_enemy, player_character, player_health, player_name, homescreen_callback, dropped_item, drop_odds):
+def combat(current_enemy, player_character, player_name, homescreen_callback, dropped_item, drop_odds):
     """
     Handles the flow of combat within the game
     """
-    clear_terminal_in_game(player_health, player_character, player_name)
+    clear_terminal_in_game(player_character, player_name)
 
     def combat_prompt():
         print(f'{current_enemy.name} Health: {max(current_enemy.health, 0)}hp')
@@ -56,24 +56,24 @@ def combat(current_enemy, player_character, player_health, player_name, homescre
     item_buff(player_character, current_enemy)
 
     def show_combat_details():
-        clear_terminal_in_game(player_health, player_character, player_name)    
+        clear_terminal_in_game(player_character, player_name)    
         combat_prompt()
     
-    while current_enemy.health > 0 and player_health > 0:
+    while current_enemy.health > 0 and player_character.health > 0:
         
         combat_choice = input()
         run_chance = random.randrange(1,11)
-        light_attack = attack(current_enemy, player_character, player_health, 9, 2)
-        heavy_attack = attack(current_enemy, player_character, player_health, 5, 3)
+        light_attack = attack(current_enemy, player_character, 9, 2)
+        heavy_attack = attack(current_enemy, player_character, 5, 3)
 
         if combat_choice == "l":
             # Handle damage and hit chande of light attack
-            player_health = light_attack
+            player_character.health = light_attack
             input()
             show_combat_details()
         elif combat_choice == "h":
             # Handle damage and hit chande of heavy attack
-            player_health = heavy_attack
+            player_character.health = heavy_attack
             input()
             show_combat_details()
         elif combat_choice == "r":
@@ -82,16 +82,16 @@ def combat(current_enemy, player_character, player_health, player_name, homescre
                 break
             else:
                 print("Your attempt at escape was unsuccessful!") 
-                player_health -= current_enemy.damage * 2
+                player_character.health -= current_enemy.damage * 2
             input()
             show_combat_details()
         else:
             show_combat_details()
             print("You can't do that right now")
 
-    defeat(current_enemy, player_health, player_name, player_character, homescreen_callback, dropped_item, drop_odds)
+    defeat(current_enemy, player_name, player_character, homescreen_callback, dropped_item, drop_odds)
 
-def attack(current_enemy, player_character, player_health, accuracy, damage_mult):
+def attack(current_enemy, player_character, accuracy, damage_mult):
     """
     Handles damage dealt and hit chance for light attack
     """
@@ -105,8 +105,8 @@ def attack(current_enemy, player_character, player_health, accuracy, damage_mult
         else:
             print("Your attack missed!")
         if enemy_hit_chance < 8:  # Enemy attack logic
-            player_health -= math.ceil(current_enemy.damage / player_character.wisdom) 
-            player_health = max(player_health, 0) # Prevent health from dropping below 0
+            player_character.health -= math.ceil(current_enemy.damage / player_character.wisdom) 
+            player_character.health = max(player_character.health, 0) # Prevent health from dropping below 0
         else: 
             print("You dodged the enemy's attack!")
         
@@ -117,8 +117,8 @@ def attack(current_enemy, player_character, player_health, accuracy, damage_mult
         else:
             print("Your attack missed!")
         if enemy_hit_chance < 8:
-            player_health -= math.ceil(current_enemy.damage / player_character.cunning)
-            player_health = max(player_health, 0) # Prevent health from dropping below 0
+            player_character.health -= math.ceil(current_enemy.damage / player_character.cunning)
+            player_character.health = max(player_character.health, 0) # Prevent health from dropping below 0
         else: 
             print("You dodged the enemy's attack!")
         
@@ -129,12 +129,12 @@ def attack(current_enemy, player_character, player_health, accuracy, damage_mult
         else:
             print("Your attack missed!")
         if enemy_hit_chance < 8:
-            player_health -= math.ceil(current_enemy.damage / player_character.might)
-            player_health = max(player_health, 0) # Prevent health from dropping below 0
+            player_character.health -= math.ceil(current_enemy.damage / player_character.might)
+            player_character.health = max(player_character.health, 0) # Prevent health from dropping below 0
         else: 
             print("You dodged the enemy's attack!")
 
-    return player_health  # Return updated player_health
+    return player_character.health  # Return updated player_character.health
 
 def item_buff(player_character, current_enemy):
     if player_character.item == "Chainmail":
