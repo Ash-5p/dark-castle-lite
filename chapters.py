@@ -21,6 +21,7 @@ def chapter_1a(player_character, player_name, homescreen):
     """
     Chapter 1a - Called by run_game() when player chooses to leave their cell
     """
+    clear_terminal_in_game(player_character, player_name)
     print(("You push the door, which opens with a loud creak. You emerge in a long corridor \n"
             "lined with cell blocks like the one you just left. You notice what looks to be an \n "
             "unconscious guard clad in chainmail, laying still on the floor.\n"))
@@ -98,7 +99,7 @@ def chapter_2a(player_character, player_name, homescreen):
                 print(("As you attempt to free the object, something reaches out of the sludge and grabs your \n"
                         "hand. You pull your hand away quickly, but lose sight of the shining object. The hand,\n"
                         "which appears to be made of the same compacted sludge from which it emerged, continues \n"
-                        "to rise out of the channel. The mass of sewage starts to morph into an crude \n"
+                        "to rise out of the channel. The mass of sewage starts to morph into a crude \n"
                         "impersonation of a person.\n"))
 
                 print("The creature lets out a gargling roar and lunges for you!")
@@ -137,7 +138,7 @@ def chapter_3a(player_character, player_name, homescreen):
     """
     clear_terminal_in_game(player_character, player_name)
           
-    print(("You enter a large circular room. The only light source is a beam of moonlight which \n "
+    print(("You enter a large circular room. The only light source is a beam of moonlight which\n"
             "shines through a large well-like hole in the center of the ceiling, illuminating a \n"
             "single mirror in the middle of the room.\n"))
     
@@ -213,7 +214,7 @@ def chapter_3b(player_character, player_name, homescreen):
 
     input('"ThOsE wHo EnTEr My DoMaIn ShAlL kNoW FEAR!!!"\n')
 
-    print("The spirit rises into the air ominously, then swoops toward down you!\n")
+    print("The spirit rises into the air ominously, then swoops down toward you!\n")
 
     print("You must defend yourself!\n")
 

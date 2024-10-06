@@ -20,7 +20,7 @@ def defeat(current_enemy, player_name, player_character, homescreen_callback, dr
         homescreen_callback()
     elif current_enemy.health == 0:
         if random_item_chance >= drop_odds: # 11 = 100% Chance
-            print(f'{current_enemy.name} has been defeated!')
+            input(f'{current_enemy.name} has been defeated!')
         else:
             print(f'{current_enemy.name} has been defeated!')
             print(f"{current_enemy.name} has dropped an item: {dropped_item}\n")
@@ -162,9 +162,21 @@ def check_item(player_character):
     """
     item = player_character.item.strip()
 
-    if player_character.item == "Apple" or player_character.item == "Throwing Knife":
+    if player_character.item == "Apple" or player_character.item == "Throwing Knife" or player_character.item == "Mirror Film":
         if item in ITEMS:
             print(f"{item} - {ITEMS[item]}")
+            while True:
+                print(f"Do you want to use the {item}?")
+                choice = input("Yes(y) / No(n)")
+                if choice == "y":
+                    print(f"You used the {item}")
+                    player_character.item = "None"
+                    break
+                elif choice == "n":
+                    print(f"You put the {item} away")
+                    break
+                else:
+                    print("You can't do that right now!")
         else:
             print("Unknown item")
     elif player_character.item == "None":

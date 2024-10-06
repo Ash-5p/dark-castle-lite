@@ -84,7 +84,6 @@ def run_game():
 
     # Intro Chapter
     intro_chapter(player_character, player_name)
-    clear_terminal_in_game(player_character, player_name)
 
     # Chapter 1
     decision("o", "w", chapter_1a, chapter_1b)
