@@ -44,4 +44,12 @@ guard = Enemy("Guard", 10, "Might", 2)
 spirit = Enemy("Spirit", 12, "Wisdom", random.randrange(1,3))
 sludge_creature = Enemy("Sludge Creature", 14, "Cunning", random.randrange(1,2))
 
-ITEMS = ["Chainmail", "Spiked Gloves", "Hooded Cloak", "Lexicon", "Apple", "Focusing Crystal", "Throwing Knife"]
+ITEMS = {
+    "Chainmail": "Reduces damage taken by 1 while held",
+    "Spiked Gloves": "Increases Might by 1 while held", 
+    "Hooded Cloak": "Increases Cunning by 1 while held", 
+    "Lexicon": "Increases Wisdom by 1 while held", 
+    "Apple": "Use in battle to restore +10hp", 
+    "Focusing Crystal": "Increase accuracy of attacks by 10%", 
+    "Throwing Knife": "Use in battle to inflict 10 damage to current enemy"
+    }

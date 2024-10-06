@@ -49,6 +49,7 @@ def combat(current_enemy, player_character, player_name, homescreen_callback, dr
         print("What will you do?\n")
         print("(l) Light Attack")
         print("(h) Heavy Attack")
+        print("(i) Item")
         print("(r) Run\n") 
 
     combat_prompt()

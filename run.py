@@ -187,7 +187,10 @@ def chapter_2b():
     clear_terminal_in_game(player_character, player_name)
     print("Walking down a narrow corridor you feel something whistle past your ear, catching your lobe. (You lose 1hp) \n\
 You turn around to see a hooded figure fleeing. You look at the ground in front of you and spot the projectile that was thrown at you.")
-print("\n Do you pick up the Throwing Knife? ")
+    player_character.health -= 1
+    print("\nDo you pick up the Throwing Knife? ")
+
+    item_choice(player_character, "Throwing Knife")
 
 def chapter_3a():
     clear_terminal_in_game(player_character, player_name)
