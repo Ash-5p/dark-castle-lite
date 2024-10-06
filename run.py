@@ -32,33 +32,26 @@ def select_character():
     Prompts player to select a character
     """
     # Character options
-    print("Select your character (enter the number):\n")
-    print("1) Fighter (Might: 3 / Wisdom: 1 / Cunning: 2)")
-    print("2) Scholar (Might: 1 / Wisdom: 3 / Cunning: 2)")
-    print("3) Thief   (Might: 2 / Wisdom: 1 / Cunning: 3)\n")
-
-    #Player selects character
+    for index, character in enumerate(characters, start=1): # Iterate through characters list and index number
+        print(f"{index}) {character.name} (Might: {character.might} | Wisdom: {character.wisdom} | Cunning: {character.cunning})")
+   
+   # Prompts player to select character
     while True:
-        character_selection = input()
         global player_character
-
-        if character_selection == '1':
-            print("You chose Fighter!")
-            player_character = fighter
-            break
-        elif character_selection == '2':
-            print("You chose Scholar!")
-            player_character = scholar
-            break
-        elif character_selection == '3':
-            print("You chose Thief!")
-            player_character = thief
-            break
-        else:
-            print("Invalid choice.")
+        try:
+            choice = int(input("\nEnter the number of your chosen character: "))
+            if 1 <= choice <= len(characters):
+                player_character = characters[choice - 1]
+                print(f"\nYou have selected: {player_character.name}")
+                break
+            else:
+                print(f"Please enter a number between 1 and {len(characters)}.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
 
     reset_stats(player_character)
     print(player_character.description())
+
     input("\nPress any button to start your journey...")
     run_game()
 

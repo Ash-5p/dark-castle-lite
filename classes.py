@@ -17,11 +17,26 @@ class Character:
         """
         Display character stats
         """
-        return f"Might: {self.might} / Wisdom: {self.wisdom} / Cunning: {self.cunning}"
+        return f"Might: {self.might} | Wisdom: {self.wisdom} | Cunning: {self.cunning}"
+    
+    def return_highest_stat(self):
+        """
+        Returns the name of the highest stat out of Might, Wisdom & Cunning
+        """
+        highest_value = max(self.might, self.wisdom, self.cunning)
+        if self.might == highest_value:
+            return "Might"
+        elif self.wisdom == highest_value:
+            return "Wisdom"
+        else:
+            return "Cunning"
+
 
 fighter = Character("Fighter", 20, 3, 2, 1, "None")
 scholar = Character("Scholar", 20, 1, 3, 2, "None")
 thief = Character("Thief", 20, 2, 1, 3, "None")
+
+characters = [fighter, scholar, thief]
 
 class Enemy:
     """
