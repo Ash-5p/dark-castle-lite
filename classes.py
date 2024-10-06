@@ -45,6 +45,9 @@ spirit = Enemy("Spirit", 12, "Wisdom", random.randrange(1,3))
 sludge_creature = Enemy("Sludge Creature", 14, "Cunning", random.randrange(1,2))
 
 ITEMS = {
+    """
+    Dictionary of items and their descriptions
+    """
     "Chainmail": "Reduces damage taken by 1 while held",
     "Spiked Gloves": "Increases Might by 1 while held", 
     "Hooded Cloak": "Increases Cunning by 1 while held", 
