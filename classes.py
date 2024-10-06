@@ -4,7 +4,7 @@ class Character:
     """
     Character class
     """
-    def __init__(self, name, health, might, wisdom, cunning, item):
+    def __init__(self, name, health, might, wisdom, cunning, item, mirror):
         #properties
         self.name = name
         self.health = health
@@ -12,6 +12,7 @@ class Character:
         self.wisdom = wisdom
         self.cunning = cunning
         self.item = item
+        self.mirror = mirror # Becomes true if player selects (n) on chapter_3a
 
     def description(self):
         """
@@ -32,9 +33,9 @@ class Character:
             return "Cunning"
 
 
-fighter = Character("Fighter", 20, 3, 2, 1, "None")
-scholar = Character("Scholar", 20, 1, 3, 2, "None")
-thief = Character("Thief", 20, 2, 1, 3, "None")
+fighter = Character("Fighter", 20, 3, 2, 1, "None", False)
+scholar = Character("Scholar", 20, 1, 3, 2, "None", False)
+thief = Character("Thief", 20, 2, 1, 3, "None", False)
 
 characters = [fighter, scholar, thief]
 
@@ -42,12 +43,13 @@ class Enemy:
     """
     Enemy class
     """
-    def __init__(self, name, health, nature, damage):
+    def __init__(self, name, health, nature, damage, boss):
         #properties
         self.name = name
         self.health = health
         self.nature = nature
         self.damage = damage
+        self.boss = boss
 
     def description(self):
         """
@@ -55,16 +57,17 @@ class Enemy:
         """
         return f"HP: {self.health} / Nature: {self.nature}"
 
-guard = Enemy("Guard", 10, "Might", 2)
-spirit = Enemy("Spirit", 12, "Wisdom", random.randrange(1,3))
-sludge_creature = Enemy("Sludge Creature", 14, "Cunning", random.randrange(1,2))
+guard = Enemy("Guard", 10, "Might", 2, False)
+spirit = Enemy("Spirit", 12, "Wisdom", random.randrange(1,3), False)
+sludge_creature = Enemy("Sludge Creature", 14, "Cunning", random.randrange(1,2), False)
 
 ITEMS = {
     "Chainmail": "Reduces damage taken by 1 while held",
     "Spiked Gloves": "Increases Might by 1 while held", 
     "Hooded Cloak": "Increases Cunning by 1 while held", 
     "Lexicon": "Increases Wisdom by 1 while held", 
-    "Apple": "Use in battle to restore +10hp", 
+    "Apple": "Use in battle to restore +10hp (Consumed when used)", 
     "Focusing Crystal": "Increase accuracy of attacks by 10%", 
-    "Throwing Knife": "Use in battle to inflict 10 damage to current enemy"
+    "Throwing Knife": "Use in battle to inflict 10 damage to current enemy (Consumed when used)",
+    "Mirror Film": "Allows the guaranteed escape from combat (Consumed when used)"
     }

@@ -79,6 +79,12 @@ def run_game():
 
     decision("l", "r", chapter_2a, chapter_2b)
 
+    clear_terminal_in_game(player_character, player_name)
+    print("You find yourself in the middle landing of a winding staircase.\n")
+    print("Do you go up(u) or down (d)?\n")
+
+    decision("u", "d", chapter_3a, chapter_3b)
+
 
 def intro_chapter():
     clear_terminal_in_game(player_character, player_name)
@@ -100,9 +106,9 @@ for yourself\n")
 
     while True:
 
-        take_item = input("Do you attempt to take the chainmail? Yes(y) / No(n)\n")
+        choice = input("Do you attempt to take the chainmail? Yes(y) / No(n)\n")
 
-        if take_item == "y":
+        if choice == "y":
             if random.randrange(1,11) >= 5:
                 print("You manage to remove the Chainmail from the unconcious guard without disturbing him")
                 player_character.item = "Chainmail"
@@ -117,7 +123,7 @@ with an enraged look on his face. You attempt to reason with him, but your words
 
                 combat(guard, player_character, player_name, homescreen, "Chainmail", 11)
                 break
-        elif take_item == "n":
+        elif choice == "n":
             print("You sneak past the guard, being carful not to wake him")
             break
         else:
@@ -146,9 +152,9 @@ system. It's no longer functional due to decades worth of compacted sludge.")
     print("Do you attempt to remove it?\n")
 
     while True:
-        take_item = input("Yes(y) / No(n)\n")
+        choice = input("Yes(y) / No(n)\n")
 
-        if take_item == "y":
+        if choice == "y":
             if random.randrange(1,5) * player_character.cunning >= 6: # Cunning skill check
                 print("You fish the shiny object out of the compacted sludge without issue")
                 print("It appears to be some sort of Focusing Crystal. Do you wish to keep it?")
@@ -170,7 +176,7 @@ starts to morph into an crude impersonation of a person.\n")
 
                 combat(sludge_creature, player_character, player_name, homescreen, "Focusing Crystal", 5)
                 break
-        elif take_item == "n":
+        elif choice == "n":
             print("You ignore the object and carry on walking")
             break
         else:
@@ -188,6 +194,47 @@ You turn around to see a hooded figure fleeing. You look at the ground in front 
 
 def chapter_3a():
     clear_terminal_in_game(player_character, player_name)
+    print("You enter a large circular room. The only light source is a beam of moonlight which shines through a large\n\
+well-like hole in the center of the ceiling, illuminating a single mirror in the middle of the room.\n")
+    print("You approach the mirror to inspect it more closely, and notice that the surface of the mirror looks to be moving\n\
+around like a viscous liquid. You are taken back by sudden realization that you appear to have no reflection!\n")
+    print("Though startled, you feel compelled to touch the mirrors surface\n")
+    print("Do you touch the mirror?\n")
+
+    while True:
+        choice = input("Yes(y) / No(n)\n")
+
+        if choice == "y":
+            print("As your finger comes into contact with the mirror, the surface breaks like water and begins to wrap intself\n\
+around your arm in a slithering, tentacle-like fashion. Before you can even attempt to struggle, you are enveloped in\n\
+a living silver goo.\n")
+            print("Unable to see or move, you feel that this is the end...")
+            input()
+            if player_character.item == "None":
+                print("When suddenly the goo loosens it's grip on you and begins to melt away, as if dissolving. When all the goo has\n\
+dissipated, you are left facing the blank wooden frame where the mirror once attached itself.\n")
+                print("You notice your skin is now coated in a film of iridescent sheen.\n")
+                print("You here a hear a faint whisper, as if carried on the wind... \n")
+                input()
+                print('"Those abscent of greed are rewarded..."')
+                player_character.item = "Mirror Film"
+                input()
+                break
+            else:
+                print(f"The mass of goo constricts tightly. You hear the {player_character.item} in your pocket break.")
+                print("The goo tosses you aside and slithers back to the empty wooden frame in the middle of the room.\n")
+                print("As the amorphous silver blob mounts itself onto the frame you here a faint whisper, as if carried on the wind... \n")
+                print('"Those with greed in their hearts should be punished... This was your first and only warning."')
+                player_character.item = "None"
+                player_character.health -= 5
+                input("You loose 5hp and your item was destroyed.")
+                break
+        elif choice() == "n":
+            print("You resist the urge to touch the mirror and continue to stare at it for another moment before moving on.\n")
+            print("You have the strangest feeling you saw something getting closer...\n")
+            player_character.mirror = True
+            input()
+            break
 
 def chapter_3b():
     clear_terminal_in_game(player_character, player_name)
@@ -216,6 +263,7 @@ def boss_c():
 def reset_stats(player_character):
     player_character.health = 20
     player_character.item = "None"
+    player_character.mirror = False
 
 def display_instructions_screen():
     """
