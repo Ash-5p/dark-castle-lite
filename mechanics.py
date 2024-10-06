@@ -3,6 +3,9 @@ import random
 from classes import ITEMS
 from utilities import clear_terminal_in_game, clear_terminal
 
+global ranom_item
+random_item = random.choice(list(ITEMS.keys()))
+
 def defeat(current_enemy, player_name, player_character, homescreen_callback, dropped_item, drop_odds):
     """
     Handles player & enemy defeat
@@ -127,7 +130,7 @@ def attack(current_enemy, player_character, accuracy, damage_mult):
         if hit_chance < accuracy: # Attack lands if hit_chance < accuracy
             current_enemy.health -= player_character.cunning * damage_mult
             current_enemy.health = max(current_enemy.health, 0)  # Prevent health from dropping below 0
-            input(f"Your attack lands! -{player_character.cunning * damage_mult}hp")
+            input(f"Your attack lands! (-{player_character.cunning * damage_mult}hp)")
         else:
             print("Your attack missed!")
         if enemy_hit_chance < 8:
@@ -141,7 +144,7 @@ def attack(current_enemy, player_character, accuracy, damage_mult):
         if hit_chance < accuracy: # Attack lands if hit_chance < accuracy
             current_enemy.health -= player_character.might * damage_mult
             current_enemy.health = max(current_enemy.health, 0)  # Prevent health from dropping below 0
-            input(f"Your attack lands! -{player_character.might * damage_mult}hp")
+            input(f"Your attack lands! (-{player_character.might * damage_mult}hp)")
         else:
             print("Your attack missed!")
         if enemy_hit_chance < 8:
