@@ -4,8 +4,11 @@ This module contains utility functions.
 import os
 import sys
 
-def center_text(text):
+def center_print(text):
     print(f"{text : ^80}")
+
+def center_input(text):
+    input(f"{text : ^80}")
 
 def clear_terminal():
     """
@@ -22,9 +25,9 @@ def clear_terminal_in_game(player_character, player_name):
     health_item = f"Health: {player_character.health}hp | Item: {player_character.item}"
 
     print("\033c")
-    center_text(player_info)
-    center_text(health_item)
-    print("________________________________________________________________________________")
+    center_print(player_info)
+    center_print(health_item)
+    center_print("________________________________________________________________________________")
 
 
 def blank_lines(num_lines, line_type="print_line"):

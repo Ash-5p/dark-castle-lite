@@ -1,7 +1,7 @@
 import math
 import random
 from classes import ITEMS
-from utilities import clear_terminal_in_game, clear_terminal, center_text
+from utilities import *
 
 global ranom_item
 random_item = random.choice(list(ITEMS.keys()))
