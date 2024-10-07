@@ -88,7 +88,7 @@ def chapter_2a(player_character, player_name, homescreen):
         choice = input("Yes(y) / No(n)\n")
 
         if choice == "y":
-            if random.randrange(1,5) * player_character.cunning >= 6: # Cunning skill check
+            if player_character.cunning >= 7: # Cunning skill check
                 print("You fish the shiny object out of the compacted sludge without issue")
                 print("It appears to be some sort of Focusing Crystal. Do you wish to keep it?")
                 
@@ -207,7 +207,7 @@ def chapter_3b(player_character, player_name, homescreen):
     Chapter 3b - Called by run_game() when player chooses to go down the staircase
     """
     clear_terminal_in_game(player_character, player_name)
-          
+           
     print(("Walking down the winding staircase you begin to feel uneasy. Suddenly a dark,\n"
             "ghostly apparition appears meterializes infront of you and begins to speak \n" 
             "in a distorted, otherworldly tone...\n"))
@@ -220,20 +220,54 @@ def chapter_3b(player_character, player_name, homescreen):
 
     input("Press any key to commence combat...")
     
-    combat(spirit, player_character, player_name, homescreen, "Lexicon", 5)
+    combat(spirit, player_character, player_name, homescreen, "Lexicon", 6)
 
 def chapter_4a(player_character, player_name, homescreen):
     """
-    Chapter 4a - Called by run_game() when player chooses to through the door
+    Chapter 4a - Called by run_game() when player chooses to go through the door
     """
     clear_terminal_in_game(player_character, player_name)
            
     print(("You enter a dimly lit, long, rectangular room when the door behind you suddenly \n"
-            "slams shut.\n"))
+            "slams shut. Ahead you see the shadowed outline of a large brutish creature \n"
+            "moving a large carved slab in front of the door ahead.\n"))
+    input()
 
+    print(("Realizing that your only eixt is about to be blocked, you attmpt to run the\n"
+            "length of the room before the door can be sealed... \n"))
+    input()
+    
+    # Will be determined by a formula (cunning_check)
+    if player_character.cunning == 10:
+        print(("You dash accross the room, nimbly avoiding the jutting up peices of cobblestone\n"
+                "floor. You manage to slip through the remaining gap in the door at the last\n"
+                "second \n"))
+        input()
+        print(("You breath a sigh of relief for a moment, before the sudden realization hits\n"
+                "you... You are now in the room with whatever brutish abomination just\n"
+                "sealed the door!\n"))
+        input()
+        print(("The beast lets out a snarl and bears it's teeth. It stoops into a crouch\n"
+                "ready to pounce on it's prey before lunging towards you!"))
+        input()
+        print("You must defend yourself!\n")
+
+        input("Press any key to commence combat...")
+        
+        combat(beast, player_character, player_name, homescreen, random_item, 7)
+
+    else:
+        print(("You dash accross the room, trying to avoid the jutting up peices of cobblestone\n"
+                "on the floor, but in your panic you trip and fall, foiling your chances of \n"
+                "reaching the door in time.\n"))
+        input()
+        print(("You dash accross the room, trying to avoid the jutting up peices of cobblestone\n"
+                "on the floor, but in your panic you trip and fall, foiling your chances of \n"
+                "reaching the door in time.\n"))
+#############################################################################
 def chapter_4b(player_character, player_name, homescreen):
     """
-    Chapter 4b - Called by run_game() when player chooses to through the passageway
+    Chapter 4b - Called by run_game() when player chooses to go through the passageway
     """
     clear_terminal_in_game(player_character, player_name)
 

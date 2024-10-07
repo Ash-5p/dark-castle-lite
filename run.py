@@ -126,7 +126,7 @@ def run_game():
 
 
 def reset_stats(player_character):
-    player_character.health = 20
+    player_character.health = 60
     player_character.item = "None"
     player_character.mirror = False
 

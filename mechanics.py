@@ -110,50 +110,35 @@ def attack(current_enemy, player_character, accuracy, damage_mult):
     hit_chance = random.randrange(1, 11)  # Only calculate once per attack
     enemy_hit_chance = random.randrange(1, 11)  # Enemy hit chance calculated once per turn
     enemy_damage = current_enemy.get_random_damage()
-    
-    if current_enemy.nature == "Might":
+
+    def nature_weakness_calculation(player_resistant_stat):
+        """
+        Function to handle enemy & player nature weaknesses & resistances 
+        (Might > Cunning > Wisdom > Might)
+        """
         if hit_chance < accuracy:  # Attack lands if hit_chance < accuracy
-            current_enemy.health -= player_character.wisdom * damage_mult 
+            current_enemy.health -= player_resistant_stat * damage_mult 
             current_enemy.health = max(current_enemy.health, 0)  # Prevent health from dropping below 0
-            input(f"Your attack lands! (-{player_character.wisdom * damage_mult}hp)")
+            input(f"Your attack lands! (-{player_resistant_stat * damage_mult}hp)")
         else:
             print("Your attack missed!")
 
         if enemy_hit_chance < 8:  # Enemy attack logic
-            player_character.health -= math.ceil(enemy_damage / player_character.wisdom) # Damaged recieved is determined by Wisdom stat
+            player_character.health -= math.ceil(enemy_damage * 2/ player_resistant_stat) # Damaged recieved is determined by Wisdom stat
             player_character.health = max(player_character.health, 0) # Prevent health from dropping below 0
-            input(f"You get hit by the {current_enemy.name}! (-{math.ceil(enemy_damage / player_character.wisdom)}hp)")
-        else: 
-            print("You dodged the enemy's attack!")
-        
-    elif current_enemy.nature == "Wisdom":
-        if hit_chance < accuracy: # Attack lands if hit_chance < accuracy
-            current_enemy.health -= player_character.cunning * damage_mult
-            current_enemy.health = max(current_enemy.health, 0)  # Prevent health from dropping below 0
-            input(f"Your attack lands! (-{player_character.cunning * damage_mult}hp)")
-        else:
-            print("Your attack missed!")
-        if enemy_hit_chance < 8:
-            player_character.health -= math.ceil(enemy_damage / player_character.cunning)
-            player_character.health = max(player_character.health, 0) # Prevent health from dropping below 0
-            input(f"You get hit by the {current_enemy.name}! (-{math.ceil(enemy_damage / player_character.cunning)}hp)")
-        else: 
-            print("You dodged the enemy's attack!")
-        
-    else:
-        if hit_chance < accuracy: # Attack lands if hit_chance < accuracy
-            current_enemy.health -= player_character.might * damage_mult
-            current_enemy.health = max(current_enemy.health, 0)  # Prevent health from dropping below 0
-            input(f"Your attack lands! (-{player_character.might * damage_mult}hp)")
-        else:
-            print("Your attack missed!")
-        if enemy_hit_chance < 8:
-            player_character.health -= math.ceil(enemy_damage / player_character.might)
-            player_character.health = max(player_character.health, 0) # Prevent health from dropping below 0
-            input(f"You get hit by the {current_enemy.name}! (-{math.ceil(enemy_damage / player_character.might)}hp)")
+            input(f"You get hit by the {current_enemy.name}! (-{math.ceil(enemy_damage * 2 / player_resistant_stat)}hp)")
         else: 
             print("You dodged the enemy's attack!")
 
+    if current_enemy.nature == "Might": # Wisdom > Might
+        nature_weakness_calculation(player_character.wisdom)
+
+    elif current_enemy.nature == "Wisdom": # Cunning > Wisdom
+        nature_weakness_calculation(player_character.cunning)
+
+    else: # Might > Cunning
+        nature_weakness_calculation(player_character.might)
+   
     return player_character.health  # Return updated player_character.health
 
 def check_item(player_character):
@@ -202,6 +187,7 @@ def item_choice(player_character, item):
     else:
         print("You can't do that right now")
 
+############### Not yet functional ######################
 def item_buff(player_character, current_enemy):
     while True:
         enemy_damage = current_enemy.get_random_damage()

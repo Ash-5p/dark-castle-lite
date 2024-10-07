@@ -33,9 +33,9 @@ class Character:
             return "Cunning"
 
 
-fighter = Character("Fighter", 20, 3, 2, 1, "None", False)
-scholar = Character("Scholar", 20, 1, 3, 2, "None", False)
-thief = Character("Thief", 20, 2, 1, 3, "None", False)
+fighter = Character("Fighter", 60, 9, 6, 3, "None", False)
+scholar = Character("Scholar", 60, 3, 9, 6, "None", False)
+thief = Character("Thief", 60, 6, 3, 9, "None", False)
 
 characters = [fighter, scholar, thief]
 
@@ -64,18 +64,19 @@ class Enemy:
         """
         return f"HP: {self.health} / Nature: {self.nature}"
 
-guard = Enemy("Guard", 10, "Might", 2, 2, False)
-spirit = Enemy("Enraged Spirit", 12, "Wisdom", 1, 3, False)
-sludge_creature = Enemy("Sludge Creature", 14, "Cunning", 1, 2, False)
+guard = Enemy("Guard", 30, "Might", 5, 5, False)
+spirit = Enemy("Enraged Spirit", 36, "Wisdom", 3, 7, False)
+sludge_creature = Enemy("Sludge Creature", 42, "Cunning", 3, 6, False)
+beast = Enemy("Beast Man", 42, "Might", 5, 10, False)
 
 
 ITEMS = {
-    "Chainmail": "Reduces damage taken by 1 while held",
-    "Spiked Gloves": "Increases Might by 1 while held", 
-    "Hooded Cloak": "Increases Cunning by 1 while held", 
-    "Lexicon": "Increases Wisdom by 1 while held", 
-    "Apple": "Use in battle to restore +10hp (Consumed when used)", 
+    "Chainmail": "Reduces damage taken by 2 while held",
+    "Spiked Gloves": "Increases Might by 3 while held", 
+    "Hooded Cloak": "Increases Cunning by 3 while held", 
+    "Lexicon": "Increases Wisdom by 3 while held", 
+    "Apple": "Use in battle to restore +25hp (Consumed when used)", 
     "Focusing Crystal": "Increase accuracy of attacks by 10%", 
-    "Throwing Knife": "Use in battle to inflict 10 damage to current enemy (Consumed when used)",
+    "Throwing Knife": "Use in battle to inflict 15 damage to current enemy (Consumed when used)",
     "Mirror Film": "Allows the guaranteed escape from combat (Consumed when used)"
     }
