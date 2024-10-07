@@ -90,8 +90,10 @@ def run_game():
     clear_terminal_in_game(player_character, player_name)
 
     # Chapter 2
-    center_print(("As you approch what looks like the end of the cell block you are met with a fork \n"
-            "in the road.\n"))
+    center_print(
+        "As you approch what looks like the end of the cell block you are met with a fork \n"
+        "in the road.\n"
+    )
     center_print("Do you turn left(l) or right (r)?\n")
 
     decision("l", "r", chapter_2a, chapter_2b)
@@ -105,8 +107,10 @@ def run_game():
     clear_terminal_in_game(player_character, player_name)
 
     # Chapter 4
-    center_print(("You finally reach the end of a seemingly endless corridor, where you are met \n"
-            "with a large metal door and a narrow passageway on your right\n"))
+    center_print(
+        "You finally reach the end of a seemingly endless corridor, where you are met \n"
+        "with a large metal door and a narrow passageway on your right\n"
+    )
 
     center_print("Do you go through the door(d) or follow the passageway(p)? \n")
 
