@@ -2,7 +2,7 @@ from classes import *
 from mechanics import *
 from chapters import *
 import math
-from utilities import clear_terminal, clear_terminal_in_game, blank_lines
+from utilities import clear_terminal, clear_terminal_in_game, blank_lines, center_text
 
 def select_name():
     """

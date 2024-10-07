@@ -1,7 +1,7 @@
 import math
 import random
 from classes import ITEMS
-from utilities import clear_terminal_in_game, clear_terminal
+from utilities import clear_terminal_in_game, clear_terminal, center_text
 
 global ranom_item
 random_item = random.choice(list(ITEMS.keys()))
@@ -68,7 +68,7 @@ def combat(current_enemy, player_character, player_name, homescreen_callback, dr
 
         if combat_choice == "l":
             # Handle damage and hit chande of light attack
-            player_character.health = attack(current_enemy, player_character, 9, 2)
+            player_character.health = attack(current_enemy, player_character, 9, 1.5)
             input()
             show_combat_details()
 
@@ -86,7 +86,7 @@ def combat(current_enemy, player_character, player_name, homescreen_callback, dr
 
             # Handles running from combat
         elif combat_choice == "r":
-            if run_chance <= 4 and current_enemy.boss == False:
+            if run_chance <= 3 and current_enemy.boss == False:
                 input("You manage to escape!") 
                 break
             elif current_enemy.boss == True:
@@ -116,17 +116,22 @@ def attack(current_enemy, player_character, accuracy, damage_mult):
         Function to handle enemy & player nature weaknesses & resistances 
         (Might > Cunning > Wisdom > Might)
         """
+        # Damage Formulas
+        enemy_damage_mult = 1 + (2.5 / player_resistant_stat)
+        damage_taken_formula = math.ceil(enemy_damage * enemy_damage_mult)
+        damage_dealt_formula = math.ceil(player_resistant_stat * damage_mult * random.uniform(0.8, 1.2))
+
         if hit_chance < accuracy:  # Attack lands if hit_chance < accuracy
-            current_enemy.health -= player_resistant_stat * damage_mult 
+            current_enemy.health -= damage_dealt_formula
             current_enemy.health = max(current_enemy.health, 0)  # Prevent health from dropping below 0
-            input(f"Your attack lands! (-{player_resistant_stat * damage_mult}hp)")
+            input(f"Your attack lands! (-{damage_dealt_formula}hp)")
         else:
             print("Your attack missed!")
 
         if enemy_hit_chance < 8:  # Enemy attack logic
-            player_character.health -= math.ceil(enemy_damage * 2/ player_resistant_stat) # Damaged recieved is determined by Wisdom stat
+            player_character.health -= damage_taken_formula # Damaged recieved is determined by resistant stat
             player_character.health = max(player_character.health, 0) # Prevent health from dropping below 0
-            input(f"You get hit by the {current_enemy.name}! (-{math.ceil(enemy_damage * 2 / player_resistant_stat)}hp)")
+            input(f"You get hit by the {current_enemy.name}! (-{damage_taken_formula}hp)")
         else: 
             print("You dodged the enemy's attack!")
 

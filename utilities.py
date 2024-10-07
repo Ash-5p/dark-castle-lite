@@ -4,6 +4,9 @@ This module contains utility functions.
 import os
 import sys
 
+def center_text(text):
+    print(f"{text : ^80}")
+
 def clear_terminal():
     """
     Clears the terminal
@@ -15,8 +18,12 @@ def clear_terminal_in_game(player_character, player_name):
     """
     Clears the terminal while keeping character information visible
     """
+    player_info = f"Name: {player_name} | Class: {player_character.name} | {player_character.description()}\n"
+    health_item = f"Health: {player_character.health}hp | Item: {player_character.item}"
+
     print("\033c")
-    print(f"Name: {player_name} | Class: {player_character.name} | Health: {player_character.health}hp | Item: {player_character.item} | {player_character.description()}")
+    center_text(player_info)
+    center_text(health_item)
     print("________________________________________________________________________________")
 
 

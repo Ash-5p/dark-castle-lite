@@ -1,7 +1,7 @@
 
 from mechanics import *
 from classes import *
-from utilities import clear_terminal_in_game
+from utilities import clear_terminal_in_game, center_text
 import random
 
 

@@ -64,7 +64,7 @@ class Enemy:
         """
         return f"HP: {self.health} / Nature: {self.nature}"
 
-guard = Enemy("Guard", 30, "Might", 5, 5, False)
+guard = Enemy("Guard", 30, "Might", 3, 5, False)
 spirit = Enemy("Enraged Spirit", 36, "Wisdom", 3, 7, False)
 sludge_creature = Enemy("Sludge Creature", 42, "Cunning", 3, 6, False)
 beast = Enemy("Beast Man", 42, "Might", 5, 10, False)
