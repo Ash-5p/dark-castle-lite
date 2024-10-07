@@ -4,11 +4,14 @@ This module contains utility functions.
 import os
 import sys
 
+
 def center_print(text):
     print(f"{text : ^80}")
 
+
 def center_input(text):
     input(f"{text : ^80}")
+
 
 def clear_terminal():
     """
@@ -16,6 +19,7 @@ def clear_terminal():
     """
     # Suggested in stackoverflow. (see Credits section in README)
     print("\033c")
+
 
 def clear_terminal_in_game(player_character, player_name):
     """

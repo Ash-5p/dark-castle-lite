@@ -1,5 +1,6 @@
 import random
 
+
 class Character:
     """
     Character class
@@ -14,12 +15,14 @@ class Character:
         self.item = item
         self.mirror = mirror # Becomes true if player selects (n) on chapter_3a
 
+
     def description(self):
         """
         Display character stats
         """
         return f"Might: {self.might} | Wisdom: {self.wisdom} | Cunning: {self.cunning}"
-    
+
+
     def return_highest_stat(self):
         """
         Returns the name of the highest stat out of Might, Wisdom & Cunning
@@ -39,6 +42,7 @@ thief = Character("Thief", 60, 6, 3, 9, "None", False)
 
 characters = [fighter, scholar, thief]
 
+
 class Enemy:
     """
     Enemy class
@@ -52,17 +56,20 @@ class Enemy:
         self.max_damage = max_damage
         self.boss = boss
 
+
     def get_random_damage(self):
         """
         Returns a randomized damage value between the set min and max damage.
         """
         return random.randrange(self.min_damage, self.max_damage + 1)
 
+
     def description(self):
         """
         Display enemy stats
         """
         return f"HP: {self.health} / Nature: {self.nature}"
+        
 
 guard = Enemy("Guard", 30, "Might", 3, 5, False)
 spirit = Enemy("Enraged Spirit", 36, "Wisdom", 3, 7, False)

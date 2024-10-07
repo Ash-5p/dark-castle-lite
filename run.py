@@ -4,6 +4,7 @@ from chapters import *
 import math
 from utilities import *
 
+
 def select_name():
     """
     Prompts player to choose their name
@@ -33,7 +34,8 @@ def select_name():
     
     select_character()
     return player_name
-    
+
+
 def select_character():
     """
     Prompts player to select a character
@@ -61,12 +63,14 @@ def select_character():
     input("\nPress any button to start your journey...")
     run_game()
 
+
 def run_game():
     """
     Main function for handling the flow of the game between chapter functions.
     Player decisions determine which chapter functions are called.
     """
-    
+
+
     def decision(a, b, chapter_a, chapter_b):
         """
         Template function for presenting player with decision
@@ -81,6 +85,7 @@ def run_game():
                 break
             else:
                 choice_1 = input("You can't do that right now!")
+
 
     # Intro Chapter
     intro_chapter(player_character, player_name)
@@ -128,11 +133,11 @@ def run_game():
     # mirror_clone = Enemy(f"Mirror {player_name}", 20, clone_nature, random.randrange(3,6), True)
 
 
-
 def reset_stats(player_character):
     player_character.health = 60
     player_character.item = "None"
     player_character.mirror = False
+
 
 def display_instructions_screen():
     """
@@ -153,7 +158,8 @@ def display_instructions_screen():
             break
         else:
             center_print("> Invalid input. Please try again.")
-    
+
+
 def homescreen():
     """
     Displays homescreen when program is run

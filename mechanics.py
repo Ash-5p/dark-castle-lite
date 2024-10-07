@@ -6,6 +6,7 @@ from utilities import *
 global ranom_item
 random_item = random.choice(list(ITEMS.keys()))
 
+
 def defeat(current_enemy, player_name, player_character, homescreen_callback, dropped_item, drop_odds):
     """
     Handles player & enemy defeat
@@ -47,6 +48,7 @@ def combat(current_enemy, player_character, player_name, homescreen_callback, dr
     """
     clear_terminal_in_game(player_character, player_name)
 
+
     def combat_prompt():
         print(f'{current_enemy.name} Health: {max(current_enemy.health, 0)}hp')
         print("What will you do?\n")
@@ -55,12 +57,15 @@ def combat(current_enemy, player_character, player_name, homescreen_callback, dr
         print("(i) Item")
         print("(r) Run\n") 
 
+
     combat_prompt()
+
 
     def show_combat_details():
         clear_terminal_in_game(player_character, player_name)    
         combat_prompt()
     
+
     while current_enemy.health > 0 and player_character.health > 0:
         
         combat_choice = input()
@@ -103,6 +108,7 @@ def combat(current_enemy, player_character, player_name, homescreen_callback, dr
 
     defeat(current_enemy, player_name, player_character, homescreen_callback, dropped_item, drop_odds)
 
+
 def attack(current_enemy, player_character, accuracy, damage_mult):
     """
     Handles damage dealt and hit chance for attack type
@@ -110,6 +116,7 @@ def attack(current_enemy, player_character, accuracy, damage_mult):
     hit_chance = random.randrange(1, 11)  # Only calculate once per attack
     enemy_hit_chance = random.randrange(1, 11)  # Enemy hit chance calculated once per turn
     enemy_damage = current_enemy.get_random_damage()
+
 
     def nature_weakness_calculation(player_resistant_stat):
         """
@@ -146,6 +153,7 @@ def attack(current_enemy, player_character, accuracy, damage_mult):
    
     return player_character.health  # Return updated player_character.health
 
+
 def check_item(player_character):
     """
     Handles item command during combat
@@ -177,6 +185,7 @@ def check_item(player_character):
         else:
             print("Unknown item")
 
+
 def item_choice(player_character, item):
     """
     Handles player choice when picking up an item
@@ -206,3 +215,4 @@ def item_buff(player_character, current_enemy):
             player_character.wisdom += 1
         elif player_character.item == "Focusing Crystal":
             accuracy += 1
+            

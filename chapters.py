@@ -1,4 +1,3 @@
-
 from mechanics import *
 from classes import *
 from utilities import *
@@ -18,6 +17,7 @@ def intro_chapter(player_character, player_name):
     )
 
     center_print("Do you wait(w) or try to open the door(o)?\n")
+
 
 def chapter_1a(player_character, player_name, homescreen):
     """
@@ -64,6 +64,7 @@ def chapter_1a(player_character, player_name, homescreen):
         else:
             center_print("You can't do that right now")
 
+
 def chapter_1b(player_character, player_name, homescreen):
     """
     Chapter 1b - Called by run_game() when player chooses to wait in their cell
@@ -84,6 +85,7 @@ def chapter_1b(player_character, player_name, homescreen):
     input("Press any key to commence combat...")
 
     combat(guard, player_character, player_name, homescreen, "Chainmail", 11)
+
 
 def chapter_2a(player_character, player_name, homescreen):
     """
@@ -149,6 +151,7 @@ def chapter_2b(player_character, player_name, homescreen):
     center_print("\nDo you pick up the Throwing Knife? ")
 
     item_choice(player_character, "Throwing Knife")
+
 
 def chapter_3a(player_character, player_name, homescreen):
     """
@@ -232,6 +235,7 @@ def chapter_3a(player_character, player_name, homescreen):
         else:
             center_print("You can't do that right now")
 
+
 def chapter_3b(player_character, player_name, homescreen):
     """
     Chapter 3b - Called by run_game() when player chooses to go down the staircase
@@ -253,6 +257,7 @@ def chapter_3b(player_character, player_name, homescreen):
     input("Press any key to commence combat...")
     
     combat(spirit, player_character, player_name, homescreen, "Lexicon", 6)
+
 
 def chapter_4a(player_character, player_name, homescreen):
     """
@@ -369,28 +374,29 @@ def chapter_4a(player_character, player_name, homescreen):
                 center_print("You can't do that right now!")
                 
 
-                    
-
-
-
 def chapter_4b(player_character, player_name, homescreen):
     """
     Chapter 4b - Called by run_game() when player chooses to go through the passageway
     """
     clear_terminal_in_game(player_character, player_name)
 
+
 def chapter_5a(player_character, player_name, homescreen):
     clear_terminal_in_game(player_character, player_name)
+    center_print("You enter a chamber")
 
 def chapter_5b(player_character, player_name, homescreen):
     clear_terminal_in_game(player_character, player_name)
     center_print("You fall")
 
+
 def boss_a(player_character, player_name, homescreen):
     clear_terminal_in_game(player_character, player_name)
 
+
 def boss_b(player_character, player_name, homescreen):
     clear_terminal_in_game(player_character, player_name)
+
 
 def boss_c(player_character, player_name, homescreen):
     clear_terminal_in_game(player_character, player_name)
