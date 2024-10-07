@@ -31,7 +31,9 @@ def clear_terminal_in_game(player_character, player_name):
     print("\033c")
     center_print(player_info)
     center_print(health_item)
-    center_print("________________________________________________________________________________")
+    center_print(
+        "_____________________________________________________________________"
+        "___________\n")
 
 
 def blank_lines(num_lines, line_type="print_line"):

@@ -54,7 +54,7 @@ def chapter_1a(player_character, player_name, homescreen):
 
                 center_print("You must defend yourself!")
 
-                input("Press any key to commence combat...")
+                center_input("Press enter to commence combat...")
 
                 combat(guard, player_character, player_name, homescreen, "Chainmail", 11)
                 break
@@ -82,7 +82,7 @@ def chapter_1b(player_character, player_name, homescreen):
 
     center_print("You must defend yourself!")
 
-    input("Press any key to commence combat...")
+    center_input("Press enter to commence combat...")
 
     combat(guard, player_character, player_name, homescreen, "Chainmail", 11)
 
@@ -124,7 +124,7 @@ def chapter_2a(player_character, player_name, homescreen):
 
                 center_print("You must defend yourself!")
 
-                input("Press any key to commence combat...")
+                center_input("Press enter to commence combat...")
 
                 combat(sludge_creature, player_character, player_name, homescreen, "Focusing Crystal", 5)
                 break
@@ -148,7 +148,7 @@ def chapter_2b(player_character, player_name, homescreen):
     )
 
     player_character.health -= 1
-    center_print("\nDo you pick up the Throwing Knife? ")
+    center_print("Do you pick up the Throwing Knife?\n")
 
     item_choice(player_character, "Throwing Knife")
 
@@ -248,13 +248,13 @@ def chapter_3b(player_character, player_name, homescreen):
         "in a distorted, otherworldly tone...\n"
     )
 
-    input('"ThOsE wHo EnTEr My DoMaIn ShAlL kNoW FEAR!!!"\n')
+    center_input('"ThOsE wHo EnTEr My DoMaIn ShAlL kNoW FEAR!!!"\n')
 
     center_print("The spirit rises into the air ominously, then swoops down toward you!\n")
 
     center_print("You must defend yourself!\n")
 
-    input("Press any key to commence combat...")
+    center_center_input("Press enter to commence combat...")
     
     combat(spirit, player_character, player_name, homescreen, "Lexicon", 6)
 
@@ -273,7 +273,7 @@ def chapter_4a(player_character, player_name, homescreen):
     input()
 
     center_print(
-        "Realizing that your only eixt is about to be blocked, you attmpt to run the\n"
+        "Realizing that your only exit is about to be blocked, you attmpt to run the\n"
         "length of the room before the door can be sealed... \n"
     )
     input()
@@ -299,7 +299,7 @@ def chapter_4a(player_character, player_name, homescreen):
         input()
         center_print("You must defend yourself!\n")
 
-        input("Press any key to commence combat...")
+        center_input("Press enter to commence combat...")
         
         combat(beast, player_character, player_name, homescreen, random_item, 7)
 
@@ -322,24 +322,23 @@ def chapter_4a(player_character, player_name, homescreen):
         )
         input()
         center_print("There in't much time! What do you do?!\n")
+        center_print("Attempt to move the slab(m). Look for another way out(w)\n")
 
         while True:
 
 
             def chapter_4a_death():
                 """
-                Handles gameover if player fails all skill checks on chapter 4a
+                Handles game over if player fails all skill checks on chapter 4a
                 """
-                center_input(
-                    "The jagged ceiling looms too close to escape...\n"
-                    "Your demise is certain.\n"
-                )
+                center_print("The jagged ceiling looms too close to escape...\n")
+                center_input("Your demise is certain.\n")
                 center_print("Game Over\n")
                 center_input("Press any button to return to the homescreen")
                 homescreen()
 
 
-            choice = input("Attempt to move the slab(m). Look for another way out(w)\n")
+            choice = input()
             if choice == "m": # Might Check
                 if player_character.might == 9:
                     center_input(
@@ -349,10 +348,11 @@ def chapter_4a(player_character, player_name, homescreen):
                     )
                     break
                 else:
-                    center_input(
+                    center_print(
                         "You attempt to move the huge slab blocking you path but to no avail.\n"
                         "It is simply too heavy.\n"
                     )
+                    input()
 
                     chapter_4a_death()
                     
@@ -361,7 +361,7 @@ def chapter_4a(player_character, player_name, homescreen):
                     center_input(
                         "You methodically look for any levers or switches that may lead to an\n"
                         "escape. Your methodical approche pays off! As you pull one of the fire\n"
-                        "sconces on the wall, a hidden passage opens up."
+                        "sconces on the wall, a hidden passage opens up and you slip away."
                     )
                     break
                 else:

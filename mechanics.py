@@ -11,13 +11,14 @@ def defeat(current_enemy, player_name, player_character, homescreen_callback, dr
     """
     Handles player & enemy defeat
     """
-    random_item_chance = random.randrange(1,11) # Randomizes chance of item drops
+    # Randomizes chance of item drops
+    random_item_chance = random.randrange(1,11)
     
 
     if player_character.health == 0:
         clear_terminal_in_game(player_character, player_name)
-        print("You have been defeated!")
-        input("Press any button to return to main menu...")
+        center_print("You have been defeated!\n")
+        center_input("Press any button to return to main menu...")
         homescreen_callback()
     elif current_enemy.health == 0:
         if random_item_chance >= drop_odds: # 11 = 100% Chance
@@ -131,16 +132,18 @@ def attack(current_enemy, player_character, accuracy, damage_mult):
         if hit_chance < accuracy:  # Attack lands if hit_chance < accuracy
             current_enemy.health -= damage_dealt_formula
             current_enemy.health = max(current_enemy.health, 0)  # Prevent health from dropping below 0
-            input(f"Your attack lands! (-{damage_dealt_formula}hp)")
+            print(f"Your attack lands! (-{damage_dealt_formula}hp)")
         else:
             print("Your attack missed!")
 
         if enemy_hit_chance < 8:  # Enemy attack logic
             player_character.health -= damage_taken_formula # Damaged recieved is determined by resistant stat
             player_character.health = max(player_character.health, 0) # Prevent health from dropping below 0
-            input(f"You get hit by the {current_enemy.name}! (-{damage_taken_formula}hp)")
+            print(f"You get hit by the {current_enemy.name}! (-{damage_taken_formula}hp)")
+            print("Press enter to continue...")
         else: 
             print("You dodged the enemy's attack!")
+            print("Press enter to continue...")
 
     if current_enemy.nature == "Might": # Wisdom > Might
         nature_weakness_calculation(player_character.wisdom)
@@ -190,7 +193,8 @@ def item_choice(player_character, item):
     """
     Handles player choice when picking up an item
     """
-    choice = input("Yes(y) / No(n) (Replaces current item)")
+    center_print("Yes(y) / No(n) (Replaces current item)")
+    choice = input()
     if choice == "y":
         player_character.item = item
         print(f"You pick up the {item}")
