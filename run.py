@@ -179,7 +179,7 @@ def homescreen():
     """
     clear_terminal()
     while True:
-        print(f"{logo : ^80}")
+        center_print(logo)
         center_print(castle)
         player_choice = input()
         if player_choice == "i":
