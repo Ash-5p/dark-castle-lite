@@ -20,7 +20,7 @@ def intro_chapter(player_character, player_name):
     center_print("Do you wait(w) or try to open the door(o)?\n")
 
 
-def chapter_1a(player_character, player_name, homescreen):
+def chapter_1a(player_character, player_name, homescreen, base_stats):
     """
     Chapter 1a - Called by run_game() when player chooses to leave their cell
     """
@@ -64,7 +64,7 @@ def chapter_1a(player_character, player_name, homescreen):
 
                 combat(
                     guard, player_character, player_name, homescreen, 
-                "Chainmail", 11
+                "Chainmail", 11, base_stats
                 )
                 break
         elif choice == "n":
@@ -76,7 +76,7 @@ def chapter_1a(player_character, player_name, homescreen):
             center_print(f'You can\'t do "{choice}" right now')
 
 
-def chapter_1b(player_character, player_name, homescreen):
+def chapter_1b(player_character, player_name, homescreen, base_stats):
     """
     Chapter 1b - Called by run_game() when player chooses to wait in their cell
     """
@@ -97,10 +97,13 @@ def chapter_1b(player_character, player_name, homescreen):
 
     center_input("Press enter to commence combat...")
 
-    combat(guard, player_character, player_name, homescreen, "Chainmail", 11)
+    combat(
+        guard, player_character, player_name, homescreen, "Spiked Gloves", 11, 
+        base_stats
+    )
 
 
-def chapter_2a(player_character, player_name, homescreen):
+def chapter_2a(player_character, player_name, homescreen, base_stats):
     """
     Chapter 2a - Called by run_game() when player chooses to go left at the 
                  fork in the road
@@ -127,7 +130,7 @@ def chapter_2a(player_character, player_name, homescreen):
                 )
                 center_print("It appears to be some sort of Focusing Crystal.")
                 
-                item_choice(player_character, "Focusing Crystal")
+                item_choice(player_character, base_stats, "Focusing Crystal")
                 break
 
             else:     
@@ -151,7 +154,7 @@ def chapter_2a(player_character, player_name, homescreen):
 
                 combat(
                     sludge_creature, player_character, player_name, homescreen, 
-                    "Focusing Crystal", 5
+                    "Focusing Crystal", 5, base_stats
                 )
                 break
         elif choice == "n":
@@ -161,7 +164,7 @@ def chapter_2a(player_character, player_name, homescreen):
             center_print(f'You can\'t do "{choice}" right now')
 
 
-def chapter_2b(player_character, player_name, homescreen):
+def chapter_2b(player_character, player_name, homescreen, base_stats):
     """
     Chapter 2b - Called by run_game() when player chooses to go right at the 
                  fork in the road
@@ -177,10 +180,10 @@ def chapter_2b(player_character, player_name, homescreen):
 
     player_character.health -= 1
 
-    item_choice(player_character, "Throwing Knife")
+    item_choice(player_character, base_stats, "Throwing Knife")
 
 
-def chapter_3a(player_character, player_name, homescreen):
+def chapter_3a(player_character, player_name, homescreen, base_stats):
     """
     Chapter 3a - Called by run_game() when player chooses to go up the staircase
     """
@@ -286,7 +289,7 @@ def chapter_3a(player_character, player_name, homescreen):
             center_print(f'You can\'t do "{choice}" right now')
 
 
-def chapter_3b(player_character, player_name, homescreen):
+def chapter_3b(player_character, player_name, homescreen, base_stats):
     """
     Chapter 3b - Called by run_game() when player chooses to go down the 
                  staircase
@@ -310,10 +313,13 @@ def chapter_3b(player_character, player_name, homescreen):
 
     center_input("Press enter to commence combat...")
     
-    combat(spirit, player_character, player_name, homescreen, "Lexicon", 6)
+    combat(
+        spirit, player_character, player_name, homescreen, "Lexicon", 6, 
+        base_stats
+    )
 
 
-def chapter_4a(player_character, player_name, homescreen):
+def chapter_4a(player_character, player_name, homescreen, base_stats):
     """
     Chapter 4a - Called by run_game() when player chooses to go through the door
     """
@@ -356,7 +362,10 @@ def chapter_4a(player_character, player_name, homescreen):
 
         center_input("Press enter to commence combat...")
         
-        combat(beast, player_character, player_name, homescreen, random_item, 7)
+        combat(
+            beast, player_character, player_name, homescreen, random_item, 7,
+            base_stats
+        )
 
     else:
         center_print(
@@ -410,7 +419,7 @@ def chapter_4a(player_character, player_name, homescreen):
                         "expression before fleeing. You notice it drops "
                         "something..."
                     )
-                    item_choice(player_character, random_item)
+                    item_choice(player_character, base_stats, random_item)
                     break
                 else:
                     center_print(
@@ -440,7 +449,7 @@ def chapter_4a(player_character, player_name, homescreen):
                 center_print(f'You can\'t do "{choice}" right now')
                 
 
-def chapter_4b(player_character, player_name, homescreen):
+def chapter_4b(player_character, player_name, homescreen, base_stats):
     """
     Chapter 4b - Called by run_game() when player chooses to go through the 
                  passageway
@@ -448,11 +457,11 @@ def chapter_4b(player_character, player_name, homescreen):
     clear_terminal_in_game(player_character, player_name)
 
 
-def chapter_5a(player_character, player_name, homescreen):
+def chapter_5a(player_character, player_name, homescreen, base_stats):
     clear_terminal_in_game(player_character, player_name)
     center_print("You enter a chamber")
 
-def chapter_5b(player_character, player_name, homescreen):
+def chapter_5b(player_character, player_name, homescreen, base_stats):
     clear_terminal_in_game(player_character, player_name)
     center_print("You fall")
 

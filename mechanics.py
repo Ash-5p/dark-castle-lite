@@ -7,7 +7,10 @@ global ranom_item
 random_item = random.choice(list(ITEMS.keys()))
 
 
-def defeat(current_enemy, player_name, player_character, homescreen_callback, dropped_item, drop_odds):
+def defeat(
+    current_enemy, player_name, player_character, homescreen_callback, 
+    dropped_item, drop_odds, base_stats
+):
     """
     Handles player & enemy defeat
     """
@@ -32,7 +35,9 @@ def defeat(current_enemy, player_name, player_character, homescreen_callback, dr
             while True:
                 choice = input()
                 if choice == "y":
+                    stat_reset(player_character, base_stats)
                     player_character.item = dropped_item
+                    item_buff(player_character)
                     clear_terminal_in_game(player_character, player_name)
                     break  # Exit loop after picking up
                 elif choice == "n":
@@ -43,7 +48,10 @@ def defeat(current_enemy, player_name, player_character, homescreen_callback, dr
                     print(f'You can\'t do "{choice}" right now')
 
 
-def combat(current_enemy, player_character, player_name, homescreen_callback, dropped_item, drop_odds):
+def combat(
+    current_enemy, player_character, player_name, homescreen_callback, 
+    dropped_item, drop_odds, base_stats
+    ):
     """
     Handles the flow of combat within the game
     """
@@ -105,9 +113,11 @@ def combat(current_enemy, player_character, player_name, homescreen_callback, dr
             show_combat_details()
         else:
             show_combat_details()
-            print(f'You can\'t do "{choice}" right now')
+            print(f'You can\'t do "{combat_choice}" right now')
 
-    defeat(current_enemy, player_name, player_character, homescreen_callback, dropped_item, drop_odds)
+    defeat(current_enemy, player_name, player_character, homescreen_callback, 
+        dropped_item, drop_odds, base_stats
+    )
 
 
 def attack(current_enemy, player_character, accuracy, damage_mult):
@@ -189,7 +199,7 @@ def check_item(player_character):
             print("Unknown item")
 
 
-def item_choice(player_character, item):
+def item_choice(player_character, base_stats, item):
     """
     Handles player choice when picking up an item
     """
@@ -198,6 +208,8 @@ def item_choice(player_character, item):
     choice = input()
     if choice == "y":
         player_character.item = item
+        stat_reset(player_character, base_stats)
+        item_buff(player_character)
         print(f"You pick up the {item}")
         
     elif choice == "n":
@@ -207,17 +219,27 @@ def item_choice(player_character, item):
         print(f'You can\'t do "{choice}" right now')
 
 ############### Not yet functional ######################
-def item_buff(player_character, current_enemy):
-    while True:
-        enemy_damage = current_enemy.get_random_damage()
-        if player_character.item == "Chainmail":
-            enemy_damage -= 1
-        elif player_character.item == "Spiked Gloves":
-            player_character.might += 1
-        elif player_character.item == "Hooded Cloak":
-            player_character.cunning += 1
-        elif player_character.item == "Lexicon":
-            player_character.wisdom += 1
-        elif player_character.item == "Focusing Crystal":
-            accuracy += 1
+def item_buff(player_character):
+
+    if player_character.item == "Spiked Gloves":
+        player_character.might += 3
+    elif player_character.item == "Hooded Cloak":
+        player_character.cunning += 3
+    elif player_character.item == "Lexicon":
+        player_character.wisdom += 3
+
+
+def stat_reset(player_character, base_stats):
+    """
+    Resets charater Might, Wisdom & Cunning Stats
+    """
+    player_character.wisdom = base_stats.wisdom
+    player_character.might = base_stats.might
+    player_character.cunning = base_stats.cunning
+
+# enemy_damage = current_enemy.get_random_damage()
+# if player_character.item == "Chainmail":
+#     enemy_damage -= 2
+# elif player_character.item == "Focusing Crystal":
+#     accuracy += 1
             

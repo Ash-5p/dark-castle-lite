@@ -54,10 +54,13 @@ def select_character():
     # Prompts player to select character
     while True:
         global player_character
+        global base_stats
         try:
             choice = int(input("\nEnter the number of your chosen character:"))
             if 1 <= choice <= len(characters):
                 player_character = characters[choice - 1]
+                base_stats = characters[choice - 1]
+                print(base_stats)
                 center_print(f"\nYou have selected: {player_character.name}")
                 break
             else:
@@ -86,10 +89,10 @@ def run_game():
         while True:
             player_choice = input()
             if player_choice == str(a):
-                chapter_a(player_character, player_name, homescreen)
+                chapter_a(player_character, player_name, homescreen, base_stats)
                 break
             elif player_choice == str(b):
-                chapter_b(player_character, player_name, homescreen)
+                chapter_b(player_character, player_name, homescreen, base_stats)
                 break
             else:
                 choice_1 = input("You can't do that right now!")
@@ -138,9 +141,9 @@ def run_game():
     # Calls chapter 5a if player_character.mirror == True
     mirror = player_character.mirror
     if mirror == True:
-        chapter_5a(player_character, player_name, homescreen)
+        chapter_5a(player_character, player_name, homescreen, base_stats)
     else:
-        chapter_5b(player_character, player_name, homescreen)
+        chapter_5b(player_character, player_name, homescreen, base_stats)
 
     # clone_nature = player_character.return_highest_stat()
     # mirror_clone = Enemy(f"Mirror {player_name}", 20, clone_nature, random.randrange(3,6), True)  # noqa
