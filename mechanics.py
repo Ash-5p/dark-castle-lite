@@ -40,7 +40,7 @@ def defeat(current_enemy, player_name, player_character, homescreen_callback, dr
                     clear_terminal_in_game(player_character, player_name)
                     break  # Exit loop after leaving
                 else:
-                    print("You can't do that right now")
+                    print(f'You can\'t do "{choice}" right now')
 
 
 def combat(current_enemy, player_character, player_name, homescreen_callback, dropped_item, drop_odds):
@@ -105,7 +105,7 @@ def combat(current_enemy, player_character, player_name, homescreen_callback, dr
             show_combat_details()
         else:
             show_combat_details()
-            print("You can't do that right now")
+            print(f'You can\'t do "{choice}" right now')
 
     defeat(current_enemy, player_name, player_character, homescreen_callback, dropped_item, drop_odds)
 
@@ -163,7 +163,7 @@ def check_item(player_character):
     """
     item = player_character.item.strip()
 
-    if player_character.item == "Apple" or player_character.item == "Throwing Knife" or player_character.item == "Mirror Film":
+    if player_character.item == "Apple" or player_character.item == "Throwing Knife" or player_character.item == "Mirror Sphere":
         if item in ITEMS:
             print(f"{item} - {ITEMS[item]}")
             while True:
@@ -193,6 +193,7 @@ def item_choice(player_character, item):
     """
     Handles player choice when picking up an item
     """
+    center_print(f"Do you pick up the {item}?\n")
     center_print("Yes(y) / No(n) (Replaces current item)")
     choice = input()
     if choice == "y":
@@ -203,7 +204,7 @@ def item_choice(player_character, item):
         print(f"You left the {item} behind.")
         
     else:
-        print("You can't do that right now")
+        print(f'You can\'t do "{choice}" right now')
 
 ############### Not yet functional ######################
 def item_buff(player_character, current_enemy):

@@ -48,7 +48,7 @@ def select_character():
     for index, character in enumerate(characters, start=1):
         center_print(
             f"{index}) {character.name} (Might: {character.might}"
-            "| Wisdom: {character.wisdom} | Cunning: {character.cunning})"
+            f"| Wisdom: {character.wisdom} | Cunning: {character.cunning})"
         )
 
     # Prompts player to select character
@@ -103,7 +103,7 @@ def run_game():
 
     # Chapter 2
     center_print(
-        "As you approch what looks like the end of the cell block you are met"
+        "As you approch what looks like the end of the cell block you are met\n"
         "with a fork \n in the road.\n"
     )
     center_print("Do you turn left(l) or right (r)?\n")
@@ -179,8 +179,8 @@ def homescreen():
     """
     clear_terminal()
     while True:
-        center_print(logo)
-        center_print(castle)
+        center_print(LOGO)
+        center_print(CASTLE)
         player_choice = input()
         if player_choice == "i":
             display_instructions_screen()
