@@ -15,7 +15,8 @@ def select_name():
     clear_terminal()
     # Player inputs their name
     while True:
-        player_name = input("Enter player name:\n").strip()
+        center_print("Enter player name:\n")
+        player_name = input().strip()
 
         if len(player_name) == 0:  # Checks if input is empty
             center_print("Character name must contain at least 1 character.\n")
@@ -51,7 +52,7 @@ def select_character():
             f"{index}) {character.name} (Might: {character.might}"
             f"| Wisdom: {character.wisdom} | Cunning: {character.cunning})"
         )
-
+    center_print("Enter the number of your chosen character:")
     # Prompts player to select character
     while True:
         global player_character
@@ -59,11 +60,11 @@ def select_character():
         # where required
         global base_stats
         try:
-            choice = int(input("\nEnter the number of your chosen character:"))
+            choice = int(input())
             if 1 <= choice <= len(characters):
                 player_character = characters[choice - 1]
                 base_stats = copy.deepcopy(characters[choice - 1])
-                center_print(f"\nYou have selected: {player_character.name}")
+                center_print(f"You have selected: {player_character.name}")
                 break
             else:
                 center_print(
@@ -74,7 +75,7 @@ def select_character():
 
     reset_stats(player_character)
 
-    input("\nPress any button to start your journey...")
+    center_input("Press enter button to start your journey...")
     run_game()
 
 

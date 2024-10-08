@@ -11,9 +11,9 @@ def intro_chapter(player_character, player_name):
     clear_terminal_in_game(player_character, player_name)
     center_print(
         "You awaken and find yourself in a empty, dark room with stone walls. "
-        "You look up \nto a small window with iron bars in the far corner of "
-        "the room. As your eyes \ntrace the beams of moonlight peering into "
-        "the room between the bars, you notice\na thick wooden door which "
+        "You look up to a small window with iron bars in the far corner of "
+        "the room. As your eyes trace the beams of moonlight peering into "
+        "the room between the bars, you notice a thick wooden door which "
         "appears to be open ajar.\n"
     )
 

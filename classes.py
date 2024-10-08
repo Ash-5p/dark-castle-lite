@@ -85,7 +85,7 @@ ITEMS = {
     "Apple": "Use in battle to restore +25hp (Consumed when used)", 
     "Focusing Crystal": "Increase accuracy of attacks by 10%", 
     "Throwing Knife": (
-        "Use in battle to inflict 15 damage to current enemy\n"
+        "Use in battle to inflict 25 damage to current enemy\n"
         "(Consumed when used)"
     ),
     "Mirror Sphere": (
