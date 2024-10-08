@@ -35,8 +35,8 @@ def defeat(
             while True:
                 choice = input()
                 if choice == "y":
-                    stat_reset(player_character, base_stats)
                     player_character.item = dropped_item
+                    stat_reset(player_character, base_stats)
                     item_buff(player_character)
                     clear_terminal_in_game(player_character, player_name)
                     break  # Exit loop after picking up

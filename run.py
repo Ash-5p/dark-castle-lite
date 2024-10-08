@@ -1,7 +1,8 @@
+import math
+import copy
 from classes import *
 from mechanics import *
 from chapters import *
-import math
 from utilities import *
 from art import *
 
@@ -54,13 +55,14 @@ def select_character():
     # Prompts player to select character
     while True:
         global player_character
+        # Remembers starting Might, Wisdom & Cunning to return stats to normal
+        # where required
         global base_stats
         try:
             choice = int(input("\nEnter the number of your chosen character:"))
             if 1 <= choice <= len(characters):
                 player_character = characters[choice - 1]
-                base_stats = characters[choice - 1]
-                print(base_stats)
+                base_stats = copy.deepcopy(characters[choice - 1])
                 center_print(f"\nYou have selected: {player_character.name}")
                 break
             else:
