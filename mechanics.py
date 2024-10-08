@@ -94,7 +94,7 @@ def combat(
 
             # Handles whe player presses (i) to check item
         elif combat_choice == "i":
-            check_item(player_character)
+            check_item(player_character, current_enemy)
             input()
             show_combat_details()
 
@@ -167,7 +167,7 @@ def attack(current_enemy, player_character, accuracy, damage_mult):
     return player_character.health  # Return updated player_character.health
 
 
-def check_item(player_character):
+def check_item(player_character, current_enemy):
     """
     Handles item command during combat
     """
@@ -181,13 +181,39 @@ def check_item(player_character):
                 choice = input("Yes(y) / No(n)")
                 if choice == "y":
                     print(f"You used the {item}")
+                    if player_character.item == "Throwing Knife":
+                        current_enemy.health -= 25
+                    elif player_character.item == "Apple":
+                        player_character.health += 30
+                    elif player_character.item == "Mirror Sphere":
+                        if current_enemy.boss == False:
+                            input(
+                                "You throw the Mirror Sphere on the ground, "
+                                "causing it to explode in a dazzling light!\n"
+                                f"You slip away while the {current_enemy.name} "
+                                "is blinded..."
+                            )
+                            break
+                        else:
+                            player_character.health += 60
+                            player_character.might *= 2
+                            player_character.wisdom *= 2
+                            player_character.cunning *= 2
+
+                            input(
+                                "The Mirror Sphere starts to glow in your hand"
+                                "until it bursts in a dazzling light!\n When "
+                                "the light dims the sphere is gone... But you "
+                                "feel twice as strong!"
+                            )
+
                     player_character.item = "None"
                     break
                 elif choice == "n":
                     print(f"You put the {item} away")
                     break
                 else:
-                    print("You can't do that right now!")
+                    print(f'You can\'t do "{choice}" right now!')
         else:
             print("Unknown item")
     elif player_character.item == "None":
