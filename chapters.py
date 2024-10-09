@@ -456,19 +456,49 @@ def chapter_4b(player_character, player_name, homescreen, base_stats):
     """
     clear_terminal_in_game(player_character, player_name)
 
+    center_input(
+    "You step through the narrow passageway, the walls around you feel as if"
+    " they are closing in. The air is damp and heavy, making it hard to "
+    "breathe. (press enter to continue...)\n"
+    )
+    center_input(
+        "The only light comes from faintly glowing moss lining the cracks in "
+        "the stone walls. (press enter to continue...)\n"
+    )
+    center_input(
+        "Suddenly, the ground beneath you gives way, and you tumble down a "
+        "hidden chute, sliding into the darkness! "
+        "(press enter to continue...)\n"
+    )
+    if player_character.cunning >= 7:  # Cunning check for avoiding damage
+        center_input(
+            "With quick reflexes, you manage to control your fall, avoiding any"
+            " serious injury as you land at the bottom."
+            "(press enter to continue...)\n"
+        )
+    else:
+        center_input(
+            "You crash to the ground painfully, your body aching from the "
+            "impact.\n"
+        )
+        # Deduct health for failing the skill check
+        player_character.health -= 5
+        player_character.health = max(player_character.health, 0)
+        center_input(f"You lose 5hp.\n")
+
 
 def chapter_5a(player_character, player_name, homescreen, base_stats):
     clear_terminal_in_game(player_character, player_name)
     center_input(
         "You enter an throne room. You scan the room and see three doors. Each "
-        "door is labeled with a golden plaque. (press enter to continue...)"
+        "door is labeled with a golden plaque. (press enter to continue...)\n"
     )
     center_input(
         'To your left is a door labled "Armory"(a), to your right is a door '
         'labeled "Library"(l), and ahead is one labled "Treasury"(t).'
-        '(press enter to continue...)'
+        '(press enter to continue...)\n'
     )
-    center_print("Which room do you enter?")
+    center_print("Which room do you enter?\n")
     while True:
         choice = input()
         if choice == "a":
@@ -492,6 +522,29 @@ def chapter_5b(player_character, player_name, homescreen, base_stats):
 
 def boss_a(player_character, player_name, homescreen):
     clear_terminal_in_game(player_character, player_name)
+    center_input(
+        "You enter the armory, which is brimming with an assortment of tools "
+        "all capable of ensuring a swift and bloody end to the wielders "
+        "enemies. (press enter to continue...)\n" 
+    )
+    center_input(
+        "Your attention is drawn to a suit of armor in the center of the room "
+        "which is holding an extravagant sliver blade. You reach out to grab "
+        "the sword. (press enter to continue...)\n" 
+    )
+    center_input(
+        "Suddenly you are forced to jump back as the suit of armor springs to "
+        "life, and swings the sword at you, narrowly missing your chest. In a "
+        "fenzy the suit of armor charges at you! (press enter to continue...)\n" 
+    )
+    center_print("You must defend yourself!\n")
+
+    center_input("Press enter to commence combat...")
+        
+    combat(
+        champion, player_character, player_name, homescreen, "None", 0,
+        base_stats
+    )
 
 
 def boss_b(player_character, player_name, homescreen):

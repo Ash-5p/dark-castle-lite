@@ -18,12 +18,12 @@ def defeat(
     random_item_chance = random.randrange(1,11)
     
 
-    if player_character.health == 0:
+    if player_character.health <= 0:
         clear_terminal_in_game(player_character, player_name)
         center_print("You have been defeated!\n")
         center_input("Press any button to return to main menu...")
         homescreen_callback()
-    elif current_enemy.health == 0:
+    elif current_enemy.health <= 0:
         if random_item_chance >= drop_odds: # 11 = 100% Chance
             input(f'{current_enemy.name} has been defeated!')
         else:
@@ -108,6 +108,7 @@ def combat(
             else:
                 print("Your attempt at escape was unsuccessful!") 
                 player_character.health -= current_enemy.max_damage * 2
+                player_character.health = max(player_character.health, 0)
                 input(f"The {current_enemy.name} lands a crushing blow while you are distracted! (-{current_enemy.max_damage * 2}hp)")
             input()
             show_combat_details()
