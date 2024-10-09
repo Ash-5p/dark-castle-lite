@@ -459,7 +459,29 @@ def chapter_4b(player_character, player_name, homescreen, base_stats):
 
 def chapter_5a(player_character, player_name, homescreen, base_stats):
     clear_terminal_in_game(player_character, player_name)
-    center_print("You enter an empty throne room")
+    center_input(
+        "You enter an throne room. You scan the room and see three doors. Each "
+        "door is labeled with a golden plaque. (press enter to continue...)"
+    )
+    center_input(
+        'To your left is a door labled "Armory"(a), to your right is a door '
+        'labeled "Library"(l), and ahead is one labled "Treasury"(t).'
+        '(press enter to continue...)'
+    )
+    center_print("Which room do you enter?")
+    while True:
+        choice = input()
+        if choice == "a":
+            boss_a(player_character, player_name, homescreen)
+            break
+        elif choice == "l":
+            boss_b(player_character, player_name, homescreen)
+            break
+        elif choice == "t":
+            boss_c(player_character, player_name, homescreen)
+            break
+        else:
+            center_print(f'You can\'t do "{choice}" right now!')
 
 def chapter_5b(player_character, player_name, homescreen, base_stats):
     clear_terminal_in_game(player_character, player_name)
