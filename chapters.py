@@ -459,11 +459,13 @@ def chapter_4b(player_character, player_name, homescreen, base_stats):
 
 def chapter_5a(player_character, player_name, homescreen, base_stats):
     clear_terminal_in_game(player_character, player_name)
-    center_print("You enter a chamber")
+    center_print("You enter an empty throne room")
 
 def chapter_5b(player_character, player_name, homescreen, base_stats):
     clear_terminal_in_game(player_character, player_name)
     center_print("You fall")
+
+    chapter_5a(player_character, player_name, homescreen, base_stats)
 
 
 def boss_a(player_character, player_name, homescreen):
@@ -476,3 +478,21 @@ def boss_b(player_character, player_name, homescreen):
 
 def boss_c(player_character, player_name, homescreen):
     clear_terminal_in_game(player_character, player_name)
+
+
+def ending_chapter(player_character, player_name, homescreen):
+
+    center_input(
+        "As you lay the final, decisive blow on the enemy there is a blinding"
+        "flash of light! (press enter to continue...)" 
+    )
+    center_input(
+        "When your vision clears you find yourself standing on a hill, "
+        "overlooking a decrepid looking castle. (press enter to continue...)"
+    )
+    center_input(
+        "Where many have perished, you have survived... Congratulations "
+        f"{player_name}, you have escaped the dark castle. "
+        "(press enter to continue...)"
+    )
+
