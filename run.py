@@ -151,7 +151,9 @@ def run_game():
     # clone_nature = player_character.return_highest_stat()
     # mirror_clone = Enemy(f"Mirror {player_name}", 20, clone_nature, random.randrange(3,6), True)  # noqa
 
-    ending_chapter(player_character, player_name, homescreen)
+    ending_chapter(player_character, player_name, homescreen, base_stats)
+    homescreen()
+
 
 def reset_stats(player_character):
     player_character.health = 60

@@ -77,9 +77,9 @@ spirit = Enemy("Enraged Spirit", 36, "Wisdom", 3, 7, False)
 sludge_creature = Enemy("Sludge Creature", 42, "Cunning", 3, 6, False)
 beast = Enemy("Beast Man", 42, "Might", 5, 9, False)
 #Bosses
-champion - Enemy("Champion's Spirit", 50, "Might", 7, 10, True )
-protector - Enemy("Protector of Knowledge", 50, "Wisdom", 7, 10, True )
-dragon - Enemy("Hoarder Dragon", 50, "Cunning", 7, 10, True )
+champion = Enemy("Champion's Spirit", 50, "Might", 7, 10, True )
+protector = Enemy("Protector of Knowledge", 50, "Wisdom", 7, 10, True )
+dragon = Enemy("Hoarder Dragon", 50, "Cunning", 7, 10, True )
 
 ITEMS = {
     "Chainmail": "Reduces damage taken by 2 while held",

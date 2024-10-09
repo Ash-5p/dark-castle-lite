@@ -502,13 +502,13 @@ def chapter_5a(player_character, player_name, homescreen, base_stats):
     while True:
         choice = input()
         if choice == "a":
-            boss_a(player_character, player_name, homescreen)
+            boss_a(player_character, player_name, homescreen, base_stats)
             break
         elif choice == "l":
-            boss_b(player_character, player_name, homescreen)
+            boss_b(player_character, player_name, homescreen, base_stats)
             break
         elif choice == "t":
-            boss_c(player_character, player_name, homescreen)
+            boss_c(player_character, player_name, homescreen, base_stats)
             break
         else:
             center_print(f'You can\'t do "{choice}" right now!')
@@ -520,7 +520,7 @@ def chapter_5b(player_character, player_name, homescreen, base_stats):
     chapter_5a(player_character, player_name, homescreen, base_stats)
 
 
-def boss_a(player_character, player_name, homescreen):
+def boss_a(player_character, player_name, homescreen, base_stats):
     clear_terminal_in_game(player_character, player_name)
     center_input(
         "You enter the armory, which is brimming with an assortment of tools "
@@ -547,15 +547,18 @@ def boss_a(player_character, player_name, homescreen):
     )
 
 
-def boss_b(player_character, player_name, homescreen):
+def boss_b(player_character, player_name, homescreen, base_stats):
     clear_terminal_in_game(player_character, player_name)
 
 
-def boss_c(player_character, player_name, homescreen):
+def boss_c(player_character, player_name, homescreen, base_stats):
     clear_terminal_in_game(player_character, player_name)
 
 
-def ending_chapter(player_character, player_name, homescreen):
+def ending_chapter(player_character, player_name, homescreen, base_stats):
+
+    stat_reset(player_character, base_stats) # Resets any stat buffs
+    clear_terminal_in_game(player_character, player_name)
 
     center_input(
         "As you lay the final, decisive blow on the enemy there is a blinding"
