@@ -547,7 +547,8 @@ def chapter_5b(player_character, player_name, homescreen, base_stats):
     # Mirror clone enemy listed within chapter
     clone_nature = player_character.return_highest_stat()
     mirror_clone = Enemy(
-        f"Mirror {player_name}", 20, clone_nature, random.randrange(3,6), True
+        f"Mirror {player_name}", player_character.health, clone_nature, 6, 9, 
+        True
     )
 
     # Calls fight with mirror clone enemey
@@ -703,11 +704,11 @@ def ending_chapter(player_character, player_name, homescreen, base_stats):
 
     center_input(
         "As you lay the final, decisive blow on the enemy there is a blinding"
-        "flash of light! (press enter to continue...)" 
+        "flash of light! (press enter to continue...)\n" 
     )
     center_input(
         "When your vision clears you find yourself standing on a hill, "
-        "overlooking a decrepid looking castle. (press enter to continue...)"
+        "overlooking a decrepid looking castle. (press enter to continue...)\n"
     )
     center_input(
         "Where many have perished, you have survived... Congratulations "

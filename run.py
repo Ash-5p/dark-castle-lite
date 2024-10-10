@@ -50,7 +50,7 @@ def select_character():
     for index, character in enumerate(characters, start=1):
         center_print(
             f"{index}) {character.name} (Might: {character.might}"
-            f"| Wisdom: {character.wisdom} | Cunning: {character.cunning})"
+            f"| Wisdom: {character.wisdom} | Cunning: {character.cunning})\n"
         )
     center_print("Enter the number of your chosen character:")
     # Prompts player to select character
@@ -90,15 +90,15 @@ def run_game():
         Template function for presenting player with decision
         """
         while True:
-            player_choice = input()
-            if player_choice == str(a):
+            choice = input()
+            if choice == str(a):
                 chapter_a(player_character, player_name, homescreen, base_stats)
                 break
-            elif player_choice == str(b):
+            elif choice == str(b):
                 chapter_b(player_character, player_name, homescreen, base_stats)
                 break
             else:
-                choice_1 = input("You can't do that right now!")
+                center_print(f'You can\'t do "{choice}" right now!')
 
     # Intro Chapter
     intro_chapter(player_character, player_name)
@@ -110,7 +110,7 @@ def run_game():
     # Chapter 2
     center_print(
         "As you approch what looks like the end of the cell block you are met\n"
-        "with a fork \n in the road.\n"
+        "with a fork in the road.\n"
     )
     center_print("Do you turn left(l) or right (r)?\n")
 
@@ -143,7 +143,7 @@ def run_game():
     # Chapter 5
     # Calls chapter 5a if player_character.mirror == True
     mirror = player_character.mirror
-    if mirror == True:
+    if mirror == False:
         chapter_5a(player_character, player_name, homescreen, base_stats)
     else:
         chapter_5b(player_character, player_name, homescreen, base_stats)
