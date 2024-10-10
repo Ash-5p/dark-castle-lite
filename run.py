@@ -182,7 +182,7 @@ def display_instructions_screen():
             center_print("Scholar - (Might: 3| Wisdom: 9 | Cunning: 6)")
             center_print(" Thief   - (Might: 6| Wisdom: 3 | Cunning: 9)\n")
 
-            print("Page 1 of 3")
+            print("Page 1 of 4")
 
     def page_2():
         clear_terminal_instructions()
@@ -201,7 +201,7 @@ def display_instructions_screen():
 
         center_print("Futher explaination on page 3... ")
 
-        print("Page 2 of 3")
+        print("Page 2 of 4")
 
     def page_3():
         clear_terminal_instructions()
@@ -209,21 +209,49 @@ def display_instructions_screen():
         
         print(
             "𝗘𝗻𝗲𝗺𝘆 𝗡𝗮𝘁𝘂𝗿𝗲 - Determines which of the players stats are "
-        "used in damage calculation.\n"
+        "used in damage\n               calculation.\n"
         )
         print("𝗟𝗶𝗴𝗵𝘁 𝗔𝘁𝘁𝗮𝗰𝗸 - Deals moderate damage. 90%\ hit chance.\n")
         print("𝗛𝗲𝗮𝘃𝘆 𝗔𝘁𝘁𝗮𝗰𝗸 - Deals high damage. 50%\ hit chance.\n")
         print(
             "𝗜𝘁𝗲𝗺 - Displays the description of current item, and also "
-        "prompts player to use            item if consumable.\n"
+        "prompts player to use        item if consumable.\n"
         )
         print(
             "𝗥𝘂𝗻 - Attempt to run from combat (25% Success chance). "
-        "Failed attempt results in health penalty. (Enemy will not drop item "
-        "on successful run attempt.\n"
+        "Failed attempt results in       health penalty. (Enemy will not drop "
+        "item on successful run attempt.\n"
         )
 
-        print("Page 3 of 3")
+        print("Page 3 of 4")
+
+    def page_4():
+        clear_terminal_instructions()
+        print("I̲T̲E̲M̲S̲\n")
+        
+        print(
+            "Items will sometimes be aquired through certain scenarios "
+            "throughout the game. Most defeated enemies will have a chance of "
+            "dropping an item. You will always be prompted with a yes or no "
+            "choice before an item is added to your inventory. Only one item "
+            "can be held at one time, so picking up a new one will replace "
+            "your current item.\n"
+        )
+
+        print(
+            'To view the description of your current item, choose the "Item" '
+            'option in Combat.\n')
+
+        print("N̲A̲T̲U̲R̲E̲ M̲A̲T̲C̲H̲-̲U̲P̲S̲\n")
+        
+        print(
+            " Each nature has a corrisponding nature that it is strong "
+            "against and one it is weak against:\n"
+        )
+
+        center_print("Might > Cunning > Wisdom > Might\n")
+
+        print("Page 4 of 4")
 
     page_1()
     current_page = 1 # Used to save current page upon clear_terminal()
@@ -247,12 +275,16 @@ def display_instructions_screen():
         elif choice == "3":
             page_3() 
             current_page = 3
+        elif choice == "4":
+            page_4() 
+            current_page = 4
         else:
             print(current_page)
             center_input(f'"{choice}" is an invalid input. Please try again.')
             (  # Makes clear_terminal_instructions() show current page
                 page_1() if current_page == 1 else page_2() 
-                if current_page == 2 else page_3()
+                if current_page == 2 else page_3() if current_page == 3 else 
+                page_4()
             )
 
 
