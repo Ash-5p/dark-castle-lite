@@ -72,7 +72,10 @@ def combat(
 
 
     def combat_prompt():
-        print(f'{current_enemy.name} Health: {max(current_enemy.health, 0)}hp')
+        print(
+            f"{current_enemy.name} Health: {max(current_enemy.health, 0)}hp"
+        )
+        print(f"Nature: {current_enemy.nature}\n")
         print("What will you do?\n")
         print("(l) Light Attack")
         print("(h) Heavy Attack")

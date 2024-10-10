@@ -191,35 +191,37 @@ def display_instructions_screen():
             "Some decisions will result in combat. During combat you will be "
             "presented with the following options (shown below):\n"
         )
-        print("Enemy Health: 50hp      <--  Current enemies health")
+        print("Enemy Health: 50hp      <--  Current Enemy's Health")
+        print("Nature: Might           <--  Current Enemy's Nature")
         print("What will you do?\n")
         print("(l) Light Attack        <--  Perform a Light Attack")
         print("(h) Heavy Attack        <--  Perform a Heavy Attack")
         print("(i) Item                <--  View/Use Current Item")
         print("(r) Run                 <--  Attempt to Run from Combat\n") 
 
+        center_print("Futher explaination on page 3... ")
+
         print("Page 2 of 3")
 
     def page_3():
         clear_terminal_instructions()
-        print("C̲O̲M̲B̲A̲T̲\n")
+        print("C̲O̲M̲B̲A̲T̲ C̲O̲N̲T̲.\n")
+        
         print(
-            "Some decisions will result in combat "
-            "three available choices: Fighter / Scholar / Thief\n"
+            "𝗘𝗻𝗲𝗺𝘆 𝗡𝗮𝘁𝘂𝗿𝗲 - Determines which of the players stats are "
+        "used in damage calculation.\n"
         )
-
-        print("C̲H̲A̲R̲A̲C̲T̲E̲R̲ N̲A̲T̲U̲R̲E̲S̲\n")
-
-        center_print(
-            "There are 3 natures within the game: Might / Wisdom / "
-            "Cunning. These natures determine how much damage is done in "
-            "combat, as well as the outcome of some of the scenarios you "
-            " will face.\n"
+        print("𝗟𝗶𝗴𝗵𝘁 𝗔𝘁𝘁𝗮𝗰𝗸 - Deals moderate damage. 90%\ hit chance.\n")
+        print("𝗛𝗲𝗮𝘃𝘆 𝗔𝘁𝘁𝗮𝗰𝗸 - Deals high damage. 50%\ hit chance.\n")
+        print(
+            "𝗜𝘁𝗲𝗺 - Displays the description of current item, and also "
+        "prompts player to use            item if consumable.\n"
         )
-
-        center_print("Fighter - (Might: 9| Wisdom: 6 | Cunning: 3)")
-        center_print("Scholar - (Might: 3| Wisdom: 9 | Cunning: 6)")
-        center_print(" Thief   - (Might: 6| Wisdom: 3 | Cunning: 9)\n")
+        print(
+            "𝗥𝘂𝗻 - Attempt to run from combat (25% Success chance). "
+        "Failed attempt results in health penalty. (Enemy will not drop item "
+        "on successful run attempt.\n"
+        )
 
         print("Page 3 of 3")
 
