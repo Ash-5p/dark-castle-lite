@@ -629,9 +629,19 @@ def boss_b(player_character, player_name, homescreen, base_stats):
     )
     center_input(
         "It lands on stop of you, forcing you onto the ground. The creature is "
-        "proceeding to open the book, when suddenly, the shadow emerges from "
-        "between the bookshelve and lunges at you! "
-        "(press enter to continue...)\n" 
+        "wrapped in a tattered brown robe with a large hood which covers its "
+        "face. Its hands are dark grey, with long boney fingers "
+        "(press enter to continue...)\n"
+    )
+    center_input(
+        "As you wrestle the creature off you with a well placed kick. Its hood "
+        "Flicks back over its head, revealing a grotesque pale face with "
+        "sunken eyes, and a mass of tentacles where a mouth would usually sit!"
+        "(press enter to continue...)\n"
+    )
+    center_input(
+        "The creature roars with an almost reptilian sounding gargle, and "
+        "begins to charge at you again! (press enter to continue...)\n"
     )
     center_print("You must defend yourself!\n")
 
