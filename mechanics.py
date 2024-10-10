@@ -35,7 +35,7 @@ def defeat(
             print("Yes(y) / No(n)")
 
             while True:
-                choice = input()
+                choice = input().strip()
                 if choice == "y":
                     player_character.item = dropped_item
                     stat_reset(player_character, base_stats)
@@ -90,7 +90,7 @@ def combat(
     try:
         while current_enemy.health > 0 and player_character.health > 0:
             
-            combat_choice = input()
+            combat_choice = input().strip()
             run_chance = random.randrange(1,11)  
 
             if combat_choice == "l":
@@ -285,7 +285,7 @@ def item_choice(player_character, base_stats, item):
     center_print(f"Do you pick up the {item}?\n")
     center_print("Yes(y) / No(n) (Replaces current item)")
     while True:
-        choice = input()
+        choice = input().strip()
         if choice == "y":
             player_character.item = item
             stat_reset(player_character, base_stats)

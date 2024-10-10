@@ -90,7 +90,7 @@ def run_game():
         Template function for presenting player with decision
         """
         while True:
-            choice = input()
+            choice = input().strip()
             if choice == str(a):
                 chapter_a(
                     player_character, player_name, homescreen, base_stats
@@ -162,19 +162,25 @@ def display_instructions_screen():
     """
     clear_terminal()
     while True:
-        center_print("How to play\n")
-        center_print("Play Game (p)")
-        center_print("Back to main menu (h)")
-        player_choice = input()
+        center_print(HTP)
+        center_print("Play Game (p) | Back to main menu (h)")
+        center_print("Page 1 (1) | Page 2 (2) | Page 3 (3)")
+        center_print(
+        "_____________________________________________________________________"
+        "___________\n")
+        
+        choice = input().strip()
 
-        if player_choice == "h":
+        if choice == "h":
             homescreen()
             break
-        elif player_choice == "p":
+        elif choice == "p":
             select_name()
             break
         else:
-            center_print("> Invalid input. Please try again.")
+            center_input(f'"{choice}" is an invalid input. Please try again.')
+            clear_terminal()
+            display_instructions_screen()
 
 
 def homescreen():
@@ -185,15 +191,15 @@ def homescreen():
     while True:
         center_print(LOGO)
         center_print(CASTLE)
-        player_choice = input()
-        if player_choice == "i":
+        choice = input().strip()
+        if choice == "i":
             display_instructions_screen()
             break
-        elif player_choice == "p":
+        elif choice == "p":
             select_name()
             break
         else:
-            player_choice = input("Invalid input. Please try again.")
+            center_input(f'"{choice}" is an invalid input. Please try again.')
             clear_terminal()
             homescreen()
 

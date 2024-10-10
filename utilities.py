@@ -25,8 +25,13 @@ def clear_terminal_in_game(player_character, player_name):
     """
     Clears the terminal while keeping character information visible
     """
-    player_info = f"Name: {player_name} | Class: {player_character.name} | {player_character.description()}\n"
-    health_item = f"Health: {player_character.health}hp | Item: {player_character.item}"
+    player_info = (
+        f"Name: {player_name} | Class: {player_character.name} | "
+        f"{player_character.description()}\n"
+    )
+    health_item = (
+        f"Health: {player_character.health}hp | Item: {player_character.item}"
+    )
 
     clear_terminal()
     center_print(player_info)

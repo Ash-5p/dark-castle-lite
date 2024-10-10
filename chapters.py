@@ -41,7 +41,7 @@ def chapter_1a(player_character, player_name, homescreen, base_stats):
 
     while True:
 
-        choice = input()
+        choice = input().strip()
 
         if choice == "y":
             if random.randrange(1,11) >= 5:
@@ -124,7 +124,7 @@ def chapter_2a(player_character, player_name, homescreen, base_stats):
 
     while True:
         center_print("Yes(y) / No(n)\n")
-        choice = input()
+        choice = input().strip()
 
         if choice == "y":
             if player_character.cunning >= 6: # Cunning skill check
@@ -413,7 +413,7 @@ def chapter_4a(player_character, player_name, homescreen, base_stats):
                 homescreen()
 
 
-            choice = input()
+            choice = input().strip()
             if choice == "m": # Might Check
                 if player_character.might >= 9:
                     center_input(
@@ -509,7 +509,7 @@ def chapter_5a(player_character, player_name, homescreen, base_stats):
     )
     center_print("Which room do you enter?\n")
     while True:
-        choice = input()
+        choice = input().strip()
         if choice == "a":
             boss_a(player_character, player_name, homescreen, base_stats)
             break
