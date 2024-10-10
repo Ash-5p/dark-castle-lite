@@ -28,7 +28,7 @@ def clear_terminal_in_game(player_character, player_name):
     player_info = f"Name: {player_name} | Class: {player_character.name} | {player_character.description()}\n"
     health_item = f"Health: {player_character.health}hp | Item: {player_character.item}"
 
-    print("\033c")
+    clear_terminal()
     center_print(player_info)
     center_print(health_item)
     center_print(

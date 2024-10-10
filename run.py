@@ -92,10 +92,14 @@ def run_game():
         while True:
             choice = input()
             if choice == str(a):
-                chapter_a(player_character, player_name, homescreen, base_stats)
+                chapter_a(
+                    player_character, player_name, homescreen, base_stats
+                )
                 break
             elif choice == str(b):
-                chapter_b(player_character, player_name, homescreen, base_stats)
+                chapter_b(
+                    player_character, player_name, homescreen, base_stats
+                )
                 break
             else:
                 center_print(f'You can\'t do "{choice}" right now!')
@@ -109,8 +113,8 @@ def run_game():
 
     # Chapter 2
     center_print(
-        "As you approch what looks like the end of the cell block you are met\n"
-        "with a fork in the road.\n"
+        "As you approch what looks like the end of the cell block you are "
+        "met with a fork in the road.\n"
     )
     center_print("Do you turn left(l) or right (r)?\n")
 
@@ -143,7 +147,7 @@ def run_game():
     # Chapter 5
     # Calls chapter 5a if player_character.mirror == True
     mirror = player_character.mirror
-    if mirror == False:
+    if mirror is False:
         chapter_5a(player_character, player_name, homescreen, base_stats)
     else:
         chapter_5b(player_character, player_name, homescreen, base_stats)
@@ -200,4 +204,6 @@ def homescreen():
             homescreen()
 
 
-homescreen()
+if __name__ == "__main__":
+    # initialise the application
+    homescreen()
