@@ -20,7 +20,10 @@ class Character:
         """
         Display character stats
         """
-        return f"Might: {self.might} | Wisdom: {self.wisdom} | Cunning: {self.cunning}"
+        return (
+            f"Might: {self.might} | Wisdom: {self.wisdom} | "
+            f"Cunning: {self.cunning}"
+        )
 
 
     def return_highest_stat(self):
@@ -86,14 +89,14 @@ ITEMS = {
     "Spiked Gloves": "Increases Might by 3 while held", 
     "Hooded Cloak": "Increases Cunning by 3 while held", 
     "Lexicon": "Increases Wisdom by 3 while held", 
-    "Apple": "Use in battle to restore +25hp (Consumed when used)", 
+    "Apple": "Use in battle to restore +25hp (Consumed when used) \n", 
     "Focusing Crystal": "Increase accuracy of attacks by 10%", 
     "Throwing Knife": (
-        "Use in battle to inflict 25 damage to current enemy\n"
-        "(Consumed when used)"
+        "Use in battle to inflict 15 damage to current enemy\n"
+        "(Consumed when used)\n"
     ),
     "Mirror Sphere": (
-        "Allows the guaranteed escape from combat. Is said to contain a power\n"
-        "only accessible to those in dire need. (Consumed when used)"
+        "Allows the guaranteed escape from combat. Is said to contain a power"
+        "only accessible to those in dire need. (Consumed when used)\n"
     )
     }
