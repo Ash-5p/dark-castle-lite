@@ -515,7 +515,58 @@ def chapter_5a(player_character, player_name, homescreen, base_stats):
 
 def chapter_5b(player_character, player_name, homescreen, base_stats):
     clear_terminal_in_game(player_character, player_name)
-    center_print("You fall")
+    center_input(
+        "You walk down a narrow hallway leading to a throne room. Halfway down"
+        " you stop familiar looking mirror (press enter to continue...)\n"
+    )
+    center_input(
+        "As you get closer, you notice that this time you can see your "
+        "reflection. You stop a few paces short of the mirror and look at your "
+        "reflection for a moment when suddenly...! (press enter to continue...)"
+        "\n"
+    )
+    center_input(
+        "Your reflection start to walk forward on its own! As it reaches the "
+        "surface of the mirror it passes through causing ripples as if "
+        "emerging from water. (press enter to continue...)\n"
+    )
+    center_input(
+        "The being, stops inches from your face and stares at you with a "
+        "sinister grin. Every detail of the sinister being is identical to "
+        "you, apart from its souless white eyes, devoid of any features!"
+        "(press enter to continue...)\n"
+    )
+    center_input(
+        "Without warning it lets out an inhuman scream and goes into a violent "
+        " frenzy! (press enter to continue...)\n"
+    )
+    center_print("You must defend yourself!\n")
+
+    center_input("Press enter to commence combat...")
+    
+    # Mirror clone enemy listed within chapter
+    clone_nature = player_character.return_highest_stat()
+    mirror_clone = Enemy(
+        f"Mirror {player_name}", 20, clone_nature, random.randrange(3,6), True
+    )
+
+    # Calls fight with mirror clone enemey
+    combat(
+        mirror_clone, player_character, player_name, homescreen, 
+        "Mirror Sphere", 11, base_stats
+    )
+
+    clear_terminal_in_game(player_character, player_name)
+
+    center_input(
+        "As you deliver the final blow to the clone, it shatters as if made of "
+        "glass! The mirror behind it also shatters, leaving a blank wooden "
+        "frame standing the hallway. (press enter to continue...)\n"
+    )
+    center_input(
+        "You walk past the frame and continue down the hallway "
+        "(press enter to continue...)\n"
+    )
 
     chapter_5a(player_character, player_name, homescreen, base_stats)
 
@@ -550,9 +601,74 @@ def boss_a(player_character, player_name, homescreen, base_stats):
 def boss_b(player_character, player_name, homescreen, base_stats):
     clear_terminal_in_game(player_character, player_name)
 
+    center_input(
+        "You enter a library of seemingly endless rows of bookshelves, all "
+        "bursting with ancient texts of knowledge lost to time "
+        "(press enter to continue...)\n" 
+    )
+    center_input(
+        "As you approch the center of the room you spot a pedestal sitting a "
+        "large, exquisite looking book, bound in leather, with an intricate "
+        "symbol on the front. (press enter to continue...)\n" 
+    )
+    center_input(
+        "As you reach out to open the first page you catch a moving shadow in "
+        "the corner of your eye, darting from one bookshelf to another!"
+        "(press enter to continue...)\n" 
+    )
+    center_input(
+        "Thinking it must have been a trick of the light you carry on opening "
+        "the book, when you catch another shadow moving again. Only this time "
+        "much closer. (press enter to continue...)\n" 
+    )
+    center_input(
+        "This time you keep your eyes fixed where you saw the movement, while "
+        "proceeding to open the book, when suddenly, the shadow emerges from "
+        "between the bookshelve and lunges at you! "
+        "(press enter to continue...)\n" 
+    )
+    center_input(
+        "It lands on stop of you, forcing you onto the ground. The creature is "
+        "proceeding to open the book, when suddenly, the shadow emerges from "
+        "between the bookshelve and lunges at you! "
+        "(press enter to continue...)\n" 
+    )
+    center_print("You must defend yourself!\n")
+
+    center_input("Press enter to commence combat...")
+        
+    combat(
+        protector, player_character, player_name, homescreen, "None", 0,
+        base_stats
+    )
+
 
 def boss_c(player_character, player_name, homescreen, base_stats):
     clear_terminal_in_game(player_character, player_name)
+
+    center_input(
+        "You enter the armory, which is brimming with an assortment of tools "
+        "all capable of ensuring a swift and bloody end to the wielders "
+        "enemies. (press enter to continue...)\n" 
+    )
+    center_input(
+        "Your attention is drawn to a suit of armor in the center of the room "
+        "which is holding an extravagant sliver blade. You reach out to grab "
+        "the sword. (press enter to continue...)\n" 
+    )
+    center_input(
+        "Suddenly you are forced to jump back as the suit of armor springs to "
+        "life, and swings the sword at you, narrowly missing your chest. In a "
+        "fenzy the suit of armor charges at you! (press enter to continue...)\n" 
+    )
+    center_print("You must defend yourself!\n")
+
+    center_input("Press enter to commence combat...")
+        
+    combat(
+        dragon, player_character, player_name, homescreen, "None", 0,
+        base_stats
+    )
 
 
 def ending_chapter(player_character, player_name, homescreen, base_stats):
@@ -573,4 +689,3 @@ def ending_chapter(player_character, player_name, homescreen, base_stats):
         f"{player_name}, you have escaped the dark castle. "
         "(press enter to continue...)"
     )
-

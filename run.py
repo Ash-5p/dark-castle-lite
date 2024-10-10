@@ -148,9 +148,6 @@ def run_game():
     else:
         chapter_5b(player_character, player_name, homescreen, base_stats)
 
-    # clone_nature = player_character.return_highest_stat()
-    # mirror_clone = Enemy(f"Mirror {player_name}", 20, clone_nature, random.randrange(3,6), True)  # noqa
-
     ending_chapter(player_character, player_name, homescreen, base_stats)
     homescreen()
 
