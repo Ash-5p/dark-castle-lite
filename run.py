@@ -162,12 +162,54 @@ def display_instructions_screen():
     """
     clear_terminal()
     while True:
-        center_print(HTP)
-        center_print("Play Game (p) | Back to main menu (h)")
-        center_print("Page 1 (1) | Page 2 (2) | Page 3 (3)")
-        center_print(
-        "_____________________________________________________________________"
-        "___________\n")
+        def page_1():
+            clear_terminal_instructions()
+            print("G̲E̲T̲T̲I̲N̲G̲ S̲T̲A̲R̲T̲E̲D̲\n")
+            print(
+                "Choose your name and select a character from one of the "
+                "three available choices: Fighter / Scholar / Thief. "
+                "Each character starts with 60hp and no item.\n"
+            )
+
+            print("C̲H̲A̲R̲A̲C̲T̲E̲R̲ N̲A̲T̲U̲R̲E̲S̲\n")
+
+            center_print(
+                "There are 3 natures within the game: Might / Wisdom / "
+                "Cunning. These natures determine how much damage is done in "
+                "combat, as well as the outcome of some of the scenarios you "
+                " will face.\n"
+            )
+
+            center_print("Fighter - (Might: 9| Wisdom: 6 | Cunning: 3)")
+            center_print("Scholar - (Might: 3| Wisdom: 9 | Cunning: 6)")
+            center_print(" Thief   - (Might: 6| Wisdom: 3 | Cunning: 9)\n")
+
+            print("Page 1 of 3")
+
+        def page_2():
+            clear_terminal_instructions()
+            print("C̲O̲M̲B̲A̲T̲\n")
+            print(
+                "Some decisions will result in combat "
+                "three available choices: Fighter / Scholar / Thief\n"
+            )
+
+            print("C̲H̲A̲R̲A̲C̲T̲E̲R̲ N̲A̲T̲U̲R̲E̲S̲\n")
+
+            center_print(
+                "There are 3 natures within the game: Might / Wisdom / "
+                "Cunning. These natures determine how much damage is done in "
+                "combat, as well as the outcome of some of the scenarios you "
+                " will face.\n"
+            )
+
+            center_print("Fighter - (Might: 9| Wisdom: 6 | Cunning: 3)")
+            center_print("Scholar - (Might: 3| Wisdom: 9 | Cunning: 6)")
+            center_print(" Thief   - (Might: 6| Wisdom: 3 | Cunning: 9)\n")
+
+            print("Page 1 of 3")
+
+        page_1()
         
         choice = input().strip()
 
@@ -177,6 +219,10 @@ def display_instructions_screen():
         elif choice == "p":
             select_name()
             break
+        elif choice == "1":
+            page_1()
+        elif choice == "2":
+            page_2()
         else:
             center_input(f'"{choice}" is an invalid input. Please try again.')
             clear_terminal()
