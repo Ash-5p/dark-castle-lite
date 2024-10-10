@@ -73,7 +73,7 @@ def select_character():
         except ValueError:
             center_print("Invalid input. Please enter a number.")
 
-    reset_stats(player_character)
+    player_character = base_stats
 
     center_input("Press enter button to start your journey...")
     run_game()
@@ -154,12 +154,6 @@ def run_game():
 
     ending_chapter(player_character, player_name, homescreen, base_stats)
     homescreen()
-
-
-def reset_stats(player_character):
-    player_character.health = 60
-    player_character.item = "None"
-    player_character.mirror = False
 
 
 def display_instructions_screen():

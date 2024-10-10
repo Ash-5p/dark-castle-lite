@@ -50,6 +50,17 @@ def defeat(
                     print(f'You can\'t do "{choice}" right now')
 
 
+def death_outside_combat(player_character, player_name, homescreen):
+        player_character.health -= 1
+        player_character.health = max(player_character.health, 0)
+
+        if player_character.health == 0:
+            clear_terminal_in_game(player_character, player_name)
+            center_print(f"You have perished! Rest in peace {player_name}\n")
+            center_input("Press enter to return to main menu...")
+            homescreen()
+
+
 def combat(
     current_enemy, player_character, player_name, homescreen_callback, 
     dropped_item, drop_odds, base_stats

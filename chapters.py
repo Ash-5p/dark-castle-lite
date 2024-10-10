@@ -171,15 +171,18 @@ def chapter_2b(player_character, player_name, homescreen, base_stats):
     """
     clear_terminal_in_game(player_character, player_name)
           
-    center_print(
+    center_input(
         "Walking down a narrow corridor you feel something whistle past your "
-        "ear, catching your\nlobe. (You lose 1hp). You turn around to see a "
-        "hooded figure fleeing. You look at the\nground in front of you and "
-        "spot the projectile that was thrown at you.\n"
+        "ear, catching your\nlobe. (You lose 1hp). "
+        "(press enter to continue...)\n" 
     )
-
-    player_character.health -= 1
-
+            
+    death_outside_combat(player_character, player_name, homescreen)      
+    center_input(
+        "You turn around to see a hooded figure fleeing. You look at the "
+        "ground in front of you and spot the projectile that was thrown at"
+        " you. (press enter to continue...)\n"
+)
     item_choice(player_character, base_stats, "Throwing Knife")
 
 
