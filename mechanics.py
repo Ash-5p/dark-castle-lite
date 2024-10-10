@@ -94,20 +94,36 @@ def combat(
             run_chance = random.randrange(1,11)  
 
             if combat_choice == "l":
-                # Handle damage and hit chande of light attack
-                player_character.health = attack(
-                    current_enemy, player_character, 9, 1.5
-                )
-                input()
-                show_combat_details()
+                if player_character.item == "Focusing Crystal":
+                    # Handle damage and hit chande of light attack with 
+                    # focusing crystal item.
+                    player_character.health = attack(
+                        current_enemy, player_character, 11, 1.5
+                    )
+                    input()
+                    show_combat_details()
+                else:
+                    # Handle damage and hit chande of light attack
+                    player_character.health = attack(
+                        current_enemy, player_character, 10, 1.5
+                    )
+                    input()
+                    show_combat_details()
 
             elif combat_choice == "h":
-                # Handle damage and hit chande of heavy attack
-                player_character.health = attack(
-                    current_enemy, player_character, 5, 3
-                )
-                input()
-                show_combat_details()
+                if player_character.item == "Focusing Crystal":
+                    player_character.health = attack(
+                        current_enemy, player_character, 7, 3
+                    )
+                    input()
+                    show_combat_details()
+                else:
+                    # Handle damage and hit chande of heavy attack
+                    player_character.health = attack(
+                        current_enemy, player_character, 6, 3
+                    )
+                    input()
+                    show_combat_details()
 
                 # Handles whe player presses (i) to check item
             elif combat_choice == "i":
@@ -279,7 +295,7 @@ def item_choice(player_character, base_stats, item):
             
         else:
             center_print(f'You can\'t do "{choice}" right now')
-            
+
 
 ############### Not yet functional ######################
 def item_buff(player_character):

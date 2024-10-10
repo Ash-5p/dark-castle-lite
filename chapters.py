@@ -25,37 +25,40 @@ def chapter_1a(player_character, player_name, homescreen, base_stats):
     Chapter 1a - Called by run_game() when player chooses to leave their cell
     """
     clear_terminal_in_game(player_character, player_name)
-    center_print(
+    center_input(
         "You push the door, which opens with a loud creak. You emerge in a "
         "long corridor \nlined with cell blocks like the one you just left. "
         "You notice what looks to be an \nunconscious guard clad in chainmail, "
-        "laying still on the floor.\n"
+        "laying still on the floor. (press enter to continue...)\n"
     )
 
-    center_print(
+    center_input(
         "Not knowing what you will face, you toy with the idea of taking the "
-        "chainmail for\nyourself\n"
+        "chainmail for yourself. (press enter to continue...)\n"
     )
+
+    center_print("Do you attempt to take the chainmail? Yes(y) / No(n)\n")
 
     while True:
 
-        choice = input("Do you attempt to take the chainmail? Yes(y) / No(n)\n")
+        choice = input()
 
         if choice == "y":
             if random.randrange(1,11) >= 5:
                 center_print(
                     "You manage to remove the Chainmail from the unconcious "
-                    "guard without waking him"
+                    "guard without waking him. (press enter to continue...)"
                 )
                 player_character.item = "Chainmail"
                 input()
                 break
             else:
-                center_print(
+                center_input(
                     "As you attempt to remove the guards armor he begins to "
-                    "stir, suddenly springing to his \nfeet with an enraged "
-                    "look on his face. You attempt to reason with him, but your"
-                    " words \nfall on deaf ears\n"
+                    "stir, suddenly springing to his feet with an enraged "
+                    "look on his face. You attempt to reason with him, but "
+                    "your words fall on deaf ears. (press enter to "
+                    "continue...)\n"
                 )
 
                 center_print("You must defend yourself!")
@@ -68,8 +71,9 @@ def chapter_1a(player_character, player_name, homescreen, base_stats):
                 )
                 break
         elif choice == "n":
-            center_print(
-                "You sneak past the guard, being carful not to wake him"
+            center_input(
+                "You sneak past the guard, being carful not to wake him. "
+                "(press enter to continue...)"
             )
             break
         else:
@@ -98,7 +102,7 @@ def chapter_1b(player_character, player_name, homescreen, base_stats):
     center_input("Press enter to commence combat...")
 
     combat(
-        guard, player_character, player_name, homescreen, "Chainmail", 11, 
+        guard, player_character, player_name, homescreen, "Apple", 11, 
         base_stats
     )
 
@@ -271,7 +275,6 @@ def chapter_3a(player_character, player_name, homescreen, base_stats):
                     'their hearts... This was your first and only warning."'
                 )
                 player_character.item = "None"
-                player_character.health -= 5
                 input("You loose 5hp and your item was destroyed.")
                 death_outside_combat(
                     player_character, player_name, homescreen, 5
@@ -346,7 +349,7 @@ def chapter_4a(player_character, player_name, homescreen, base_stats):
     input()
     
     # Will be determined by a formula (cunning_check)
-    if player_character.cunning == 9:
+    if player_character.cunning >= 9:
         center_print(
             "You dash accross the room, nimbly avoiding the jutting up peices "
             "of cobblestone\nfloor. You manage to slip through the remaining "
@@ -412,7 +415,7 @@ def chapter_4a(player_character, player_name, homescreen, base_stats):
 
             choice = input()
             if choice == "m": # Might Check
-                if player_character.might == 9:
+                if player_character.might >= 9:
                     center_input(
                         "You force your weight against the huge slab blocking "
                         "your path. Years of\nhoning your strength pays off as "
@@ -437,7 +440,7 @@ def chapter_4a(player_character, player_name, homescreen, base_stats):
                     chapter_4a_death()
                     
             elif choice == "w": # Wisdom check
-                if player_character.wisdom == 9:
+                if player_character.wisdom >= 9:
                     center_input(
                         "You methodically look for any levers or switches that "
                         "may lead to an\nescape. Your methodical approche pays "
@@ -476,7 +479,7 @@ def chapter_4b(player_character, player_name, homescreen, base_stats):
         "hidden chute, sliding into the darkness! "
         "(press enter to continue...)\n"
     )
-    if player_character.cunning >= 7:  # Cunning check for avoiding damage
+    if player_character.cunning >= 6:  # Cunning check for avoiding damage
         center_input(
             "With quick reflexes, you manage to control your fall, avoiding any"
             " serious injury as you land at the bottom."

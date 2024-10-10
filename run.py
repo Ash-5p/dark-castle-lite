@@ -64,7 +64,7 @@ def select_character():
             if 1 <= choice <= len(characters):
                 player_character = characters[choice - 1]
                 base_stats = copy.deepcopy(characters[choice - 1])
-                center_print(f"You have selected: {player_character.name}")
+                center_print(f"You have selected: {player_character.name}\n")
                 break
             else:
                 center_print(
