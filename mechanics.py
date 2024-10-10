@@ -156,8 +156,8 @@ def combat(
         defeat(current_enemy, player_name, player_character, 
             homescreen_callback, dropped_item, drop_odds, base_stats
         )
-    except EscapeCombat:
-        center_input("You successfully escaped the combat!")
+    except EscapeCombat: # Handles escape when using Mirror Sphere
+        center_input("You successfully escape while the enemy is blinded!")
 
 
 def attack(current_enemy, player_character, accuracy, damage_mult):
@@ -191,7 +191,11 @@ def attack(current_enemy, player_character, accuracy, damage_mult):
 
         if enemy_hit_chance < 8:  # Enemy attack logic
             # Damaged recieved is determined by resistant stat
-            player_character.health -= damage_taken_formula
+            if player_character.item == "Chainmail": 
+                # Damage reduction buff from Chainmal item
+                player_character.health -= (damage_taken_formula - 2)
+            else:
+                player_character.health -= damage_taken_formula
             # Prevent health from dropping below 0
             player_character.health = max(player_character.health, 0)
             print(
