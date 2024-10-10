@@ -160,14 +160,12 @@ def display_instructions_screen():
     """
     Displays instructions screen
     """
-    clear_terminal()
-    while True:
-        def page_1():
+    def page_1():
             clear_terminal_instructions()
             print("G̲E̲T̲T̲I̲N̲G̲ S̲T̲A̲R̲T̲E̲D̲\n")
             print(
                 "Choose your name and select a character from one of the "
-                "three available choices: Fighter / Scholar / Thief. "
+                "3 available choices: Fighter / Scholar / Thief. "
                 "Each character starts with 60hp and no item.\n"
             )
 
@@ -186,30 +184,49 @@ def display_instructions_screen():
 
             print("Page 1 of 3")
 
-        def page_2():
-            clear_terminal_instructions()
-            print("C̲O̲M̲B̲A̲T̲\n")
-            print(
-                "Some decisions will result in combat "
-                "three available choices: Fighter / Scholar / Thief\n"
-            )
+    def page_2():
+        clear_terminal_instructions()
+        print("C̲O̲M̲B̲A̲T̲\n")
+        print(
+            "Some decisions will result in combat. During combat you will be "
+            "presented with the following options (shown below):\n"
+        )
+        print("Enemy Health: 50hp      <--  Current enemies health")
+        print("What will you do?\n")
+        print("(l) Light Attack        <--  Perform a Light Attack")
+        print("(h) Heavy Attack        <--  Perform a Heavy Attack")
+        print("(i) Item                <--  View/Use Current Item")
+        print("(r) Run                 <--  Attempt to Run from Combat\n") 
 
-            print("C̲H̲A̲R̲A̲C̲T̲E̲R̲ N̲A̲T̲U̲R̲E̲S̲\n")
+        print("Page 2 of 3")
 
-            center_print(
-                "There are 3 natures within the game: Might / Wisdom / "
-                "Cunning. These natures determine how much damage is done in "
-                "combat, as well as the outcome of some of the scenarios you "
-                " will face.\n"
-            )
+    def page_3():
+        clear_terminal_instructions()
+        print("C̲O̲M̲B̲A̲T̲\n")
+        print(
+            "Some decisions will result in combat "
+            "three available choices: Fighter / Scholar / Thief\n"
+        )
 
-            center_print("Fighter - (Might: 9| Wisdom: 6 | Cunning: 3)")
-            center_print("Scholar - (Might: 3| Wisdom: 9 | Cunning: 6)")
-            center_print(" Thief   - (Might: 6| Wisdom: 3 | Cunning: 9)\n")
+        print("C̲H̲A̲R̲A̲C̲T̲E̲R̲ N̲A̲T̲U̲R̲E̲S̲\n")
 
-            print("Page 1 of 3")
+        center_print(
+            "There are 3 natures within the game: Might / Wisdom / "
+            "Cunning. These natures determine how much damage is done in "
+            "combat, as well as the outcome of some of the scenarios you "
+            " will face.\n"
+        )
 
-        page_1()
+        center_print("Fighter - (Might: 9| Wisdom: 6 | Cunning: 3)")
+        center_print("Scholar - (Might: 3| Wisdom: 9 | Cunning: 6)")
+        center_print(" Thief   - (Might: 6| Wisdom: 3 | Cunning: 9)\n")
+
+        print("Page 3 of 3")
+
+    page_1()
+    current_page = 1 # Used to save current page upon clear_terminal()
+
+    while True:      
         
         choice = input().strip()
 
@@ -221,12 +238,20 @@ def display_instructions_screen():
             break
         elif choice == "1":
             page_1()
+            current_page = 1
         elif choice == "2":
             page_2()
+            current_page = 2
+        elif choice == "3":
+            page_3() 
+            current_page = 3
         else:
+            print(current_page)
             center_input(f'"{choice}" is an invalid input. Please try again.')
-            clear_terminal()
-            display_instructions_screen()
+            (  # Makes clear_terminal_instructions() show current page
+                page_1() if current_page == 1 else page_2() 
+                if current_page == 2 else page_3()
+            )
 
 
 def homescreen():
