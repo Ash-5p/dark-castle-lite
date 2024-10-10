@@ -657,19 +657,34 @@ def boss_c(player_character, player_name, homescreen, base_stats):
     clear_terminal_in_game(player_character, player_name)
 
     center_input(
-        "You enter the armory, which is brimming with an assortment of tools "
-        "all capable of ensuring a swift and bloody end to the wielders "
-        "enemies. (press enter to continue...)\n" 
+        "You enter a room full of mountains of gold, silver and jewels. "
+        "There looks to be enough to buy a large country!"
+        "(press enter to continue...)\n" 
     )
     center_input(
-        "Your attention is drawn to a suit of armor in the center of the room "
-        "which is holding an extravagant sliver blade. You reach out to grab "
-        "the sword. (press enter to continue...)\n" 
+        "You walk beteen the large piles of treasure, running your hand over "
+        "the coins, listening to them clink against each other. As you walk"
+        "around one pile of gold, you see a large open chest in front of an "
+        "impossibly large mountain of gold coins."
+        "(press enter to continue...)\n" 
     )
     center_input(
-        "Suddenly you are forced to jump back as the suit of armor springs to "
-        "life, and swings the sword at you, narrowly missing your chest. In a "
-        "fenzy the suit of armor charges at you! (press enter to continue...)\n" 
+        "You approch the chest, and looking inside you see a magnificent "
+        "diamond, the size of your head! (press enter to continue...)\n" 
+    )
+    center_input(
+        "As you reach into the chest to pick up the diamond, the mountain of "
+        "gold coins in front of you begins to shift causing coins to spill "
+        "down the sides of the pile (press enter to continue...)\n" 
+    )
+    center_input(
+        "Suddenly a ginormous scaley head bursts out of the pile of gold, "
+        "followed by a long neck and two enormous wings! "
+        "(press enter to continue...)\n" 
+    )
+    center_input(
+        "The creature roars and spouts scorching flames into the air before "
+        "swinging a large tail towards you! (press enter to continue...)\n" 
     )
     center_print("You must defend yourself!\n")
 
