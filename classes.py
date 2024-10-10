@@ -39,7 +39,7 @@ class Character:
             return "Cunning"
 
 
-fighter = Character("Fighter", 1, 9, 6, 3, "None", False)
+fighter = Character("Fighter", 60, 9, 6, 3, "None", False)
 scholar = Character("Scholar", 60, 3, 9, 6, "None", False)
 thief = Character("Thief", 60, 6, 3, 9, "None", False)
 

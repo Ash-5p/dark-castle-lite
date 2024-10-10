@@ -50,8 +50,8 @@ def defeat(
                     print(f'You can\'t do "{choice}" right now')
 
 
-def death_outside_combat(player_character, player_name, homescreen):
-        player_character.health -= 1
+def death_outside_combat(player_character, player_name, homescreen, damage):
+        player_character.health -= damage
         player_character.health = max(player_character.health, 0)
 
         if player_character.health == 0:
@@ -264,18 +264,22 @@ def item_choice(player_character, base_stats, item):
     """
     center_print(f"Do you pick up the {item}?\n")
     center_print("Yes(y) / No(n) (Replaces current item)")
-    choice = input()
-    if choice == "y":
-        player_character.item = item
-        stat_reset(player_character, base_stats)
-        item_buff(player_character)
-        print(f"You pick up the {item}")
-        
-    elif choice == "n":
-        print(f"You left the {item} behind.")
-        
-    else:
-        print(f'You can\'t do "{choice}" right now')
+    while True:
+        choice = input()
+        if choice == "y":
+            player_character.item = item
+            stat_reset(player_character, base_stats)
+            item_buff(player_character)
+            center_input(f"You pick up the {item}")
+            break
+            
+        elif choice == "n":
+            center_input(f"You left the {item} behind.")
+            break
+            
+        else:
+            center_print(f'You can\'t do "{choice}" right now')
+            
 
 ############### Not yet functional ######################
 def item_buff(player_character):

@@ -177,7 +177,7 @@ def chapter_2b(player_character, player_name, homescreen, base_stats):
         "(press enter to continue...)\n" 
     )
             
-    death_outside_combat(player_character, player_name, homescreen)      
+    death_outside_combat(player_character, player_name, homescreen, 1)
     center_input(
         "You turn around to see a hooded figure fleeing. You look at the "
         "ground in front of you and spot the projectile that was thrown at"
@@ -273,6 +273,9 @@ def chapter_3a(player_character, player_name, homescreen, base_stats):
                 player_character.item = "None"
                 player_character.health -= 5
                 input("You loose 5hp and your item was destroyed.")
+                death_outside_combat(
+                    player_character, player_name, homescreen, 5
+                )
                 break
 
         elif choice == "n":
@@ -485,9 +488,9 @@ def chapter_4b(player_character, player_name, homescreen, base_stats):
             "impact.\n"
         )
         # Deduct health for failing the skill check
-        player_character.health -= 5
-        player_character.health = max(player_character.health, 0)
         center_input(f"You lose 5hp.\n")
+        death_outside_combat(player_character, player_name, homescreen, 5)
+
 
 
 def chapter_5a(player_character, player_name, homescreen, base_stats):
