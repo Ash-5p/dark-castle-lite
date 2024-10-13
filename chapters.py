@@ -72,8 +72,8 @@ def chapter_1a(player_character, player_name, homescreen, base_stats):
                 break
         elif choice == "n":
             center_input(
-                "You sneak past the guard, being carful not to wake him. "
-                "(press enter to continue...)"
+                "You sneak past the guard, being careful not to wake him.\n"
+                "(Press enter to continue...)"
             )
             break
         else:
@@ -113,10 +113,11 @@ def chapter_2a(player_character, player_name, homescreen, base_stats):
                  fork in the road
     """
     clear_terminal_in_game(player_character, player_name)
-    center_print(
-        "As you walk the winding hallway you find yourself following what looks"
-        "to be an\nold water irrigation system. It's no longer functional due"
-        "to decades\nworth of compacted sludge.\n"
+    center_input(
+        "As you walk the winding hallway you find yourself following what "
+        "looks to be an\nold water irrigation system. It's no longer "
+        "functional due to decades worth\nof compacted sludge. "
+        "(Press enter to continue...)\n"
     )
             
     center_print("You notice something sparkle within the mud filled channel")
@@ -138,18 +139,20 @@ def chapter_2a(player_character, player_name, homescreen, base_stats):
                 break
 
             else:     
-                center_print(
+                center_input(
                     "As you attempt to free the object, something reaches out "
-                    "of the sludge and grabs your \nhand. You pull your hand "
-                    "away quickly, but lose sight of the shining object. The "
-                    "hand,\n which appears to be made of the same compacted "
-                    "sludge from which it emerged, continues \n to rise out of "
-                    "the channel. The mass of sewage starts to morph into a "
-                    "crude \nimpersonation of a person.\n"
+                    "of the sludge and\ngrabs your hand. You pull your hand "
+                    "away quickly, but lose sight of the shining\nobject. The "
+                    "hand, which appears to be made of the same compacted "
+                    "sludge\nfrom which it emerged, continues to rise out of "
+                    "the channel. The mass of sewage\nstarts to morph into a "
+                    "crude impersonation of a person.\n"
+                    "(Press enter to continue...)\n"
                 )
 
                 center_print(
-                    "The creature lets out a gargling roar and lunges for you!"
+                    "The creature lets out a gargling roar and lunges for "
+                    "you!\n"
                 )
 
                 center_print("You must defend yourself!")
@@ -177,15 +180,15 @@ def chapter_2b(player_character, player_name, homescreen, base_stats):
           
     center_input(
         "Walking down a narrow corridor you feel something whistle past your "
-        "ear, catching your\nlobe. (You lose 1hp). "
-        "(press enter to continue...)\n" 
+        "ear,\ncatching your lobe. (You lose 1hp).\n"
+        "(Press enter to continue...)\n" 
     )
             
     death_outside_combat(player_character, player_name, homescreen, 1)
     center_input(
         "You turn around to see a hooded figure fleeing. You look at the "
-        "ground in front of you and spot the projectile that was thrown at"
-        " you. (press enter to continue...)\n"
+        "ground in front\nof you and spot the projectile that was thrown at"
+        " you.\n(Press enter to continue...)\n"
 )
     item_choice(player_character, base_stats, "Throwing Knife")
 

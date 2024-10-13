@@ -130,8 +130,8 @@ def run_game():
 
     # Chapter 2
     center_print(
-        "As you approch what looks like the end of the cell block you are "
-        "met with a fork in the road.\n"
+        "As you approach what looks like the end of the cell block you are "
+        "met with\na fork in the road.\n"
     )
     center_print("Do you turn left(l) or right (r)?\n")
 
