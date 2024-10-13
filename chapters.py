@@ -11,9 +11,9 @@ def intro_chapter(player_character, player_name):
     clear_terminal_in_game(player_character, player_name)
     center_print(
         "You awaken and find yourself in a empty, dark room with stone walls. "
-        "You look up to a small window with iron bars in the far corner of "
-        "the room. As your eyes trace the beams of moonlight peering into "
-        "the room between the bars, you notice a thick wooden door which "
+        "You look\nup to a small window with iron bars in the far corner of "
+        "the room. As your eyes\ntrace the beams of moonlight peering into "
+        "the room between the bars, you notice\na thick wooden door which "
         "appears to be open ajar.\n"
     )
 
@@ -27,14 +27,14 @@ def chapter_1a(player_character, player_name, homescreen, base_stats):
     clear_terminal_in_game(player_character, player_name)
     center_input(
         "You push the door, which opens with a loud creak. You emerge in a "
-        "long corridor \nlined with cell blocks like the one you just left. "
-        "You notice what looks to be an \nunconscious guard clad in chainmail, "
-        "laying still on the floor. (press enter to continue...)\n"
+        "long corridor\nlined with cell blocks like the one you just left. "
+        "You notice what looks to\nbe an unconscious guard clad in chainmail, "
+        "laying still on the floor.\n(Press enter to continue...)\n"
     )
 
     center_input(
         "Not knowing what you will face, you toy with the idea of taking the "
-        "chainmail for yourself. (press enter to continue...)\n"
+        "chainmail\nfor yourself. (Press enter to continue...)\n"
     )
 
     center_print("Do you attempt to take the chainmail? Yes(y) / No(n)\n")
@@ -47,7 +47,7 @@ def chapter_1a(player_character, player_name, homescreen, base_stats):
             if random.randrange(1,11) >= 5:
                 center_print(
                     "You manage to remove the Chainmail from the unconcious "
-                    "guard without waking him. (press enter to continue...)"
+                    "guard without waking\nhim. (Press enter to continue...)"
                 )
                 player_character.item = "Chainmail"
                 input()
@@ -55,9 +55,9 @@ def chapter_1a(player_character, player_name, homescreen, base_stats):
             else:
                 center_input(
                     "As you attempt to remove the guards armor he begins to "
-                    "stir, suddenly springing to his feet with an enraged "
-                    "look on his face. You attempt to reason with him, but "
-                    "your words fall on deaf ears. (press enter to "
+                    "stir, suddenly springing\nto his feet with an enraged "
+                    "look on his face. You attempt to reason with him,\nbut "
+                    "your words fall on deaf ears. (Press enter to "
                     "continue...)\n"
                 )
 
@@ -85,16 +85,16 @@ def chapter_1b(player_character, player_name, homescreen, base_stats):
     Chapter 1b - Called by run_game() when player chooses to wait in their cell
     """
     clear_terminal_in_game(player_character, player_name)
-    center_print(
+    center_input(
         "You wait in your cell, pondering how you woke up here. Suddenly, you "
-        "hear a metal \nclattering sound, followed by a loud creak and bang as "
-        "your cell door slams open \n"
+        "hear a\nmetal clattering sound, followed by a loud creak and bang as "
+        "your cell door\nslams open. (Press enter to continue...)\n"
     )
         
-    center_print(
+    center_input(
         "An enraged, dazed looking guard, clad in chainmail stands blocking "
-        "the doorway. You \nattempt to reason with him, but your words fall on "
-        "deaf ears\n"
+        "the doorway.\nYou attempt to reason with him, but your words fall on "
+        "deaf ears.\n(Press enter to continue...)\n"
     )
 
     center_print("You must defend yourself!")
