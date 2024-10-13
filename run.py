@@ -19,7 +19,10 @@ def select_name():
         player_name = input().strip()
 
         if len(player_name) == 0:  # Checks if input is empty
-            center_print("Character name must contain at least 1 character.\n")
+            center_print(
+                "Character name must contain at least 1 character."
+            )
+            center_print("Press enter, then please try again.")
             input()
             clear_terminal()
             select_name()
@@ -27,10 +30,22 @@ def select_name():
         # Check for names longer than 15 characters
         elif len(player_name) > 15:
             center_print(
-                "Character name cannot be more than 15 characters long.")
+                "Character name cannot be more than 15 characters long."
+            )
+            center_print("Press enter, then please try again.")
             input()
             clear_terminal()
             select_name()
+
+        # Check for non-alphanumeric characters
+        elif not player_name.isalnum():
+            center_print(
+                "Character name can only contain letters and numbers."
+            )
+            center_print("Press enter, then please try again.")
+            input()
+            clear_terminal()
+            continue  # Re-prompt the user
 
         else:
             clear_terminal()
@@ -71,7 +86,9 @@ def select_character():
                     f"Please enter a number between 1 and {len(characters)}."
                 )
         except ValueError:
-            center_print("Invalid input. Please enter a number.")
+            center_print(
+                "Invalid input. Please enter a number."
+            )
 
     player_character = base_stats
 
@@ -221,10 +238,9 @@ def display_instructions_screen():
             "player to use item if consumable.\n"
         )
         print(
-            "        𝗥𝘂𝗻  - Attempt to run from combat (25% Success chance). "
-        "Failed attempt\n               results in health penalty.\n"
-        "               (Enemy will not drop "
-        "item on successful run attempt.)\n"
+            "        𝗥𝘂𝗻  - Attempt to run from combat. "
+        "Failed attempt results in health\n               penalty. "
+        "(Enemy will not drop item on successful run attempt.)\n"
         )
 
         print("Page 3 of 5")
@@ -236,21 +252,21 @@ def display_instructions_screen():
         
         print(
             "Items will sometimes be aquired through certain scenarios "
-            "throughout the game. Most defeated enemies will have a chance of "
-            "dropping an item. You will always be prompted with a yes or no "
-            "choice before an item is added to your inventory. Only one item "
-            "can be held at one time, so picking up a new one will replace "
+            "throughout the game.\nMost defeated enemies will have a chance of "
+            "dropping an item. You will always\nbe prompted with a yes or no "
+            "choice before an item is added to your inventory.\nOnly one item "
+            "can be held at one time, so picking up a new one will replace\n"
             "your current item.\n"
         )
 
         print(
-            'Some items have passive effects while being held. Others have to '
-            'be used during combat (consumable items).\n')
+            "Some items have passive effects while being held. Others have to "
+            "be used during\ncombat (consumable items).\n")
 
         print(
             'To view the description of your current item, choose the "Item" '
-            'option in combat. If the item is consumable, you will be '
-            'prompted to use the item.\n')
+            'option in\ncombat. If the item is consumable, you will be '
+            'prompted to use the item.\n\n')
 
         print("Page 4 of 5")
 
@@ -259,18 +275,18 @@ def display_instructions_screen():
         print("N̲A̲T̲U̲R̲E̲ M̲A̲T̲C̲H̲-̲U̲P̲S̲\n")
         
         print(
-            " Each nature has a corrisponding nature that it is strong "
-            "against and one it is weak against:\n"
+            "Each nature has a corrisponding nature that it is strong "
+            "against and one\nit is weak against:\n"
         )
 
-        center_print("Might > Cunning > Wisdom > Might\n")
+        center_print("Might > Cunning > Wisdom > Might\n\n")
 
         print(
             "When fighting an enemy, the stat that is strong against the "
-            "enemy's nature will be the one used in damage calculations. "
-            "For example, whne fighting an enemy with the Might nature, the "
-            "players Wisdom stat will be use to determine both damage dealt, "
-            "and damage taken.\n"
+            "enemy's nature\nwill be the one used in damage calculations. "
+            "For example, when fighting an\nenemy with the Might nature, the "
+            "players Wisdom stat will be use to determine\nboth damage dealt, "
+            "and damage taken.\n\n\n"
         )
 
         print("Page 5 of 5")
@@ -306,7 +322,10 @@ def display_instructions_screen():
             current_page = 5
         else:
             print(current_page)
-            center_input(f'"{choice}" is an invalid input. Please try again.')
+            center_input(
+                f'"{choice}" is an invalid input. Press enter, then '
+                'please try again.'
+            )
             (  # Makes clear_terminal_instructions() show current page
                 page_1() if current_page == 1 else page_2() 
                 if current_page == 2 else page_3() if current_page == 3 else 
@@ -330,7 +349,10 @@ def homescreen():
             select_name()
             break
         else:
-            center_input(f'"{choice}" is an invalid input. Please try again.')
+            center_input(
+                f'"{choice}" is an invalid input. Press enter, then '
+                'please try again.'
+            )
             clear_terminal()
             homescreen()
 
