@@ -4,8 +4,10 @@ from classes import ITEMS
 from utilities import *
 
 global random_item
-random_item = random.choice(list(ITEMS.keys()))
+filtered_items = [item for item in ITEMS if item != "Mirror Sphere"]
+random_item = random.choice(filtered_items)
 
+# Class used to break combat loop when using Mirror Sphere item
 class EscapeCombat(Exception):
     pass
 
