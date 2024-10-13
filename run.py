@@ -150,8 +150,8 @@ def run_game():
     # Chapter 4
     center_print(
         "You finally reach the end of a seemingly endless corridor, where"
-        "you are met \n with a large metal door and a narrow passageway on"
-        "your right\n"
+        "you are met\nwith a large metal door and a narrow passageway on "
+        "your right.\n"
     )
 
     center_print(

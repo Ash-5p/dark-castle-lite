@@ -199,51 +199,53 @@ def chapter_3a(player_character, player_name, homescreen, base_stats):
     """
     clear_terminal_in_game(player_character, player_name)
           
-    center_print(
+    center_input(
         "You enter a large circular room. The only light source is a beam of "
-        "moonlight which\nshines through a large well-like hole in the center "
-        "of the ceiling, illuminating a \nsingle mirror in the middle of the "
-        "room.\n"
+        "moonlight\nwhich shines through a large well-like hole in the center "
+        "of the ceiling,\nilluminating a single mirror in the middle of the "
+        "room.\n(Press enter to continue...)\n"
     )
     
-    center_print(
+    center_input(
         "You approach the mirror to inspect it more closely, and notice that "
-        "the surface of the\nmirror looks to be moving around like a viscous "
-        "liquid. You are taken back by sudden\nrealization that you appear to "
-        "have no reflection!\n"
+        "the surface\nof the mirror looks to be moving around like a viscous "
+        "liquid. You are taken\nback by sudden realization that you appear to "
+        "have no reflection!\n(Press enter to continue...)\n"
     )
 
     center_print(
         "Though startled, you feel compelled to touch the mirrors surface\n"
     )
     center_print("Do you touch the mirror?\n")
+    center_print("Yes(y) / No(n)\n")
 
     while True:
-        choice = input("Yes(y) / No(n)\n")
+        choice = input()
 
         if choice == "y":
             clear_terminal_in_game(player_character, player_name)
                     
-            center_print(
+            center_input(
                 "As your finger comes into contact with the mirror, the surface"
-                " breaks like water \nand begins to wrap intself around your "
-                "arm in a slithering, tentacle-like fashion.\nBefore you can "
-                "even attempt to struggle, you are enveloped in a living "
-                "silver goo.\n"
+                " breaks like\nwater and begins to wrap intself around your "
+                "arm in a slithering, tentacle-like\nfashion. Before you can "
+                "even attempt to struggle, you are enveloped in a living\n"
+                "silver goo. (Press enter to continue...)\n"
             )
 
-            center_print(
-                "Unable to see or move, you feel that this is the end..."
+            center_input(
+                "Unable to see or move, you feel that this is the end...\n"
+                "(Press enter to continue...)\n"
             )
-            input()
 
             if player_character.item == "None":
                       
-                center_print(
+                center_input(
                     "When suddenly the goo loosens it's grip on you and begins "
-                    "to melt away, as if dissolving.\nWhen all the goo has "
-                    "dissipated, you are left facing the blank wooden frame "
-                    "where the\nmirror once attached itself.\n"
+                    "to melt away, as if\ndissolving. When all the goo has "
+                    "dissipated, you are left facing the blank\nwooden frame "
+                    "where the mirror once attached itself.\n"
+                    "(Press enter to continue...)\n"
                 )
 
                 center_print(
@@ -252,33 +254,37 @@ def chapter_3a(player_character, player_name, homescreen, base_stats):
                 )
 
                 center_print(
-                    "You here a hear a faint whisper, as if carried on"
+                    "There is a faint whisper, as if carried on"
                     " the wind...\n"
                 )
-                input()
+                center_input("(Press enter to continue...)\n")
 
                 center_print('"Those abscent of greed are rewarded..."')
+                center_print("(Mirror Sphere aquired!)\n")
+                center_input("(Press enter to continue...)")
                 player_character.item = "Mirror Sphere"
-                input()
                 break
             else:
                 clear_terminal_in_game(player_character, player_name)
                         
-                center_print(
+                center_input(
                     "The mass of goo constricts tightly. You hear the "
-                    f"{player_character.item} in your\npocket break. The goo "
-                    "tosses you aside and slithers back to the empty wooden\n"
+                    f"{player_character.item}\nin your pocket break. The goo "
+                    "tosses you aside and slithers back to the\nempty wooden "
                     "frame in the middle of the room. As the amorphous silver "
-                    "blob mounts itself onto\nthe frame you here a faint "
-                    "whisper, as if carried on the wind...\n"
+                    "blob\nmounts itself onto the frame you here a faint "
+                    "whisper, as if carried on\nthe wind... "
+                    "(Press enter to continue...)\n"
                 )
 
-                center_print(
+                center_input(
                     '"No aid shall be given to those with greed in '
-                    'their hearts... This was your first and only warning."'
+                    'their hearts... This was your\nfirst and only warning." '
+                    '(Press enter to continue...)\n'
                 )
                 player_character.item = "None"
-                input("You loose 5hp and your item was destroyed.")
+                center_print("You loose 5hp and your item was destroyed.\n")
+                center_input("(Press enter to continue...)")
                 death_outside_combat(
                     player_character, player_name, homescreen, 5
                 )
@@ -286,16 +292,16 @@ def chapter_3a(player_character, player_name, homescreen, base_stats):
 
         elif choice == "n":
             clear_terminal_in_game(player_character, player_name)
-            center_print(
+            center_input(
                 "You resist the urge to touch the mirror and continue to stare "
-                "at it for another\nmoment before moving on.\n"
+                "at it for another\nmoment before moving on. "
+                "(Press enter to continue...)\n"
             )
-            center_print(
+            center_input(
                 "You have the strangest feeling you saw something "
-                "getting closer...\n"
+                "getting closer...\n(Press enter to continue...)\n"
             )
             player_character.mirror = True
-            input()
             break
         else:
             center_print(f'You can\'t do "{choice}" right now')
@@ -310,11 +316,12 @@ def chapter_3b(player_character, player_name, homescreen, base_stats):
            
     center_print(
         "Walking down the winding staircase you begin to feel uneasy. Suddenly "
-        "a dark,\nghostly apparition appears meterializes infront of you and "
-        "begins to speak \nin a distorted, otherworldly tone...\n"
+        "a dark,\nghostly apparition appears meterializes in front of you and "
+        "begins to speak\nin a distorted, otherworldly tone...\n"
     )
 
-    center_input('"ThOsE wHo EnTEr My DoMaIn ShAlL kNoW FEAR!!!"\n')
+    center_print('"ThOsE wHo EnTEr My DoMaIn ShAlL kNoW FEAR!!!"\n')
+    center_input("(Press enter to continue...)\n")
 
     center_print(
         "The spirit rises into the air ominously, then swoops down "
@@ -326,7 +333,7 @@ def chapter_3b(player_character, player_name, homescreen, base_stats):
     center_input("Press enter to commence combat...")
     
     combat(
-        spirit, player_character, player_name, homescreen, "Lexicon", 6, 
+        spirit, player_character, player_name, homescreen, random_item, 6, 
         base_stats
     )
 
@@ -337,39 +344,38 @@ def chapter_4a(player_character, player_name, homescreen, base_stats):
     """
     clear_terminal_in_game(player_character, player_name)
            
-    center_print(
-        "You enter a dimly lit, long, rectangular room when the door behind you"
-        " suddenly \nslams shut. Ahead you see the shadowed outline of a large "
-        "brutish creature \nmoving a large carved slab in front of the door "
-        "ahead.\n"
+    center_input(
+        "You enter a dimly lit, long, rectangular room when the door behind "
+        "you suddenly\nslams shut. Ahead you see the shadowed outline of a "
+        "large brutish creature\nmoving a large carved slab in front of the "
+        "door ahead.\n(Press enter to continue...)\n"
     )
-    input()
 
-    center_print(
+    center_input(
         "Realizing that your only exit is about to be blocked, you attmpt to "
-        "run the\nlength of the room before the door can be sealed... \n"
+        "run the\nlength of the room before the door can be sealed...\n"
+        "(Press enter to continue...)\n"
     )
-    input()
     
-    # Will be determined by a formula (cunning_check)
+    # Outcome determined by players cunning stat
     if player_character.cunning >= 9:
-        center_print(
+        center_input(
             "You dash accross the room, nimbly avoiding the jutting up peices "
             "of cobblestone\nfloor. You manage to slip through the remaining "
-            "gap in the door at the last\nsecond \n"
+            "gap in the door at the last\nsecond. (Press enter to continue...)"
+            "\n"
         )
-        input()
-        center_print(
+        center_input(
             "You breath a sigh of relief for a moment, before the sudden "
             "realization hits\nyou... You are now in the room with whatever "
-            "brutish abomination just\nsealed the door!\n"
+            "brutish abomination just sealed\nthe door!\n"
+            "(Press enter to continue...)\n"
         )
-        input()
-        center_print(
+        center_input(
             "The beast lets out a snarl and bears it's teeth. It stoops into a "
             "crouch\nready to pounce on it's prey before lunging towards you!"
+            "(Press enter to continue...)\n"
         )
-        input()
         center_print("You must defend yourself!\n")
 
         center_input("Press enter to commence combat...")
@@ -379,7 +385,7 @@ def chapter_4a(player_character, player_name, homescreen, base_stats):
             base_stats
         )
 
-    else:
+    else: # If cunning check is failed
         center_print(
             "You dash accross the room, trying to avoid the jutting up peices "
             "of cobblestone\non the floor, but in your panic you trip and fall,"
@@ -470,7 +476,7 @@ def chapter_4b(player_character, player_name, homescreen, base_stats):
 
     center_input(
     "You step through the narrow passageway, the walls around you feel as if"
-    " they are closing in. The air is damp and heavy, making it hard to "
+    " they\nare closing in. The air is damp and heavy, making it hard to "
     "breathe. (press enter to continue...)\n"
     )
     center_input(
