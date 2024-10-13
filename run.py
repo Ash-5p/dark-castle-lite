@@ -165,7 +165,7 @@ def display_instructions_screen():
             print("G̲E̲T̲T̲I̲N̲G̲ S̲T̲A̲R̲T̲E̲D̲\n")
             print(
                 "Choose your name and select a character from one of the "
-                "3 available choices: Fighter / Scholar / Thief. "
+                "3 available choices:\nFighter / Scholar / Thief. "
                 "Each character starts with 60hp and no item.\n"
             )
 
@@ -173,8 +173,8 @@ def display_instructions_screen():
 
             center_print(
                 "There are 3 natures within the game: Might / Wisdom / "
-                "Cunning. These natures determine how much damage is done in "
-                "combat, as well as the outcome of some of the scenarios you "
+                "Cunning. These natures\ndetermine how much damage is done in "
+                "combat, as well as the outcome of some\nof the scenarios you "
                 " will face.\n"
             )
 
@@ -190,7 +190,7 @@ def display_instructions_screen():
         print("C̲O̲M̲B̲A̲T̲\n")
         print(
             "Some decisions will result in combat. During combat you will be "
-            "presented with the following options (shown below):\n"
+            "presented with\nthe following options (shown below):\n"
         )
         print("Enemy Health: 50hp      <--  Current Enemy's Health")
         print("Nature: Might           <--  Current Enemy's Nature")
@@ -216,13 +216,15 @@ def display_instructions_screen():
         print("𝗟𝗶𝗴𝗵𝘁 𝗔𝘁𝘁𝗮𝗰𝗸 - Deals moderate damage. 90%\ hit chance.\n")
         print("𝗛𝗲𝗮𝘃𝘆 𝗔𝘁𝘁𝗮𝗰𝗸 - Deals high damage. 50%\ hit chance.\n")
         print(
-            "𝗜𝘁𝗲𝗺 - Displays the description of current item, and also "
-        "prompts player to use        item if consumable.\n"
+            "       𝗜𝘁𝗲𝗺  - Displays the description of current item, "
+            "and also prompts\n               "
+            "player to use item if consumable.\n"
         )
         print(
-            "𝗥𝘂𝗻 - Attempt to run from combat (25% Success chance). "
-        "Failed attempt results in       health penalty. (Enemy will not drop "
-        "item on successful run attempt.\n"
+            "        𝗥𝘂𝗻  - Attempt to run from combat (25% Success chance). "
+        "Failed attempt\n               results in health penalty.\n"
+        "               (Enemy will not drop "
+        "item on successful run attempt.)\n"
         )
 
         print("Page 3 of 5")
