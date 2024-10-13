@@ -4,6 +4,7 @@ from classes import ITEMS
 from utilities import *
 
 global random_item
+# Filters out Mirror Sphere item from random drops
 filtered_items = [item for item in ITEMS if item != "Mirror Sphere"]
 random_item = random.choice(filtered_items)
 

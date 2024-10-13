@@ -45,7 +45,9 @@ def clear_terminal_instructions():
         clear_terminal()
         center_print(HTP)
         center_print("Play Game (p) | Back to main menu (h)")
-        center_print("Page 1 (1) | Page 2 (2) | Page 3 (3) | Page 4 (4)")
+        center_print(
+            "Page 1 (1) | Page 2 (2) | Page 3 (3) | Page 4 (4) | Page 5 (5)"
+        )
         center_print(
         "_____________________________________________________________________"
         "___________\n")

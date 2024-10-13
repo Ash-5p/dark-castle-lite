@@ -182,7 +182,8 @@ def display_instructions_screen():
             center_print("Scholar - (Might: 3| Wisdom: 9 | Cunning: 6)")
             center_print(" Thief   - (Might: 6| Wisdom: 3 | Cunning: 9)\n")
 
-            print("Page 1 of 4")
+            print("Page 1 of 5")
+
 
     def page_2():
         clear_terminal_instructions()
@@ -201,7 +202,8 @@ def display_instructions_screen():
 
         center_print("Futher explaination on page 3... ")
 
-        print("Page 2 of 4")
+        print("Page 2 of 5")
+
 
     def page_3():
         clear_terminal_instructions()
@@ -223,7 +225,8 @@ def display_instructions_screen():
         "item on successful run attempt.\n"
         )
 
-        print("Page 3 of 4")
+        print("Page 3 of 5")
+
 
     def page_4():
         clear_terminal_instructions()
@@ -239,9 +242,18 @@ def display_instructions_screen():
         )
 
         print(
-            'To view the description of your current item, choose the "Item" '
-            'option in Combat.\n')
+            'Some items have passive effects while being held. Others have to '
+            'be used during combat (consumable items).\n')
 
+        print(
+            'To view the description of your current item, choose the "Item" '
+            'option in combat. If the item is consumable, you will be '
+            'prompted to use the item.\n')
+
+        print("Page 4 of 5")
+
+    def page_5():
+        clear_terminal_instructions()
         print("N̲A̲T̲U̲R̲E̲ M̲A̲T̲C̲H̲-̲U̲P̲S̲\n")
         
         print(
@@ -251,7 +263,16 @@ def display_instructions_screen():
 
         center_print("Might > Cunning > Wisdom > Might\n")
 
-        print("Page 4 of 4")
+        print(
+            "When fighting an enemy, the stat that is strong against the "
+            "enemy's nature will be the one used in damage calculations. "
+            "For example, whne fighting an enemy with the Might nature, the "
+            "players Wisdom stat will be use to determine both damage dealt, "
+            "and damage taken.\n"
+        )
+
+        print("Page 5 of 5")
+
 
     page_1()
     current_page = 1 # Used to save current page upon clear_terminal()
@@ -278,13 +299,16 @@ def display_instructions_screen():
         elif choice == "4":
             page_4() 
             current_page = 4
+        elif choice == "5":
+            page_5() 
+            current_page = 5
         else:
             print(current_page)
             center_input(f'"{choice}" is an invalid input. Please try again.')
             (  # Makes clear_terminal_instructions() show current page
                 page_1() if current_page == 1 else page_2() 
                 if current_page == 2 else page_3() if current_page == 3 else 
-                page_4()
+                page_4() if current_page == 4 else page_5()
             )
 
 
