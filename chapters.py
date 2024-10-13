@@ -340,7 +340,8 @@ def chapter_3b(player_character, player_name, homescreen, base_stats):
 
 def chapter_4a(player_character, player_name, homescreen, base_stats):
     """
-    Chapter 4a - Called by run_game() when player chooses to go through the door
+    Chapter 4a - Called by run_game() when player chooses to go through the 
+                 door
     """
     clear_terminal_in_game(player_character, player_name)
            
@@ -372,8 +373,8 @@ def chapter_4a(player_character, player_name, homescreen, base_stats):
             "(Press enter to continue...)\n"
         )
         center_input(
-            "The beast lets out a snarl and bears it's teeth. It stoops into a "
-            "crouch\nready to pounce on it's prey before lunging towards you!"
+            "The beast lets out a snarl and bears it's teeth. It stoops into a"
+            " crouch\nready to pounce on it's prey before lunging towards you!"
             "(Press enter to continue...)\n"
         )
         center_print("You must defend yourself!\n")
@@ -386,23 +387,22 @@ def chapter_4a(player_character, player_name, homescreen, base_stats):
         )
 
     else: # If cunning check is failed
-        center_print(
+        center_input(
             "You dash accross the room, trying to avoid the jutting up peices "
-            "of cobblestone\non the floor, but in your panic you trip and fall,"
-            " foiling your chances of \nreaching the door in time.\n"
+            "of cobblestone\non the floor, but in your panic you trip and "
+            "fall, foiling your chances of\nreaching the door in time. "
+            "(Press enter to continue...)\n"
         )
-        input()
-        center_print(
-            "As the door seals shut the room is left pitch black until suddenly"
-            " the sconces\nlining the room ignite, as if by magic. There is a "
-            "brief silence before you \nhear a rumbling coming from above.\n"
+        center_input(
+            "As the door seals shut the room is left pitch black until "
+            "suddenly the sconces\nlining the room ignite, as if by magic. "
+            "There is a brief silence before you\nhear a rumbling coming from"
+            " above. (Press enter to continue...)\n"
         )
-        input()
-        center_print(
-            "You look upwards to see a ceiling covered in jagged metal spikes, "
-            "slowly\ndecending towards you.\n"
+        center_input(
+            "You look upwards to see a ceiling covered in jagged metal spikes,"
+            " slowly\ndecending towards you. (Press enter to continue...)\n"
         )
-        input()
         center_print("There in't much time! What do you do?!\n")
         center_print(
             "Attempt to move the slab(m). Look for another way out(w)\n"
@@ -413,12 +413,14 @@ def chapter_4a(player_character, player_name, homescreen, base_stats):
 
             def chapter_4a_death():
                 """
-                Handles game over if player fails all skill checks on chapter 4a
+                Handles game over if player fails all skill checks on 
+                chapter 4a
                 """
                 center_print("The jagged ceiling looms too close to escape.\n")
-                center_input("Your demise is certain...\n")
+                center_print("Your demise is certain...")
+                center_input("(Press enter to continue...)\n")
                 center_print("Game Over\n")
-                center_input("Press any button to return to the homescreen")
+                center_input("Press enter to return to the homescreen...")
                 homescreen()
 
 
@@ -428,39 +430,42 @@ def chapter_4a(player_character, player_name, homescreen, base_stats):
                     center_input(
                         "You force your weight against the huge slab blocking "
                         "your path. Years of\nhoning your strength pays off as "
-                        "you force the slab aside as if it were\nmade of paper."
+                        "you force the slab aside as if it were made\nof "
+                        "paper. (Press enter to continue...)\n"
                     )
                     center_input(
                         "As you walk through the door you see the beast like "
-                        "humanoid who sealed\nthe door. Intimidated by your "
+                        "humanoid who sealed the\ndoor. Intimidated by your "
                         "feat of strength it stares at you with a\nfearful "
                         "expression before fleeing. You notice it drops "
-                        "something..."
+                        "something...\n (Press enter to continue...)\n"
                     )
                     item_choice(player_character, base_stats, random_item)
                     break
                 else:
-                    center_print(
+                    center_input(
                         "You attempt to move the huge slab blocking you path" 
-                        "but to no avail.\nIt is simply too heavy.\n"
+                        "but to no avail. It is\nsimply too heavy.\n"
+                        "(Press enter to continue...)\n"
                     )
-                    input()
 
                     chapter_4a_death()
                     
             elif choice == "w": # Wisdom check
                 if player_character.wisdom >= 9:
                     center_input(
-                        "You methodically look for any levers or switches that "
-                        "may lead to an\nescape. Your methodical approche pays "
-                        "off! As you pull one of the fire\nsconces on the wall," 
-                        " a hidden passage opens up and you slip away."
+                        "You methodically look for any levers or switches "
+                        "that may lead to an escape.\nYour methodical "
+                        "approach pays off! As you pull one of the fire "
+                        "sconces\non the wall, a hidden passage opens up and "
+                        "you slip away.\n (Press enter to continue...)\n"
                     )
                     break
                 else:
-                    center_print(
-                        "You frantically search for a button or switch to help "
-                        "you escape but to\nno avail.\n"
+                    center_input(
+                        "You frantically search for a button or switch to help"
+                        " you escape but to no\navail. "
+                        "(Press enter to continue...)\n"
                     )
                     chapter_4a_death()
             else:
@@ -475,32 +480,33 @@ def chapter_4b(player_character, player_name, homescreen, base_stats):
     clear_terminal_in_game(player_character, player_name)
 
     center_input(
-    "You step through the narrow passageway, the walls around you feel as if"
-    " they\nare closing in. The air is damp and heavy, making it hard to "
-    "breathe. (press enter to continue...)\n"
+        "You step through the narrow passageway, the walls around you feel as "
+        "if they\nare closing in. The air is damp and heavy, making it hard to"
+        " breathe.\n(Press enter to continue...)\n"
     )
     center_input(
         "The only light comes from faintly glowing moss lining the cracks in "
-        "the stone walls. (press enter to continue...)\n"
+        "the stone\nwalls. (Press enter to continue...)\n"
     )
     center_input(
         "Suddenly, the ground beneath you gives way, and you tumble down a "
-        "hidden chute, sliding into the darkness! "
-        "(press enter to continue...)\n"
+        "hidden chute,\nsliding into the darkness! "
+        "(Press enter to continue...)\n"
     )
     if player_character.cunning >= 6:  # Cunning check for avoiding damage
         center_input(
             "With quick reflexes, you manage to control your fall, avoiding any"
-            " serious injury as you land at the bottom."
-            "(press enter to continue...)\n"
+            " serious\ninjury as you land at the bottom. "
+            "(Press enter to continue...)\n"
         )
     else:
         center_input(
             "You crash to the ground painfully, your body aching from the "
-            "impact.\n"
+            "impact.\n(Press enter to continue...)\n"
         )
         # Deduct health for failing the skill check
-        center_input(f"You lose 5hp.\n")
+        center_print("You lose 5hp.")
+        center_input("(Press enter to continue...)\n")
         death_outside_combat(player_character, player_name, homescreen, 5)
 
 
