@@ -70,9 +70,12 @@ I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com
 
 | Directory | File | CI URL | Screenshot | Notes |
 | --- | --- | --- | --- | --- |
-|  | characters.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/Ash-5p/dark-castle-lite/main/characters.py) | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-|  | run.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/Ash-5p/dark-castle-lite/main/run.py) | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-|  | utilities.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/Ash-5p/dark-castle-lite/main/utilities.py) | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+|  | art.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/Ash-5p/dark-castle-lite/main/art.py) | ![screenshot](documentation/validation/validation-art.png) | |
+|  | chapters.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/Ash-5p/dark-castle-lite/main/chapters.py) | ![screenshot](documentation/validation/validation-chapters.png) | |
+|  | classes.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/Ash-5p/dark-castle-lite/main/classes.py) | ![screenshot](documentation/validation/validation-classes.png) | |
+|  | mechanics.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/Ash-5p/dark-castle-lite/main/mechanics.py) | ![screenshot](documentation/validation/validation-mechanics.png) | |
+|  | run.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/Ash-5p/dark-castle-lite/main/run.py) | ![screenshot](documentation/validation/validation-run.png) | |
+|  | utilities.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/Ash-5p/dark-castle-lite/main/utilities.py) | ![screenshot](documentation/validation/validation-utilities.png) | |
 
 ## Browser Compatibility
 
@@ -235,11 +238,23 @@ Use the table below as a basic start, and expand on it using the logic above.
 
 Defensive programming was manually tested with the below user acceptance testing:
 
-| Page | Expectation | Test | Result | Fix | Screenshot |
-| --- | --- | --- | --- | --- | --- |
-| Home | | | | | |
-| | Feature is expected to do X when the user does Y | Tested the feature by doing Y | The feature behaved as expected, and it did Y | Test concluded and passed | ![screenshot](documentation/features/feature01.png) |
-| | Feature is expected to do X when the user does Y | Tested the feature by doing Y | The feature did not respond to A, B, or C. | I did Z to the code because something was missing | ![screenshot](documentation/features/feature02.png) |
+| Page | Expectation | Test | Result | Fix | Screenshot (Before) | Screenshot (After)
+| --- | --- | --- | --- | --- | --- | --- |
+| Homescreen | | | | | | |
+| | Homescreen is expected to take the user to choose name screen when "p" is entered | Tested the feature by entering "p" on homescreen | The feature behaved as expected, and it prompted the user to choose a name | Test concluded and passed | ![screenshot](documentation/features/feature-homescreen.png) | ![screenshot](documentation/features/feature-enter-name.png) |
+| | Homescreen is expected to take user to page 1 of the instructions screen when "i" is entered | Tested the feature by entering "i" on homepage | The feature behaved as expected and took the user to page 1 of the instructions screen| Test concluded and passed | ![screenshot](documentation/features/feature-homescreen.png) | ![screenshot](documentation/features/feature-instructions-page1.png) |
+| | Homescreen is expected to display invalid input message when user enters any value other that "h" or "i" | Tested the feature by entering multiple different values, including letters, numbers, and special characters, on homepage | The feature behaved as expected and displayed invalid input message when user entered anything other than "h" or "i" | Test concluded and passed | ![screenshot](documentation/features/feature-homescreen.png) | ![screenshot](documentation/features/feature-homescreen-invalid.png) |
+| Instructions | | | | | | |
+| | Instructions screen is expected to take the user to choose name screen when "p" is entered | Tested the feature by entering "p" on insctructions screen (tested on all 5 pages) | The feature behaved as expected, and it prompted the user to choose a name | Test concluded and passed | ![screenshot](documentation/features/feature-instructions-page1.png) | ![screenshot](documentation/features/feature-enter-name.png) |
+| | Instructions screen is expected to take the user the homescreen when "h" is entered | Tested the feature by entering "h" on insctructions screen (tested on all 5 pages) | The feature behaved as expected, and took the user to the homescreen | Test concluded and passed | ![screenshot](documentation/features/feature-instructions-page1.png) | ![screenshot](documentation/features/feature-homescreen.png) |
+| | Instructions screen is expected to take the user to page 1 of instrucitons screen when "1" is entered | Tested the feature by entering "1" on insctructions screen (tested on all 5 pages) | The feature behaved as expected, and took the user to page 1  | Test concluded and passed | ![screenshot](documentation/features/feature-instructions-page2.png) | ![screenshot](documentation/features/feature-instructions-page1.png) |
+| | Instructions screen is expected to take the user to page 2 of instrucitons screen when "2" is entered | Tested the feature by entering "2" on insctructions screen (tested on all 5 pages) | The feature behaved as expected, and took the user to page 2 | Test concluded and passed | ![screenshot](documentation/features/feature-instructions-page1.png) | ![screenshot](documentation/features/feature-instructions-page2.png) |
+| | Instructions screen is expected to take the user to page 3 of instrucitons screen when "3" is entered | Tested the feature by entering "3" on insctructions screen (tested on all 5 pages) | The feature behaved as expected, and took the user to page 3 | Test concluded and passed | ![screenshot](documentation/features/feature-instructions-page1.png) | ![screenshot](documentation/features/feature-instructions-page3.png) |
+| | Instructions screen is expected to take the user to page 4 of instrucitons screen when "4" is entered | Tested the feature by entering "4" on insctructions screen (tested on all 5 pages) | The feature behaved as expected, and took the user to page 4 | Test concluded and passed | ![screenshot](documentation/features/feature-instructions-page1.png) | ![screenshot](documentation/features/feature-instructions-page4.png) |
+| | Instructions screen is expected to take the user to page 5 of instrucitons screen when "5" is entered | Tested the feature by entering "5" on insctructions screen (tested on all 5 pages) | The feature behaved as expected, and took the user to page 5 | Test concluded and passed | ![screenshot](documentation/features/feature-instructions-page1.png) | ![screenshot](documentation/features/feature-instructions-page5.png) |
+| | Instructions screen is expected to display invalid input message when user enters any value other than "h", "p", "1", "2", "3", "4", or "5" | Tested the feature by entering multiple different values, including letters, numbers, and special characters, on insctructions screen (tested on all 5 pages) | The feature behaved as expected, and displayed invalid input messaged when the user entered any value other than "h", "p", "1", "2", "3", "4", or "5" | Test concluded and passed | ![screenshot](documentation/features/feature-instructions-page1.png) | ![screenshot](documentation/features/feature-instructions-invalid.png) |
+
+
 | About | | | | | |
 | | Feature is expected to do X when the user does Y | Tested the feature by doing Y | The feature behaved as expected, and it did Y | Test concluded and passed | ![screenshot](documentation/features/feature03.png) |
 | | Feature is expected to do X when the user does Y | Tested the feature by doing Y | The feature did not respond to A, B, or C. | I did Z to the code because something was missing | ![screenshot](documentation/features/feature04.png) |
