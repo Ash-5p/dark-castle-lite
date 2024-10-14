@@ -274,7 +274,6 @@ def check_item(player_character, current_enemy):
                                 " until it bursts in a dazzling\nlight! When "
                                 "the light dims the sphere is gone... But you "
                                 "feel twice as strong!\n"
-                                "(Press enter to continue...)"
                             )
 
                     player_character.item = "None"

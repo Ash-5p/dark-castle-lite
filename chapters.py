@@ -569,11 +569,22 @@ def chapter_5b(player_character, player_name, homescreen, base_stats):
 
     center_input("Press enter to commence combat...")
 
+    def determine_clone_nature(player_character):
+        """
+        Determines Mirror Clone's nature based on player character class
+        """
+
+        return (
+            "Might" if player_character.name == "Fighter" else
+            "Wisdom" if player_character.name == "Scholar" else "Cunning"
+        )
+
+    clone_nature = determine_clone_nature(player_character)
+
     # Mirror clone enemy listed within chapter
-    clone_nature = player_character.return_highest_stat()
     mirror_clone = Enemy(
         f"Mirror {player_name}", player_character.health, clone_nature, 6, 9,
-        True
+        False
     )
 
     # Calls fight with mirror clone enemey
