@@ -447,7 +447,7 @@ def chapter_4a(player_character, player_name, homescreen, base_stats):
                     break
                 else:
                     center_input(
-                        "You attempt to move the huge slab blocking you path"
+                        "You attempt to move the huge slab blocking your path "
                         "but to no avail. It is\nsimply too heavy.\n"
                         "(Press enter to continue...)\n"
                     )
@@ -461,7 +461,7 @@ def chapter_4a(player_character, player_name, homescreen, base_stats):
                         "that may lead to an escape.\nYour methodical "
                         "approach pays off! As you pull one of the fire "
                         "sconces\non the wall, a hidden passage opens up and "
-                        "you slip away.\n (Press enter to continue...)\n"
+                        "you slip away.\n(Press enter to continue...)\n"
                     )
                     break
                 else:
