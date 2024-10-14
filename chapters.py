@@ -168,7 +168,7 @@ def chapter_2a(player_character, player_name, homescreen, base_stats):
                 )
                 break
         elif choice == "n":
-            center_print("You ignore the object and carry on walking")
+            center_print("You ignore the object and carry on walking.")
             center_input("(Press enter to continue...)")
             break
         else:
