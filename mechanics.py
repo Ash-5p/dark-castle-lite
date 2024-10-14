@@ -243,7 +243,10 @@ def check_item(player_character, current_enemy):
     """
     item = player_character.item.strip()
 
-    if player_character.item == "Apple" or player_character.item == "Throwing Knife" or player_character.item == "Mirror Sphere":  # noqa
+    if (
+        player_character.item == "Apple" or player_character.item
+        == "Throwing Knife" or player_character.item == "Mirror Sphere"
+    ):
         if item in ITEMS:
             print(f"{item} - {ITEMS[item]}")
             while True:
