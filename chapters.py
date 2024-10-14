@@ -543,7 +543,7 @@ def chapter_5b(player_character, player_name, homescreen, base_stats):
     clear_terminal_in_game(player_character, player_name)
     center_input(
         "You walk down a narrow hallway leading to a throne room. Halfway down"
-        " you spot\n a familiar looking mirror (Press enter to continue...)\n"
+        " you spot\na familiar looking mirror (Press enter to continue...)\n"
     )
     center_input(
         "As you get closer, you notice that this time you can see your "
