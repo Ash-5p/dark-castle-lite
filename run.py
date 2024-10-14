@@ -2,9 +2,12 @@ import math
 import copy
 from classes import *
 from mechanics import *
-from chapters import *
-from utilities import *
-from art import *
+from chapters import *  # Everything in Chapters.py is needed
+from utilities import (
+    clear_terminal, clear_terminal_in_game,
+    clear_terminal_instructions, center_print, center_input
+    )
+from art import LOGO, CASTLE, HTP
 
 
 def select_name():
@@ -178,29 +181,28 @@ def display_instructions_screen():
     Displays instructions screen
     """
     def page_1():
-            clear_terminal_instructions()
-            print("G̲E̲T̲T̲I̲N̲G̲ S̲T̲A̲R̲T̲E̲D̲\n")
-            print(
-                "Choose your name and select a character from one of the "
-                "3 available choices:\nFighter / Scholar / Thief. "
-                "Each character starts with 60hp and no item.\n"
-            )
+        clear_terminal_instructions()
+        print("G̲E̲T̲T̲I̲N̲G̲ S̲T̲A̲R̲T̲E̲D̲\n")
+        print(
+            "Choose your name and select a character from one of the "
+            "3 available choices:\nFighter / Scholar / Thief. "
+            "Each character starts with 60hp and no item.\n"
+        )
 
-            print("C̲H̲A̲R̲A̲C̲T̲E̲R̲ N̲A̲T̲U̲R̲E̲S̲\n")
+        print("C̲H̲A̲R̲A̲C̲T̲E̲R̲ N̲A̲T̲U̲R̲E̲S̲\n")
 
-            center_print(
-                "There are 3 natures within the game: Might / Wisdom / "
-                "Cunning. These natures\ndetermine how much damage is done in "
-                "combat, as well as the outcome of some\nof the scenarios you "
-                " will face.\n"
-            )
+        center_print(
+            "There are 3 natures within the game: Might / Wisdom / "
+            "Cunning. These natures\ndetermine how much damage is done in "
+            "combat, as well as the outcome of some\nof the scenarios you "
+            " will face.\n"
+        )
 
-            center_print("Fighter - (Might: 9| Wisdom: 6 | Cunning: 3)")
-            center_print("Scholar - (Might: 3| Wisdom: 9 | Cunning: 6)")
-            center_print(" Thief   - (Might: 6| Wisdom: 3 | Cunning: 9)\n")
+        center_print("Fighter - (Might: 9| Wisdom: 6 | Cunning: 3)")
+        center_print("Scholar - (Might: 3| Wisdom: 9 | Cunning: 6)")
+        center_print(" Thief   - (Might: 6| Wisdom: 3 | Cunning: 9)\n")
 
-            print("Page 1 of 5")
-
+        print("Page 1 of 5")
 
     def page_2():
         clear_terminal_instructions()
@@ -215,23 +217,22 @@ def display_instructions_screen():
         print("(l) Light Attack        <--  Perform a Light Attack")
         print("(h) Heavy Attack        <--  Perform a Heavy Attack")
         print("(i) Item                <--  View/Use Current Item")
-        print("(r) Run                 <--  Attempt to Run from Combat\n") 
+        print("(r) Run                 <--  Attempt to Run from Combat\n")
 
         center_print("Futher explaination on page 3... ")
 
         print("Page 2 of 5")
 
-
     def page_3():
         clear_terminal_instructions()
         print("C̲O̲M̲B̲A̲T̲ C̲O̲N̲T̲.\n")
-        
+
         print(
             "𝗘𝗻𝗲𝗺𝘆 𝗡𝗮𝘁𝘂𝗿𝗲 - Determines which of the players stats are "
-        "used in damage\n               calculation.\n"
+            "used in damage\n               calculation.\n"
         )
-        print("𝗟𝗶𝗴𝗵𝘁 𝗔𝘁𝘁𝗮𝗰𝗸 - Deals moderate damage. 90%\ hit chance.\n")
-        print("𝗛𝗲𝗮𝘃𝘆 𝗔𝘁𝘁𝗮𝗰𝗸 - Deals high damage. 50%\ hit chance.\n")
+        print("𝗟𝗶𝗴𝗵𝘁 𝗔𝘁𝘁𝗮𝗰𝗸 - Deals moderate damage. 90% hit chance.\n")
+        print("𝗛𝗲𝗮𝘃𝘆 𝗔𝘁𝘁𝗮𝗰𝗸 - Deals high damage. 50% hit chance.\n")
         print(
             "       𝗜𝘁𝗲𝗺  - Displays the description of current item, "
             "and also prompts\n               "
@@ -239,21 +240,20 @@ def display_instructions_screen():
         )
         print(
             "        𝗥𝘂𝗻  - Attempt to run from combat. "
-        "Failed attempt results in health\n               penalty. "
-        "(Enemy will not drop item on successful run attempt.)\n"
+            "Failed attempt results in health\n               penalty. "
+            "(Enemy will not drop item on successful run attempt.)\n"
         )
 
         print("Page 3 of 5")
 
-
     def page_4():
         clear_terminal_instructions()
         print("I̲T̲E̲M̲S̲\n")
-        
+
         print(
             "Items will sometimes be aquired through certain scenarios "
-            "throughout the game.\nMost defeated enemies will have a chance of "
-            "dropping an item. You will always\nbe prompted with a yes or no "
+            "throughout the game.\nMost defeated enemies will have a chance of"
+            " dropping an item. You will always\nbe prompted with a yes or no "
             "choice before an item is added to your inventory.\nOnly one item "
             "can be held at one time, so picking up a new one will replace\n"
             "your current item.\n"
@@ -273,7 +273,7 @@ def display_instructions_screen():
     def page_5():
         clear_terminal_instructions()
         print("N̲A̲T̲U̲R̲E̲ M̲A̲T̲C̲H̲-̲U̲P̲S̲\n")
-        
+
         print(
             "Each nature has a corrisponding nature that it is strong "
             "against and one\nit is weak against:\n"
@@ -291,12 +291,11 @@ def display_instructions_screen():
 
         print("Page 5 of 5")
 
-
     page_1()
-    current_page = 1 # Used to save current page upon clear_terminal()
+    current_page = 1  # Used to save current page upon clear_terminal()
 
-    while True:      
-        
+    while True:
+
         choice = input().strip()
 
         if choice == "h":
@@ -312,13 +311,13 @@ def display_instructions_screen():
             page_2()
             current_page = 2
         elif choice == "3":
-            page_3() 
+            page_3()
             current_page = 3
         elif choice == "4":
-            page_4() 
+            page_4()
             current_page = 4
         elif choice == "5":
-            page_5() 
+            page_5()
             current_page = 5
         else:
             print(current_page)
@@ -327,8 +326,8 @@ def display_instructions_screen():
                 'please try again.'
             )
             (  # Makes clear_terminal_instructions() show current page
-                page_1() if current_page == 1 else page_2() 
-                if current_page == 2 else page_3() if current_page == 3 else 
+                page_1() if current_page == 1 else page_2()
+                if current_page == 2 else page_3() if current_page == 3 else
                 page_4() if current_page == 4 else page_5()
             )
 
