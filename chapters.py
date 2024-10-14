@@ -125,9 +125,9 @@ def chapter_2a(player_character, player_name, homescreen, base_stats):
 
     center_print("You notice something sparkle within the mud filled channel")
     center_print("Do you attempt to remove it?\n")
+    center_print("Yes(y) / No(n)\n")
 
     while True:
-        center_print("Yes(y) / No(n)\n")
         choice = input().strip()
 
         if choice == "y":
@@ -169,6 +169,7 @@ def chapter_2a(player_character, player_name, homescreen, base_stats):
                 break
         elif choice == "n":
             center_print("You ignore the object and carry on walking")
+            center_input("(Press enter to continue...)")
             break
         else:
             center_print(f'You can\'t do "{choice}" right now')
