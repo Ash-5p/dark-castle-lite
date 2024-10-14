@@ -438,7 +438,7 @@ def chapter_4a(player_character, player_name, homescreen, base_stats):
                         "humanoid who sealed the\ndoor. Intimidated by your "
                         "feat of strength it stares at you with a\nfearful "
                         "expression before fleeing. You notice it drops "
-                        "something...\n (Press enter to continue...)\n"
+                        "something...\n(Press enter to continue...)\n"
                     )
                     item_choice(player_character, base_stats, random_item)
                     break
@@ -515,13 +515,11 @@ def chapter_5a(player_character, player_name, homescreen, base_stats):
     clear_terminal_in_game(player_character, player_name)
     center_input(
         "You enter an throne room. You scan the room and see three doors. Each "
-        "door is labeled with a golden plaque. (press enter to continue...)\n"
+        "door is\nlabeled with a golden plaque. (Press enter to continue...)\n"
     )
-    center_input(
-        'To your left is a door labled "Armory"(a), to your right is a door '
-        'labeled "Library"(l), and ahead is one labled "Treasury"(t).'
-        '(press enter to continue...)\n'
-    )
+    center_print('To your left is a door labled "Armory"(a)')
+    center_print('To your right is a door labeled "Library"(l)')
+    center_print('Ahead is a door labled "Treasury"(t).\n')
     center_print("Which room do you enter?\n")
     while True:
         choice = input().strip()
@@ -541,28 +539,28 @@ def chapter_5b(player_character, player_name, homescreen, base_stats):
     clear_terminal_in_game(player_character, player_name)
     center_input(
         "You walk down a narrow hallway leading to a throne room. Halfway down"
-        " you stop familiar looking mirror (press enter to continue...)\n"
+        " you spot\n a familiar looking mirror (Press enter to continue...)\n"
     )
     center_input(
         "As you get closer, you notice that this time you can see your "
-        "reflection. You stop a few paces short of the mirror and look at your "
-        "reflection for a moment when suddenly...! (press enter to continue...)"
-        "\n"
+        "reflection. You\nstop a few paces short of the mirror and look at "
+        " your reflection for a moment\nwhen suddenly...! "
+        "(Press enter to continue...)\n"
     )
     center_input(
         "Your reflection start to walk forward on its own! As it reaches the "
-        "surface of the mirror it passes through causing ripples as if "
-        "emerging from water. (press enter to continue...)\n"
+        "surface of\nthe mirror it passes through causing ripples as if "
+        "emerging from water.\n(Press enter to continue...)\n"
     )
     center_input(
-        "The being, stops inches from your face and stares at you with a "
-        "sinister grin. Every detail of the sinister being is identical to "
-        "you, apart from its souless white eyes, devoid of any features!"
-        "(press enter to continue...)\n"
+        "The being stops inches from your face and stares at you with a "
+        "sinister grin.\nEvery detail of the sinister being is identical to "
+        "you, apart from its souless\nwhite eyes, devoid of any features! "
+        "(Press enter to continue...)\n"
     )
     center_input(
-        "Without warning it lets out an inhuman scream and goes into a violent "
-        " frenzy! (press enter to continue...)\n"
+        "Without warning it lets out an inhuman scream and goes into a violent"
+        " frenzy!\n(Press enter to continue...)\n"
     )
     center_print("You must defend yourself!\n")
 
@@ -585,12 +583,12 @@ def chapter_5b(player_character, player_name, homescreen, base_stats):
 
     center_input(
         "As you deliver the final blow to the clone, it shatters as if made of "
-        "glass! The mirror behind it also shatters, leaving a blank wooden "
-        "frame standing the hallway. (press enter to continue...)\n"
+        "glass!\nThe mirror behind it also shatters, leaving a blank wooden "
+        "frame standing the\nhallway. (Press enter to continue...)\n"
     )
     center_input(
-        "You walk past the frame and continue down the hallway "
-        "(press enter to continue...)\n"
+        "You walk past the frame and continue down the hallway\n"
+        "(Press enter to continue...)\n"
     )
 
     chapter_5a(player_character, player_name, homescreen, base_stats)
@@ -600,18 +598,19 @@ def boss_a(player_character, player_name, homescreen, base_stats):
     clear_terminal_in_game(player_character, player_name)
     center_input(
         "You enter the armory, which is brimming with an assortment of tools "
-        "all capable of ensuring a swift and bloody end to the wielders "
-        "enemies. (press enter to continue...)\n" 
+        "all capable\nof ensuring a swift and bloody end to the wielders "
+        "enemies.\n(Press enter to continue...)\n" 
     )
     center_input(
         "Your attention is drawn to a suit of armor in the center of the room "
-        "which is holding an extravagant sliver blade. You reach out to grab "
-        "the sword. (press enter to continue...)\n" 
+        "which is\nholding an extravagant sliver blade. You reach out to grab "
+        "the sword.\n(Press enter to continue...)\n" 
     )
     center_input(
         "Suddenly you are forced to jump back as the suit of armor springs to "
-        "life, and swings the sword at you, narrowly missing your chest. In a "
-        "fenzy the suit of armor charges at you! (press enter to continue...)\n" 
+        "life, and\nswings the sword at you, narrowly missing your chest. In a"
+        " fenzy the suit of\narmor charges at you! "
+        "(Press enter to continue...)\n" 
     )
     center_print("You must defend yourself!\n")
 
@@ -628,45 +627,45 @@ def boss_b(player_character, player_name, homescreen, base_stats):
 
     center_input(
         "You enter a library of seemingly endless rows of bookshelves, all "
-        "bursting with ancient texts of knowledge lost to time "
-        "(press enter to continue...)\n" 
+        "bursting with\nancient texts of knowledge lost to time "
+        "(Press enter to continue...)\n" 
     )
     center_input(
         "As you approch the center of the room you spot a pedestal sitting a "
-        "large, exquisite looking book, bound in leather, with an intricate "
-        "symbol on the front. (press enter to continue...)\n" 
+        "large,\nexquisite looking book, bound in leather, with an intricate "
+        "symbol on the front.\n(Press enter to continue...)\n" 
     )
     center_input(
         "As you reach out to open the first page you catch a moving shadow in "
-        "the corner of your eye, darting from one bookshelf to another!"
-        "(press enter to continue...)\n" 
+        "the corner\nof your eye, darting from one bookshelf to another!\n"
+        "(Press enter to continue...)\n" 
     )
     center_input(
         "Thinking it must have been a trick of the light you carry on opening "
-        "the book, when you catch another shadow moving again. Only this time "
-        "much closer. (press enter to continue...)\n" 
+        "the book,\nwhen you catch another shadow moving again. Only this time "
+        "much closer.\n(Press enter to continue...)\n" 
     )
     center_input(
         "This time you keep your eyes fixed where you saw the movement, while "
-        "proceeding to open the book, when suddenly, the shadow emerges from "
-        "between the bookshelve and lunges at you! "
-        "(press enter to continue...)\n" 
+        "proceeding\nto open the book, when suddenly, the shadow emerges from "
+        "between the\nbookshelves and lunges at you! "
+        "(Press enter to continue...)\n" 
     )
     center_input(
         "It lands on stop of you, forcing you onto the ground. The creature is "
-        "wrapped in a tattered brown robe with a large hood which covers its "
-        "face. Its hands are dark grey, with long boney fingers "
-        "(press enter to continue...)\n"
+        "wrapped\nin a tattered brown robe with a large hood which covers its "
+        "face. Its hands are\ndark grey, with long boney fingers "
+        "(Press enter to continue...)\n"
     )
     center_input(
         "As you wrestle the creature off you with a well placed kick. Its hood "
-        "Flicks back over its head, revealing a grotesque pale face with "
-        "sunken eyes, and a mass of tentacles where a mouth would usually sit!"
-        "(press enter to continue...)\n"
+        "flicks\nback over its head, revealing a grotesque pale face with "
+        "sunken eyes, and a mass\nof tentacles where a mouth would usually "
+        "sit! (Press enter to continue...)\n"
     )
     center_input(
         "The creature roars with an almost reptilian sounding gargle, and "
-        "begins to charge at you again! (press enter to continue...)\n"
+        "begins to\ncharge at you again! (Press enter to continue...)\n"
     )
     center_print("You must defend yourself!\n")
 
@@ -683,33 +682,33 @@ def boss_c(player_character, player_name, homescreen, base_stats):
 
     center_input(
         "You enter a room full of mountains of gold, silver and jewels. "
-        "There looks to be enough to buy a large country!"
-        "(press enter to continue...)\n" 
+        "There looks to\nbe enough to buy a large country! "
+        "(Press enter to continue...)\n" 
     )
     center_input(
         "You walk beteen the large piles of treasure, running your hand over "
-        "the coins, listening to them clink against each other. As you walk"
-        "around one pile of gold, you see a large open chest in front of an "
-        "impossibly large mountain of gold coins."
-        "(press enter to continue...)\n" 
+        "the coins,\nlistening to them clink against each other. As you walk"
+        "around one pile of gold,\nyou see a large open chest in front of an "
+        "impossibly large mountain of gold\ncoins. "
+        "(Press enter to continue...)\n" 
     )
     center_input(
         "You approch the chest, and looking inside you see a magnificent "
-        "diamond, the size of your head! (press enter to continue...)\n" 
+        "diamond, the\nsize of your head! (Press enter to continue...)\n" 
     )
     center_input(
         "As you reach into the chest to pick up the diamond, the mountain of "
-        "gold coins in front of you begins to shift causing coins to spill "
-        "down the sides of the pile (press enter to continue...)\n" 
+        "gold coins\nin front of you begins to shift causing coins to spill "
+        "down the sides of the\npile. (Press enter to continue...)\n" 
     )
     center_input(
         "Suddenly a ginormous scaley head bursts out of the pile of gold, "
-        "followed by a long neck and two enormous wings! "
-        "(press enter to continue...)\n" 
+        "followed by a\nlong neck and two enormous wings! "
+        "(Press enter to continue...)\n" 
     )
     center_input(
         "The creature roars and spouts scorching flames into the air before "
-        "swinging a large tail towards you! (press enter to continue...)\n" 
+        "swinging a\nlarge tail towards you! (Press enter to continue...)\n" 
     )
     center_print("You must defend yourself!\n")
 
@@ -727,15 +726,16 @@ def ending_chapter(player_character, player_name, homescreen, base_stats):
     clear_terminal_in_game(player_character, player_name)
 
     center_input(
-        "As you lay the final, decisive blow on the enemy there is a blinding"
-        "flash of light! (press enter to continue...)\n" 
+        "As you lay the final, decisive blow on the enemy there is a blinding "
+        "flash of\nlight! (Press enter to continue...)\n" 
     )
     center_input(
         "When your vision clears you find yourself standing on a hill, "
-        "overlooking a decrepid looking castle. (press enter to continue...)\n"
+        "overlooking a\ndecrepid looking castle. "
+        "(Press enter to continue...)\n"
     )
     center_input(
         "Where many have perished, you have survived... Congratulations "
-        f"{player_name}, you have escaped the dark castle. "
-        "(press enter to continue...)"
+        f"{player_name}, you have\nescaped the dark castle. "
+        "(Press enter to continue...)"
     )

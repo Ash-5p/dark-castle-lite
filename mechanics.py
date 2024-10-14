@@ -236,9 +236,9 @@ def check_item(player_character, current_enemy):
             print(f"{item} - {ITEMS[item]}")
             while True:
                 print(f"Do you want to use the {item}?")
-                choice = input("Yes(y) / No(n)")
+                choice = input("Yes(y) / No(n)\n")
                 if choice == "y":
-                    print(f"You used the {item}")
+                    print(f"You used the {item}\n")
                     if player_character.item == "Throwing Knife":
                         current_enemy.health -= 15
                     elif player_character.item == "Apple":
@@ -249,7 +249,7 @@ def check_item(player_character, current_enemy):
                                 "You throw the Mirror Sphere on the ground, "
                                 "causing it to explode in a dazzling light!\n"
                                 f"You slip away while the {current_enemy.name} "
-                                "is blinded..."
+                                "is blinded...\n(Press enter to continue...)"
                             )
                             player_character.item = "None"
                             raise EscapeCombat
@@ -261,9 +261,10 @@ def check_item(player_character, current_enemy):
 
                             input(
                                 "The Mirror Sphere starts to glow in your hand"
-                                "until it bursts in a dazzling light!\n When "
+                                " until it bursts in a dazzling\nlight! When "
                                 "the light dims the sphere is gone... But you "
-                                "feel twice as strong!"
+                                "feel twice as strong!\n"
+                                "(Press enter to continue...)"
                             )
 
                     player_character.item = "None"

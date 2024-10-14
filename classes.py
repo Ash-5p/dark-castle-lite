@@ -96,7 +96,8 @@ ITEMS = {
         "(Consumed when used)\n"
     ),
     "Mirror Sphere": (
-        "Allows the guaranteed escape from combat. Is said to contain a power"
-        "only accessible to those in dire need. (Consumed when used)\n"
+        "Allows the guaranteed escape from combat. Is said to contain a"
+        "\n                power only accessible to those in dire need.\n"
+        "                (Consumed when used)\n"
     )
     }
