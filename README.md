@@ -92,11 +92,38 @@
 
     - ***Chapter 4a***
 
-        - This chapter plays out if the player decides to go go through the door at the end of the corridor. The player enters a room where a figure tries to seal the exit.
+        - This chapter plays out if the player decides to go through the door at the end of the corridor. The player enters a room where a creature tries to seal the exit with a stone slab.
+        - If the players cunning stat is high enough they will escape the room in time, but have to fight the creature.
+        - If there cunning stat is too low a spiked ceiling will start to lower above them and they will be presented with another choice: Move the slab, or find another exit.
+            - Move the slab: If the players might stat is high enough they successfully move the slab and escape the room.
+            - Find another exit: If the players wisdom stat is high enough they successfully find a hidden passageway and escape the room.
+            - Faliure on either of these choices will result in a game over, and will return the player to the homescreen.
 
-    ![screenshot](documentation/features/feature-chapter-3b.png)
+    ![screenshot](documentation/features/feature-chapter-4a-decision.png)
+
+    - ***Chapter 4b***
+
+        - This chapter plays out if the player decides to go through the passageway at the end of the corridor. They enter a narrow passageway where a trap door opens from under them.
+        - If the player has a high enough cunning stat, they will land on their feet and not take any damage.
+        - If the player's cunning stat is too low they will take 5ph damage.
+        - Both outcomes will take the play to the next chapter.
+
+    ![screenshot](documentation/features/feature-chapter-4b-fail.png)
+
+    - ***Chapter 5a***
+
+        - This chapter finds the player in a throne room where they are presented with a choice to go into an Armory, Library, or Treasury. The choice will determine which boss the player will face.
+
+    ![screenshot](documentation/features/feature-chapter-5a-decision.png)
+
+    - ***Chapter 5b***
+
+        - This chapter will play out before chapter 5a, only if the play decided to not touch the mirror on chapter 3a. The player will encounter the mirror again, and have to fight a clone of themselves. Successfully defeatng the clone will award the Mirror Sphere item to the player.
+
+    ![screenshot](documentation/features/feature-chapter-5b.png)
 
 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
+
 
 Repeat as necessary for as many features as your site contains.
 
