@@ -27,19 +27,19 @@ def defeat(
     if player_character.health <= 0:
         clear_terminal_in_game(player_character, player_name)
         center_print("You have been defeated!\n")
-        center_input("Press any button to return to main menu...")
+        center_input("Press enter to return to main menu...")
         homescreen_callback()
     elif current_enemy.health <= 0:
         # Handles item drop odds upon defeating an enemy
         if random_item_chance >= drop_odds:  # 11 = 100% Chance
-            input(f'{current_enemy.name} has been defeated!')
+            center_input(f'{current_enemy.name} has been defeated!')
         else:
-            print(f'{current_enemy.name} has been defeated!')
-            print(
+            center_print(f'{current_enemy.name} has been defeated!')
+            center_print(
                 f"{current_enemy.name} has dropped an item: {dropped_item}\n"
             )
-            print("Do you want to pick it up? (Replaces current item)")
-            print("Yes(y) / No(n)")
+            center_print("Do you want to pick it up? (Replaces current item)")
+            center_print("Yes(y) / No(n)")
 
             while True:
                 choice = input().strip()
@@ -47,10 +47,13 @@ def defeat(
                     player_character.item = dropped_item
                     stat_reset(player_character, base_stats)
                     item_buff(player_character)
+                    center_print(f"You pick up the {dropped_item}")
+                    center_input("(Press enter to continue...)")
                     clear_terminal_in_game(player_character, player_name)
                     break  # Exit loop after picking up
                 elif choice == "n":
-                    print(f"You left the {dropped_item} behind.")
+                    center_print(f"You left the {dropped_item} behind.")
+                    center_input("(Press enter to continue...)")
                     clear_terminal_in_game(player_character, player_name)
                     break  # Exit loop after leaving
                 else:
@@ -174,7 +177,6 @@ def combat(
         center_print(
             f"You slip away while the {current_enemy.name} is blinded...")
         center_input("(Press enter to continue...)")
-
 
 
 def attack(current_enemy, player_character, accuracy, damage_mult):
