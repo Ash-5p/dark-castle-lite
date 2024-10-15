@@ -251,9 +251,10 @@ def check_item(player_character, current_enemy):
     ):
         if item in ITEMS:
             center_print(f"{item} - {ITEMS[item]}")
+            center_print(f"Do you want to use the {item}?")
+            center_print("Yes(y) / No(n)\n")
             while True:
-                print(f"Do you want to use the {item}?")
-                choice = input("Yes(y) / No(n)\n")
+                choice = input()
                 if choice == "y":
                     print(f"You used the {item}\n")
                     if player_character.item == "Throwing Knife":

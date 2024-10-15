@@ -91,7 +91,7 @@ ITEMS = {
     "Focusing Crystal": "Increase accuracy of attacks by 10%",
     "Throwing Knife": (
         "Use in battle to inflict 15 damage to current enemy\n"
-        "(Consumed when used)\n"
+        "                 (Consumed when used)\n"
     ),
     "Mirror Sphere": (
         "Allows the guaranteed escape from combat. Is said to contain a"
