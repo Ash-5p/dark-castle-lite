@@ -5,29 +5,96 @@
 [![GitHub repo size](https://img.shields.io/github/repo-size/Ash-5p/dark-castle-lite)](https://github.com/Ash-5p/dark-castle-lite)
 
 
-![image](assets/images/dark-castle-gif.gif)
+![screenshot](assets/images/dark-castle-gif.gif)
 
 ## Features
 
 ### Existing Features
 
-- **YOUR-TITLE-FOR-FEATURE-#1**
+- **Homescreen**
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+    - The homescreen's purpose is to allow the user to start the game, or navigate to the instructions menu. The player is brought back to this screen upon successfully completing the game, or recieving a gameover.
 
-![screenshot](documentation/features/feature01.png)
+![screenshot](documentation/features/feature-homescreen.png)
 
-- **YOUR-TITLE-FOR-FEATURE-#2**
+- **Instructions Screen**
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+    - The instructions screen is made up of 5 pages, and serves to teach the player about the mechanics of the game, such as the combat system, nature match-ups and items.
 
-![screenshot](documentation/features/feature02.png)
+![screenshot](documentation/features/feature-instructions-gif.gif)
 
-- **YOUR-TITLE-FOR-FEATURE-#3**
+- **Enter Name Screen**
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+    - This screen prompts the player to choose their character name. This can contain letters & numbers, and must be between 1 & 15 character long. This name will be displayed at different points throughout the game.
 
-![screenshot](documentation/features/feature03.png)
+![screenshot](documentation/features/feature-enter-name.png)
+
+- **Choose Character Screen**
+
+    - This screen prompts the player to choose their character from a selection of 3 choices (Fighter, Scholar, Thief). Each character has different might, wisdom & cunning stats which is displayed next to each character. These stats will effect many aspects of the game, such as the difficulty of certain enemies, and the outcome of many of the story events.
+
+![screenshot](documentation/features/feature-select-character.png)
+
+- **Player Info Header**
+
+    - This header displays important information about the player, such as their name, character class, Might\Wisdom\Cunning stats, their current health, and their held item.
+
+![screenshot](documentation/features/feature-player-info.png)
+
+- **Between Chapter Decisions**
+
+    - Between chapter decisions present the player with a choice which will determine which chapter will play out next.
+
+![screenshot](documentation/features/feature-run-game-decisions-gif.gif)
+
+- **Chapters**
+
+    - ***Intro Chapter***
+
+        - This chapter has the player wake up in a jail cell, and presents them with a choice to wait or leave the cell.
+
+    ![screenshot](documentation/features/feature-intro-chapter.png)
+
+    - ***Chapter 1a***
+
+        - This chapter plays out if the player decides to leave their cell. The player is presented with the choice to take the armor of an unconcious gaurd, for which their is a random chance to succeed or fail. Success will result in the chainmail item being added to the player inventory, and failiure will result in combat with the now awakened guard.
+
+    ![screenshot](documentation/features/feature-chapter-1a-decision.png)
+
+    - ***Chapter 1b***
+
+        - This chapter plays out if the player decides to stay in their cell. A gaurd will walk in an combat will commence.
+
+    ![screenshot](documentation/features/feature-chapter-1b-full.png)
+
+    - ***Chapter 2a***
+
+        - This chapter plays out if the player decides to turn left at the fork in the road. The player is presented with a choice to fish an item out of an irrigation trench, for which the success is determined by the players cunning stat. Success will result in aquiring the Focusing Crystal item, and failiure will result in combat with a Sludge Creature.
+
+    ![screenshot](documentation/features/feature-chapter-2a-decision.png)
+
+    - ***Chapter 2b***
+
+        - This chapter plays out if the player decides to turn right at the fork in the road. The player has a Thowing Kife thrown at them by an unknown figure, which results in taking 1hp damage. They are then presented with the choice to pick up the Throwing Knife.
+
+    ![screenshot](documentation/features/feature-chapter-2b-full.png)
+
+    - ***Chapter 3a***
+
+        - This chapter plays out if the player decides to go up the stairs at the middle landing. The player encounters a mirror in the middle of a room and is presented with the choice to touch it. If the player chooses to touch it the outcome will differ depending on if they have an item or not. If they don't have an item they will be rewarded with a Mirror Sphere item. If they do have an item they will have their item destroyed an loose 5hp.
+        - If they choose to not touch the mirror they will continue to the next between chapter decision. This choice will also cause chapter 5b to play out later in the game.
+
+    ![screenshot](documentation/features/feature-chapter-3a-decision.png)
+
+    - ***Chapter 3b***
+
+        - This chapter plays out if the player decides to go down the stairs at the middle landing. The player encounters a spirit who attacks them resulting in combat.
+
+    - ***Chapter 4a***
+
+        - This chapter plays out if the player decides to go go through the door at the end of the corridor. The player enters a room where a figure tries to seal the exit.
+
+    ![screenshot](documentation/features/feature-chapter-3b.png)
 
 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
 
