@@ -155,7 +155,7 @@ def combat(
                 elif current_enemy.boss is True:
                     center_input("You are unable to escape!")
                 else:
-                    print("Your attempt at escape was unsuccessful!")
+                    center_print("Your attempt at escape was unsuccessful!")
                     player_character.health -= current_enemy.max_damage * 2
                     player_character.health = max(player_character.health, 0)
                     center_input(
