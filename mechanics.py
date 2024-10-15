@@ -84,15 +84,15 @@ def combat(
         """
         Displays combat controls and enemy info
         """
-        print(
+        center_print(
             f"{current_enemy.name} Health: {max(current_enemy.health, 0)}hp"
         )
-        print(f"Nature: {current_enemy.nature}\n")
-        print("What will you do?\n")
-        print("(l) Light Attack")
-        print("(h) Heavy Attack")
-        print("(i) Item")
-        print("(r) Run\n")
+        center_print(f"Nature: {current_enemy.nature}\n")
+        center_print("What will you do?\n")
+        center_print("(l) Light Attack")
+        center_print("(h) Heavy Attack")
+        center_print("(i) Item")
+        center_print("(r) Run\n")
 
     combat_prompt()
 
@@ -141,21 +141,21 @@ def combat(
                 # Handles whe player presses (i) to check item
             elif combat_choice == "i":
                 check_item(player_character, current_enemy)
-                input("(Press enter to continue...)")
+                center_input("(Press enter to continue...)")
                 show_combat_details()
 
                 # Handles running from combat
             elif combat_choice == "r":
                 if run_chance <= 3 and current_enemy.boss is False:
-                    input("You manage to escape!")
+                    center_input("You manage to escape!")
                     break
                 elif current_enemy.boss is True:
-                    input("You are unable to escape!")
+                    center_input("You are unable to escape!")
                 else:
                     print("Your attempt at escape was unsuccessful!")
                     player_character.health -= current_enemy.max_damage * 2
                     player_character.health = max(player_character.health, 0)
-                    input(
+                    center_input(
                         f"The {current_enemy.name} lands a crushing blow while"
                         " you are distracted! "
                         f"(-{current_enemy.max_damage * 2}hp)"
@@ -171,10 +171,10 @@ def combat(
             homescreen_callback, dropped_item, drop_odds, base_stats
         )
     except EscapeCombat:  # Handles escape when using Mirror Sphere
-        input(
-            f"You slip away while the {current_enemy.name} is blinded...\n"
-            "(Press enter to continue...)"
-        )
+        center_print(
+            f"You slip away while the {current_enemy.name} is blinded...")
+        center_input("(Press enter to continue...)")
+
 
 
 def attack(current_enemy, player_character, accuracy, damage_mult):
@@ -203,9 +203,9 @@ def attack(current_enemy, player_character, accuracy, damage_mult):
             current_enemy.health -= damage_dealt_formula
             # Prevent health from dropping below 0
             current_enemy.health = max(current_enemy.health, 0)
-            print(f"Your attack lands! (-{damage_dealt_formula}hp)")
+            center_print(f"Your attack lands! (-{damage_dealt_formula}hp)")
         else:
-            print("Your attack missed!")
+            center_print("Your attack missed!")
 
         if enemy_hit_chance < 8:  # Enemy attack logic
             # Damaged recieved is determined by resistant stat
@@ -216,14 +216,14 @@ def attack(current_enemy, player_character, accuracy, damage_mult):
                 player_character.health -= damage_taken_formula
             # Prevent health from dropping below 0
             player_character.health = max(player_character.health, 0)
-            print(
+            center_print(
                 f"You get hit by the {current_enemy.name}! "
                 f"(-{damage_taken_formula}hp)"
             )
-            print("(Press enter to continue...)")
+            center_print("(Press enter to continue...)")
         else:
-            print("You dodged the enemy's attack!")
-            print("(Press enter to continue...)")
+            center_print("You dodged the enemy's attack!")
+            center_print("(Press enter to continue...)")
 
     if current_enemy.nature == "Might":  # Wisdom > Might
         nature_weakness_calculation(player_character.wisdom)
@@ -248,7 +248,7 @@ def check_item(player_character, current_enemy):
         == "Throwing Knife" or player_character.item == "Mirror Sphere"
     ):
         if item in ITEMS:
-            print(f"{item} - {ITEMS[item]}")
+            center_print(f"{item} - {ITEMS[item]}")
             while True:
                 print(f"Do you want to use the {item}?")
                 choice = input("Yes(y) / No(n)\n")
@@ -260,7 +260,7 @@ def check_item(player_character, current_enemy):
                         player_character.health += 30
                     elif player_character.item == "Mirror Sphere":
                         if current_enemy.boss is False:
-                            print(
+                            center_print(
                                 "You throw the Mirror Sphere on the ground, "
                                 "causing it to explode in a dazzling\nlight!\n"
                             )
@@ -272,7 +272,7 @@ def check_item(player_character, current_enemy):
                             player_character.wisdom *= 2
                             player_character.cunning *= 2
 
-                            input(
+                            center_input(
                                 "The Mirror Sphere starts to glow in your hand"
                                 " until it bursts in a dazzling\nlight! When "
                                 "the light dims the sphere is gone... But you "
@@ -282,19 +282,19 @@ def check_item(player_character, current_enemy):
                     player_character.item = "None"
                     break
                 elif choice == "n":
-                    print(f"You put the {item} away")
+                    center_print(f"You put the {item} away")
                     break
                 else:
-                    print(f'You can\'t do "{choice}" right now!')
+                    center_print(f'You can\'t do "{choice}" right now!')
         else:
-            print("Unknown item")
+            center_print("Unknown item")
     elif player_character.item == "None":
-        print("You don't currently have an item!")
+        center_print("You don't currently have an item!")
     else:
         if item in ITEMS:
-            print(f"{item} - {ITEMS[item]}")
+            center_print(f"{item} - {ITEMS[item]}")
         else:
-            print("Unknown item")
+            center_print("Unknown item")
 
 
 def item_choice(player_character, base_stats, item):
