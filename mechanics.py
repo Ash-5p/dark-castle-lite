@@ -254,13 +254,15 @@ def check_item(player_character, current_enemy):
             center_print(f"Do you want to use the {item}?")
             center_print("Yes(y) / No(n)\n")
             while True:
-                choice = input()
+                choice = input().strip()
                 if choice == "y":
-                    print(f"You used the {item}\n")
+                    center_print(f"You used the {item}\n")
                     if player_character.item == "Throwing Knife":
                         current_enemy.health -= 15
+                        center_print("Enemy Health (-15hp)")
                     elif player_character.item == "Apple":
                         player_character.health += 30
+                        center_print("Player Health (+30hp)")
                     elif player_character.item == "Mirror Sphere":
                         if current_enemy.boss is False:
                             center_print(
