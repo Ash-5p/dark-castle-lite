@@ -38,9 +38,9 @@ class Character:
             return "Cunning"
 
 
-fighter = Character("Fighter", 60, 9, 6, 3, "Spiked Gloves", False)
-scholar = Character("Scholar", 60, 3, 9, 6, "Lexicon", False)
-thief = Character("Thief", 60, 6, 3, 9, "Hooded Cloak", False)
+fighter = Character("Fighter", 60, 9, 6, 3, "None", False)
+scholar = Character("Scholar", 60, 3, 9, 6, "None", False)
+thief = Character("Thief", 60, 6, 3, 9, "None", False)
 
 characters = [fighter, scholar, thief]
 
