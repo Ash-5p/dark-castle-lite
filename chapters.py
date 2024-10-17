@@ -197,6 +197,7 @@ def chapter_2b(player_character, player_name, homescreen, base_stats):
 
     item_choice(player_character, base_stats, "Throwing Knife")
 
+
 def chapter_3a(player_character, player_name, homescreen, base_stats):
     """
     Chapter 3a - Called by run_game() when player chooses to go up the
@@ -338,7 +339,7 @@ def chapter_3b(player_character, player_name, homescreen, base_stats):
     center_input("Press enter to commence combat...")
 
     combat(
-        spirit, player_character, player_name, homescreen, random_item, 6,
+        spirit, player_character, player_name, homescreen, random_item, 8,
         base_stats
     )
 
