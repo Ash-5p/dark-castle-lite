@@ -337,11 +337,11 @@ Make sure to include any necessary steps you've implemented to fix the bug(s) as
 
     - To fix this, I _____________________.
 
-- Python `'ModuleNotFoundError'` when trying to import module from imported package
+- Python player stats not resetting when changing item.
 
-    ![screenshot](documentation/bugs/bug03.png)
+    ![screenshot](documentation/bugs/bug-no-stat-decrease-after-item-change.png)
 
-    - To fix this, I _____________________.
+    - To fix this, I removed line 96 in run.py "player_character = base_stats", as this was causing base_stats to be overwritten by character_stats, preventing base_stats from storing the player character default stat values.
 
 - Django `TemplateDoesNotExist` at /appname/path appname/template_name.html
 

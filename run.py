@@ -93,8 +93,6 @@ def select_character():
                 "Invalid input. Please enter a number."
             )
 
-    player_character = base_stats
-
     center_input("Press enter button to start your journey...")
     run_game()
 

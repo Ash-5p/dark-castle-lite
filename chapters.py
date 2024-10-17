@@ -194,8 +194,8 @@ def chapter_2b(player_character, player_name, homescreen, base_stats):
         "ground in front\nof you and spot the projectile that was thrown at"
         " you.\n(Press enter to continue...)\n"
     )
-    item_choice(player_character, base_stats, "Throwing Knife")
 
+    item_choice(player_character, base_stats, "Throwing Knife")
 
 def chapter_3a(player_character, player_name, homescreen, base_stats):
     """
