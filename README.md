@@ -122,6 +122,149 @@
 
     ![screenshot](documentation/features/feature-chapter-5b.png)
 
+    - ***Boss 1 (Champion's Spirit)***
+
+        - This chapter will play out if the player chooses to enter the Armory in chapter 5a. The player will enter combat with the Champion's Spirit boss. Upon defeating this enemy, they will be congratulated for completing the game, and be redirected to the homescreen.
+
+    ![screenshot](documentation/features/feature-boss01.png)
+
+    - ***Boss 2 (Protector of Knowledge)***
+
+        - This chapter will play out if the player chooses to enter the Library in chapter 5a. The player will enter combat with the Protector of Knowledge boss. Upon defeating this enemy, they will be congratulated for completing the game, and be redirected to the homescreen.
+
+    ![screenshot](documentation/features/feature-boss02.png)
+
+    - ***Boss 3 (Hoarder Dragon)***
+
+        - This chapter will play out if the player chooses to enter the Treasury in chapter 5a. The player will enter combat with the Hoarder Dragon boss. Upon defeating this enemy, they will be congratulated for completing the game, and be redirected to the homescreen.
+
+    ![screenshot](documentation/features/feature-boss03.png)
+
+- **Natures**
+
+    - Every enemy in the game will have a nature (displayed on combat screen). This nature detrmines which of the player's stats is used in the damage calculation when facing the enemy.
+
+![screenshot](documentation/features/feature-combat-enemy-nature.png) 
+
+![screenshot](assets/images/type-match-ups02.png)
+
+- **Combat**
+
+    - ***Combat Screen***
+
+        - The combat screen serves as the main means for the player to navigate their options when they encounter an enemy. This screen presents the player with 4 options (light attack, heavy attack, item, and run) shows important information, such as the enemy's name, current health, and nature.
+
+    ![screenshot](documentation/features/feature-combat.png)
+
+    - ***Attack***
+
+        - The light and heavy attack options will cause both the player and the enemy to attack. The damage dealt & recieved is determined by the enemies nature, and the value of the corrisponding stat used when facing that nature. It is also possible for the player and/or enemy's attack to miss, which for the player is greatly effected by which type of attack they choose. 
+        - Light Attack deals lower damage, but has a 90% chance to hit.
+        - Heavy Attack deals greater damages but has 50% to hit.
+
+    ![screenshot](documentation/features/feature-combat-light-attack.png)
+
+    - ***Accuracy***
+
+        - The player and enemy will both have a chance to miss when either light or heavy attack is selected. A missed attack results in the opposing party taking no damage.
+        - Light Attack deals lower damage, but has a 90% chance to hit.
+        - Heavy Attack deals greater damages but has 50% to hit.
+        - The enemy will always have an 80% chance to land an attack.
+
+    ![screenshot](documentation/features/feature-combat-missed-heavy-attack.png)
+
+    - ***Item***
+
+        - The item option will display the name & description of the currently held item. If the item is consumable, it will also prompt the player with the option of using the item.
+
+    ![screenshot](documentation/features/feature-combat-item.png)
+
+    - ***Run***
+
+        - The run option will have the player attempt to escape combat, which if successful, will progress to the next chapter, or between chapter decision. The player will also miss the possibility of an item-drop. If the run attempt fails, the player will take damage equal to the enemies upper damage output (This is an attribute of the Enemey class, and is not visible to the player). This damage is unaffected by enemy/player nature match-up. There is 30% success chance when attempting to run from combat.
+
+    ![screenshot](documentation/features/feature-combat-run-success.png)
+    ![screenshot](documentation/features/feature-combat-run-fail.png)
+
+    - ***Enemy Defeat***
+
+        - Upon reducing an enemy's health to 0, the enemy will be defeated which will progress the player to the next chapter/decision. Many enemies have a chance of dropping an item upon being defeated, for which the player will be prompted to choose if they want to pick the item up or not.
+
+    ![screenshot](documentation/features/feature-combat-item-drop.png)
+
+- **Player Defeat\Death**
+
+    - Defeat/Death can happen both inside and outside of combat, when the player's health reaches 0. Upon this event the player will be presented with a gameover screen, and be redirected to the homescreen.
+
+![screenshot](documentation/features/feature-defeat.png)
+
+
+- **Items**
+
+    - ***Item Drops***
+
+        - The combat screen serves as the main means for the player to navigate their options when they encounter an enemy. This screen presents the player with 4 options (light attack, heavy attack, item, and run) shows important information, such as the enemy's name, current health, and nature.
+
+    ![screenshot](documentation/features/feature-combat-item-drop.png)
+
+- ***Chainmail***
+
+        - Chainmail is an in-game item which reduces damage taken in combat by 2 while held.
+
+    ![screenshot](documentation/features/feature-item-chainmail.png)
+
+- ***Spiked Gloves***
+
+        - Spiked Gloves are an in-game item which increase the players Might stat by 3 while held.
+
+    ![screenshot](documentation/features/feature-item-spiked-gloves.png)
+
+- ***Hooded Cloak***
+
+        - Hooded Cloak is an in-game item which increase the players Cunning stat by 3 while held.
+
+    ![screenshot](documentation/features/feature-item-hooded-cloak.png)
+
+- ***Lexicon***
+
+        - Lexicon is an in-game item which increase the players Wisdom stat by 3 while held.
+
+    ![screenshot](documentation/features/feature-item-lexicon.png)
+
+- ***Focusing Crystal***
+
+        - Focusing Crystal is an in-game item which increase the player's accuracy by 10% while held. This means that light attacks have 100% chance to land, and heavy attacks have 60% chance to land.
+
+    ![screenshot](documentation/features/feature-item-focusing-crystal.png)
+
+- ***Apple***
+
+        - Apple an in-game item which restores +30hp to the players health when consumed in combat (One time use).
+
+    ![screenshot](documentation/features/feature-item-apple.png)
+
+
+- ***Throwing Knife***
+
+        - Throwing Knife is an in-game item which deals 15hp damage to the current enemy when used in combat (One time use). The player will not receive damage from the enemy when using this item.
+
+    ![screenshot](documentation/features/feature-combat-item-y.png)
+
+- ***Mirror Sphere***
+
+        - Mirror Sphere is an in-game item which has 2 different effects depending if it is used against a normal enemy or a boss (One time use).
+        - Normal Enemy - Allows the player guaranteed escape from combat when used.
+        - Boss - Gain +60hp & all player stats are doubled until combat is over.
+
+    ![screenshot](documentation/features/feature-item-mirror-sphere-enemy.png)
+
+    ![screenshot](documentation/features/feature-item-mirror-sphere-boss.png)
+
+
+
+
+
+
 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
 
 
