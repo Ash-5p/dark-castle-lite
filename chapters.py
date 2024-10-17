@@ -105,7 +105,7 @@ def chapter_1b(player_character, player_name, homescreen, base_stats):
     center_input("Press enter to commence combat...")
 
     combat(
-        guard, player_character, player_name, homescreen, "Apple", 11,
+        guard, player_character, player_name, homescreen, "Chainmail", 11,
         base_stats
     )
 
