@@ -352,10 +352,13 @@ The primary functions used on this application are:
 - `homescreen()`
     - Displays the homescreen.
 - `defeat()`
-    -  Checks to see if the player or enemy health health is = 0 when in combat, and handles the event accordingly.
-    - Also contains the 
-- `main()`
-    - Run all program functions.
+    - Checks to see if the player or enemy health health is = 0 when in combat, and handles the event accordingly. 
+- `item_drop()`
+    - Presents player with a choice to pick up an item if enemy drops one on defeat.
+- `death_outside_combat()`
+    - Shows gameover screen, and redirects plaiyer to homescreen if health reaches 0 outside of combat.
+- `combat()`
+    - Presents player with a choice to pick up an item if enemy drops one on defeat.
 
 ### Imports
 

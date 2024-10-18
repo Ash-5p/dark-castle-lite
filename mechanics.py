@@ -123,36 +123,14 @@ def combat(
             run_chance = random.randrange(1, 11)
 
             if combat_choice == "l":
-                if player_character.item == "Focusing Crystal":
-                    # Handle damage and hit chande of light attack with
-                    # Focusing Crystal item.
-                    player_character.health = attack(
-                        current_enemy, player_character, 11, 1.5
-                    )
-                    input()
-                    show_combat_details()
-                else:
-                    # Handle damage and hit chande of light attack
-                    player_character.health = attack(
-                        current_enemy, player_character, 10, 1.5
-                    )
-                    input()
-                    show_combat_details()
+                light_attack(
+                    current_enemy, player_character, show_combat_details
+                )
 
             elif combat_choice == "h":
-                if player_character.item == "Focusing Crystal":
-                    player_character.health = attack(
-                        current_enemy, player_character, 7, 3
-                    )
-                    input()
-                    show_combat_details()
-                else:
-                    # Handle damage and hit chande of heavy attack
-                    player_character.health = attack(
-                        current_enemy, player_character, 6, 3
-                    )
-                    input()
-                    show_combat_details()
+                heavy_attack(
+                    current_enemy, player_character, show_combat_details
+                )
 
                 # Handles whe player presses (i) to check item
             elif combat_choice == "i":
@@ -194,7 +172,10 @@ def combat(
 
 def attack(current_enemy, player_character, accuracy, damage_mult):
     """
-    Handles damage dealt and hit chance for attack type
+    Handles attack logic such as accuracy and damage calculations based on
+    player stats, enemy nature, and player item.
+    Use to create new attacks & control their accuracy & damage output with a
+    single line.
     """
     # Only calculate once per attack
     hit_chance = random.randrange(1, 11)
@@ -250,6 +231,46 @@ def attack(current_enemy, player_character, accuracy, damage_mult):
         nature_weakness_calculation(player_character.might)
 
     return player_character.health  # Return updated player_character.health
+
+
+def light_attack(current_enemy, player_character, show_combat_details):
+    """
+    Handles damage & accuracy of light attacks
+    """
+    if player_character.item == "Focusing Crystal":
+        # Handle damage and hit chande of light attack with
+        # Focusing Crystal item.
+        player_character.health = attack(
+            current_enemy, player_character, 11, 1.5
+        )
+        input()
+        show_combat_details()
+    else:
+        # Handle damage and hit chance of light attack
+        player_character.health = attack(
+            current_enemy, player_character, 10, 1.5
+        )
+        input()
+        show_combat_details()
+
+
+def heavy_attack(current_enemy, player_character, show_combat_details):
+    """
+    Handles damage & accuracy of heavy attacks
+    """
+    if player_character.item == "Focusing Crystal":
+        player_character.health = attack(
+            current_enemy, player_character, 7, 3
+        )
+        input()
+        show_combat_details()
+    else:
+        # Handle damage and hit chance of heavy attack
+        player_character.health = attack(
+            current_enemy, player_character, 6, 3
+        )
+        input()
+        show_combat_details()
 
 
 def check_item(player_character, current_enemy):
