@@ -35,29 +35,42 @@ def defeat(
             center_input(f'{current_enemy.name} has been defeated!')
         else:
             center_print(f'{current_enemy.name} has been defeated!')
-            center_print(
-                f"{current_enemy.name} has dropped an item: {dropped_item}\n"
+            item_drop(
+                current_enemy, player_name, player_character,
+                homescreen_callback, dropped_item, drop_odds, base_stats
             )
-            center_print("Do you want to pick it up? (Replaces current item)")
-            center_print("Yes(y) / No(n)")
 
-            while True:
-                choice = input().strip()
-                if choice == "y":
-                    player_character.item = dropped_item
-                    stat_reset(player_character, base_stats)
-                    item_buff(player_character)
-                    center_print(f"You pick up the {dropped_item}")
-                    center_input("(Press enter to continue...)")
-                    clear_terminal_in_game(player_character, player_name)
-                    break  # Exit loop after picking up
-                elif choice == "n":
-                    center_print(f"You left the {dropped_item} behind.")
-                    center_input("(Press enter to continue...)")
-                    clear_terminal_in_game(player_character, player_name)
-                    break  # Exit loop after leaving
-                else:
-                    print(f'You can\'t do "{choice}" right now')
+
+def item_drop(
+            current_enemy, player_name, player_character, homescreen_callback,
+        dropped_item, drop_odds, base_stats
+        ):
+    """
+    Handles player choice when an enemy drops an item in combat
+    """
+    center_print(
+        f"{current_enemy.name} has dropped an item: {dropped_item}\n"
+    )
+    center_print("Do you want to pick it up? (Replaces current item)")
+    center_print("Yes(y) / No(n)")
+
+    while True:
+        choice = input().strip()
+        if choice == "y":
+            player_character.item = dropped_item
+            stat_reset(player_character, base_stats)
+            item_buff(player_character)
+            center_print(f"You pick up the {dropped_item}")
+            center_input("(Press enter to continue...)")
+            clear_terminal_in_game(player_character, player_name)
+            break  # Exit loop after picking up
+        elif choice == "n":
+            center_print(f"You left the {dropped_item} behind.")
+            center_input("(Press enter to continue...)")
+            clear_terminal_in_game(player_character, player_name)
+            break  # Exit loop after leaving
+        else:
+            print(f'You can\'t do "{choice}" right now')
 
 
 def death_outside_combat(player_character, player_name, homescreen, damage):

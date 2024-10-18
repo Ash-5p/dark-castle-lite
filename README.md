@@ -291,7 +291,7 @@
 - [![Heroku](https://img.shields.io/badge/Heroku-grey?logo=heroku&logoColor=430098)](https://www.heroku.com) used for hosting the deployed back-end site.
 - [![Bootstrap](https://img.shields.io/badge/Bootstrap-grey?logo=bootstrap&logoColor=7952B3)](https://getbootstrap.com) used as the front-end CSS framework for modern responsiveness and pre-built components.
 - [![ChatGPT](https://img.shields.io/badge/ChatGPT-grey?logo=chromatic&logoColor=75A99C)](https://chat.openai.com) used to help debug, troubleshoot, and explain things.
-- [![Lucidchart](https://img.shields.io/badge/Lucidchart)](https://www.lucidchart.com/) used to make flow diagram when designing functions
+- [Lucidchart](https://www.lucidchart.com/) used to make flow diagrams for mapping the app's logic
 
 ## Data Model
 
@@ -299,7 +299,7 @@
 
 To follow best practice, a flowchart was created for the app's logic,
 and mapped out before coding began using a free version of
-[Lucidchart](https://www.lucidchart.com/pages/ER-diagram-symbols-and-meaning) and/or [Draw.io](https://www.draw.io).
+[Lucidchart](https://www.lucidchart.com/pages/ER-diagram-symbols-and-meaning).
 
 Below is the flowchart of the main process of this Python program. It shows the entire cycle of the program.
 
@@ -310,29 +310,50 @@ Below is the flowchart of the main process of this Python program. It shows the 
 The program uses classes as a blueprint for the project's objects (OOP). This allows for the object to be reusable.
 
 ```python
-class Person:
-    """ Insert docstring comments here """
-    def __init__(self, name, age, health, inventory):
+class Character:
+    """
+    Character class
+    """
+    def __init__(self, name, health, might, wisdom, cunning, item, mirror):
+        # properties
         self.name = name
-        self.age = age
         self.health = health
-        self.inventory = inventory
+        self.might = might
+        self.wisdom = wisdom
+        self.cunning = cunning
+        self.item = item
+        # Becomes true if player selects (n) on chapter_3a
+        self.mirror = mirror
+
+    class Enemy:
+    """
+    Enemy class
+    """
+    def __init__(self, name, health, nature, min_damage, max_damage, boss):
+        # properties
+        self.name = name
+        self.health = health
+        self.nature = nature
+        self.min_damage = min_damage
+        self.max_damage = max_damage
+        self.boss = boss
 ```
 
 The primary functions used on this application are:
 
-- `get_sales_data()`
-    - Get sales figures input from the user.
-- `validate_data()`
-    - Converts all string values into integers.
-- `update_worksheet()`
-    - Update the relevant worksheet with the data provided.
-- `calculate_surplus_data()`
-    - Compare sales with stock and calculate the surplus for each item type.
-- `get_last_5_entries_sales()`
-    - Collects columns of data from sales worksheet.
-- `calculate_stock_data()`
-    -  Calculate the average stock for each item type, adding 10%.
+- `select_name()`
+    - Prompts user to enter a name, and prevents invalid inputs.
+- `select_character()`
+    - Displays the playable characters and prompts the user to select one.
+- `run_game()`
+    - The main function which presents the play with in-game decisions, and calls the corrisponding chapter function.
+- `display_instructions_screen()`
+    - Displays the instructions screen, and contains the logic to navigate through each page.
+- `homescreen()`
+    - Displays the homescreen.
+- `defeat()`
+    -  Checks to see if the player or enemy health health is = 0 when in combat, and handles the event accordingly.
+    - Also contains the 
 - `main()`
     - Run all program functions.
 
