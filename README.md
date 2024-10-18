@@ -7,6 +7,15 @@
 
 ![screenshot](assets/images/dark-castle-gif.gif)
 
+**Main Goal:**
+- The inspiration for this game comes from a board game I love to play with my friends, published by Themeborne, called [Escape the Dark Castle](https://themeborne.com/products/escape-the-dark-castle). The main goal of this game is provide a fun, replayable story experience with combat elements in the style of a retro text adventure game, which captures the essence of the board game on which it is inspired. 
+
+**Target Audience:**
+- Fans of the Escape the Dark Castle board game.
+- People who enjoy text adventure games.
+- Retro gamers.
+- People who enjoy horror stories, and stories which have different outcomes based on decisions.
+
 ## Features
 
 ### Existing Features
@@ -260,7 +269,6 @@
 
     ![screenshot](documentation/features/feature-item-mirror-sphere-boss.png)
 
-
 ### Future Features
 
 - More Characters
@@ -276,8 +284,6 @@
 - Color
     - I plan to add color to some of the ingame elements, such as items & player health.
 
-
-
 ## Tools & Technologies Used
 
 - [![Markdown Builder](https://img.shields.io/badge/Markdown_Builder-grey?logo=markdown&logoColor=000000)](https://tim.2bn.dev/markdown-builder) used to generate README and TESTING templates.
@@ -291,7 +297,10 @@
 - [![Heroku](https://img.shields.io/badge/Heroku-grey?logo=heroku&logoColor=430098)](https://www.heroku.com) used for hosting the deployed back-end site.
 - [![Bootstrap](https://img.shields.io/badge/Bootstrap-grey?logo=bootstrap&logoColor=7952B3)](https://getbootstrap.com) used as the front-end CSS framework for modern responsiveness and pre-built components.
 - [![ChatGPT](https://img.shields.io/badge/ChatGPT-grey?logo=chromatic&logoColor=75A99C)](https://chat.openai.com) used to help debug, troubleshoot, and explain things.
+- [pep8](https://pep8ci.herokuapp.com/) used to check the Python script for compliance with PEP8 requirements.
 - [Lucidchart](https://www.lucidchart.com/) used to make flow diagrams for mapping the app's logic
+- [GIMP](https://www.gimp.org/) used to remove background from title image of README.
+- [Ezgif](https://ezgif.com/) used to ccreate GIFs for readme file.
 
 ## Data Model
 
@@ -301,9 +310,13 @@ To follow best practice, a flowchart was created for the app's logic,
 and mapped out before coding began using a free version of
 [Lucidchart](https://www.lucidchart.com/pages/ER-diagram-symbols-and-meaning).
 
-Below is the flowchart of the main process of this Python program. It shows the entire cycle of the program.
+Below is the flowchart of the main process of this Python program. It shows the game flow from homescreen to completion.
 
-![screenshot](documentation/flowchart.png)
+![screenshot](documentation/flowchart-gameflow.png)
+
+Below is the flowchart of the combat function. It shows the flow of combat based on player decisions, and enemy/player health.
+
+![screenshot](documentation/flowchart-combat.png)
 
 ### Classes & Functions
 
@@ -325,7 +338,7 @@ class Character:
         # Becomes true if player selects (n) on chapter_3a
         self.mirror = mirror
 
-    class Enemy:
+class Enemy:
     """
     Enemy class
     """
@@ -358,7 +371,59 @@ The primary functions used on this application are:
 - `death_outside_combat()`
     - Shows gameover screen, and redirects plaiyer to homescreen if health reaches 0 outside of combat.
 - `combat()`
-    - Presents player with a choice to pick up an item if enemy drops one on defeat.
+    -  Displays combat options, and handles logic based on player choices within combat.
+- `attack()`
+    -  Handles attack logic such as accuracy and damage calculations based on player stats, enemy nature, and player item. Use to create new attacks & control their accuracy & damage output with a single line.
+- `light_attack()`
+    -  Applies damage and accuracy logic when the player selects light attack option in combat.
+- `heavy_attack()`
+    -  Applies damage and accuracy logic when the player selects heavy attack option in combat.
+- `check_item()`
+    -  Displays item description and option to use consumable item when player selects the item option in combat.
+- `item_choice()`
+    -  Handles logic when player is asked if they want to pick up an item outside of combat.
+- `item_buff()`
+    -  Applies stat bonuses when player is holding Spiked Gloves, Hooded Clock or Lexicon items.
+- `reset_stats()`
+    -  Resets the player's Might, Wisdom & Cunning stats to the default base stats for their current character.
+- `intro_chapter()`
+    -  Handles events and story based on player decisions for the intro chapter.
+- `chapter_1a()`
+    -  Handles events and story based on player decisions for chapter_1a.
+- `chapter_1b()`
+    -  Handles events and story based on player decisions for chapter_1b.
+- `chapter_2a()`
+    -  Handles events and story based on player decisions for chapter_2a.
+- `chapter_2b()`
+    -  Handles events and story based on player decisions for chapter_2b.
+- `chapter_3a()`
+    -  Handles events and story based on player decisions for chapter_3a.
+- `chapter_3b()`
+    -  Handles events and story based on player decisions for chapter_3b.
+- `chapter_4a()`
+    -  Handles events and story based on player decisions for chapter_4a.
+- `chapter_4b()`
+    -  Handles events and story based on player decisions for chapter_4b.
+- `chapter_5a()`
+    -  Handles events and story based on player decisions for chapter_5a.
+- `chapter_5b()`
+    -  Handles events and story based on player decisions for chapter_5b.
+- `boss_a()`
+    -  Handles story and commences combat with Champion's Spirit boss.
+- `boss_b()`
+    -  Handles story and commences combat with Protector of Knowledge boss.
+- `boss_c()`
+    -  Handles story and commences combat with Hoarder Dragon boss.
+- `center_print()`
+    -  Prints text in center of terminal.
+- `center_input()`
+    -  Waits for user input & prints input prompt in center of terminal.
+- `clear_terminal()`
+    -  Clears all text from the terminal
+- `clear_terminal_in_game()`
+    -  Clears all text from the terminal, but display top banner with player information.
+- `clear_terminal_instructions()`
+    -  Clears all text from the terminal, but display top banner with navigation information for instructions page.
 
 ### Imports
 
@@ -473,93 +538,27 @@ You can fork this repository by using the following steps:
 
 ### Local VS Deployment
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Use this space to discuss any differences between the local version you've developed, and the live deployment site on Heroku.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 ## Credits
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-In this section you need to reference where you got your content, media, and extra help from.
-It is common practice to use code from other repositories and tutorials,
-however, it is important to be very specific about these sources to avoid plagiarism.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 ### Content
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Use this space to provide attribution links to any borrowed code snippets, elements, or resources.
-A few examples have been provided below to give you some ideas.
-
-Ideally, you should provide an actual link to every resource used, not just a generic link to the main site!
-
-⚠️⚠️ EXAMPLE LINKS - REPLACE WITH YOUR OWN ⚠️⚠️
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 | Source | Location | Notes |
 | --- | --- | --- |
 | [Markdown Builder](https://tim.2bn.dev/markdown-builder) | README and TESTING | tool to help generate the Markdown files |
 | [Chris Beams](https://chris.beams.io/posts/git-commit) | version control | "How to Write a Git Commit Message" |
-| [W3Schools](https://www.w3schools.com/howto/howto_js_topnav_responsive.asp) | entire site | responsive HTML/CSS/JS navbar |
-| [W3Schools](https://www.w3schools.com/howto/howto_css_modals.asp) | contact page | interactive pop-up (modal) |
-| [W3Schools](https://www.w3schools.com/css/css3_variables.asp) | entire site | how to use CSS :root variables |
-| [Flexbox Froggy](https://flexboxfroggy.com/) | entire site | modern responsive layouts |
-| [Grid Garden](https://cssgridgarden.com) | entire site | modern responsive layouts |
-| [StackOverflow](https://stackoverflow.com/a/2450976) | quiz page | Fisher-Yates/Knuth shuffle in JS |
-| [YouTube](https://www.youtube.com/watch?v=YL1F4dCUlLc) | leaderboard | using `localStorage()` in JS for high scores |
-| [YouTube](https://www.youtube.com/watch?v=u51Zjlnui4Y) | PP3 terminal | tutorial for adding color to the Python terminal |
-| [strftime](https://strftime.org) | CRUD functionality | helpful tool to format date/time from string |
-| [WhiteNoise](http://whitenoise.evans.io) | entire site | hosting static files on Heroku temporarily |
+| [marked-gil](https://github.com/marked-gil/guess-that-word/blob/main/utility_manager.py#L8-L13) | utilities | `clear_terminal()` function |
+
 
 ### Media
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Use this space to provide attribution links to any images, videos, or audio files borrowed from online.
-A few examples have been provided below to give you some ideas.
-
-If you're the owner (or a close acquaintance) of all media files, then make sure to specify this.
-Let the assessors know that you have explicit rights to use the media files within your project.
-
-Ideally, you should provide an actual link to every media file used, not just a generic link to the main site!
-The list below is by no means exhaustive. Within the Code Institute Slack community, you can find more "free media" links
-by sending yourself the following command: `!freemedia`.
-
-⚠️⚠️ EXAMPLE LINKS - REPLACE WITH YOUR OWN ⚠️⚠️
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 | Source | Location | Type | Notes |
 | --- | --- | --- | --- |
-| [Pexels](https://www.pexels.com) | entire site | image | favicon on all pages |
-| [Lorem Picsum](https://picsum.photos) | home page | image | hero image background |
-| [Unsplash](https://unsplash.com) | product page | image | sample of fake products |
-| [Pixabay](https://pixabay.com) | gallery page | image | group of photos for gallery |
-| [Wallhere](https://wallhere.com) | footer | image | background wallpaper image in the footer |
-| [This Person Does Not Exist](https://thispersondoesnotexist.com) | testimonials | image | headshots of fake testimonial images |
-| [Audio Micro](https://www.audiomicro.com/free-sound-effects) | game page | audio | free audio files to generate the game sounds |
-| [Videvo](https://www.videvo.net/) | home page | video | background video on the hero section |
-| [TinyPNG](https://tinypng.com) | entire site | image | tool for image compression |
+| [ASCII Art Archive](https://www.asciiart.eu/buildings-and-places/castles) | homescreen | text | ASCII art castle on homescreen |
+| [fssymbols](https://fsymbols.com/generators/carty/) | homescreen & instructions screen | text | title text on homescreen & instructions screen |
 
 ### Acknowledgements
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Use this space to provide attribution to any supports that helped, encouraged, or supported you throughout the development stages of this project.
-A few examples have been provided below to give you some ideas.
-
-⚠️⚠️ EXAMPLES ONLY - REPLACE WITH YOUR OWN ⚠️⚠️
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 - I would like to thank my Code Institute mentor, [Tim Nelson](https://github.com/TravelTimN) for his support throughout the development of this project.
 - I would like to thank the [Code Institute](https://codeinstitute.net) tutor team for their assistance with troubleshooting and debugging some project issues.
 - I would like to thank the [Code Institute Slack community](https://code-institute-room.slack.com) for the moral support; it kept me going during periods of self doubt and impostor syndrome.
-- I would like to thank my partner (John/Jane), for believing in me, and allowing me to make this transition into software development.
-- I would like to thank my employer, for supporting me in my career development change towards becoming a software developer.
+- I would like to thank my partner, Lorna, for believing in me, and allowing me to make this transition into software development.

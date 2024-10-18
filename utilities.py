@@ -2,7 +2,6 @@
 This module contains utility functions.
 """
 import os
-import sys
 from art import HTP
 
 
@@ -18,7 +17,6 @@ def clear_terminal():
     """
     Clears the terminal
     """
-    # Suggested in stackoverflow. (see Credits section in README)
     print("\033c")
 
 
