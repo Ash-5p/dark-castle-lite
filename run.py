@@ -1,7 +1,6 @@
 import math
 import copy
-from classes import *
-from mechanics import *
+from classes import characters
 from chapters import *  # Everything in Chapters.py is needed
 from utilities import (
     clear_terminal, clear_terminal_in_game,

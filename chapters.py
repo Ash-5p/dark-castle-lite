@@ -1,7 +1,8 @@
-from mechanics import *
+from mechanics import (
+    death_outside_combat, combat, item_choice, stat_reset, random_item
+)
 from classes import (
-    Character, Enemy, fighter, scholar, thief, guard, spirit, sludge_creature,
-    beast, champion, protector, dragon, ITEMS
+    Enemy, guard, spirit, sludge_creature, beast, champion, protector, dragon
 )
 from utilities import clear_terminal_in_game, center_print, center_input
 import random

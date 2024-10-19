@@ -4,7 +4,6 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/Ash-5p/dark-castle-lite)](https://github.com/Ash-5p/dark-castle-lite/commits/main)
 [![GitHub repo size](https://img.shields.io/github/repo-size/Ash-5p/dark-castle-lite)](https://github.com/Ash-5p/dark-castle-lite)
 
-
 ![screenshot](assets/images/dark-castle-gif.gif)
 
 **Main Goal:**
