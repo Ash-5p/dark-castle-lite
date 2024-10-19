@@ -14,8 +14,8 @@ def intro_chapter(player_character, player_name):
     """
     clear_terminal_in_game(player_character, player_name)
     center_print(
-        "You awaken and find yourself in a empty, dark room with stone walls. "
-        "You look\nup to a small window with iron bars in the far corner of "
+        "You awaken and find yourself in an empty, dark room with stone walls."
+        " You look\nup at a small window with iron bars in the far corner of "
         "the room. As your eyes\ntrace the beams of moonlight peering into "
         "the room between the bars, you notice\na thick wooden door which "
         "appears to be open ajar.\n"
@@ -50,7 +50,7 @@ def chapter_1a(player_character, player_name, homescreen, base_stats):
         if choice == "y":
             if random.randrange(1, 11) >= 5:
                 center_print(
-                    "You manage to remove the Chainmail from the unconcious "
+                    "You manage to remove the Chainmail from the unconscious "
                     "guard without waking\nhim. (Press enter to continue...)"
                 )
                 player_character.item = "Chainmail"
@@ -58,7 +58,7 @@ def chapter_1a(player_character, player_name, homescreen, base_stats):
                 break
             else:
                 center_input(
-                    "As you attempt to remove the guards armor he begins to "
+                    "As you attempt to remove the guard's armor he begins to "
                     "stir, suddenly springing\nto his feet with an enraged "
                     "look on his face. You attempt to reason with him,\nbut "
                     "your words fall on deaf ears. (Press enter to "
@@ -96,7 +96,7 @@ def chapter_1b(player_character, player_name, homescreen, base_stats):
     )
 
     center_input(
-        "An enraged, dazed looking guard, clad in chainmail stands blocking "
+        "An enraged, dazed-looking guard, clad in chainmail stands blocking "
         "the doorway.\nYou attempt to reason with him, but your words fall on "
         "deaf ears.\n(Press enter to continue...)\n"
     )
@@ -124,7 +124,7 @@ def chapter_2a(player_character, player_name, homescreen, base_stats):
         "(Press enter to continue...)\n"
     )
 
-    center_print("You notice something sparkle within the mud filled channel")
+    center_print("You notice something sparkle within the mud-filled channel")
     center_print("Do you attempt to remove it?\n")
     center_print("Yes(y) / No(n)\n")
 
@@ -216,12 +216,12 @@ def chapter_3a(player_character, player_name, homescreen, base_stats):
     center_input(
         "You approach the mirror to inspect it more closely, and notice that "
         "the surface\nof the mirror looks to be moving around like a viscous "
-        "liquid. You are taken\nback by sudden realization that you appear to "
-        "have no reflection!\n(Press enter to continue...)\n"
+        "liquid. You are taken\nback by a sudden realization that you appear "
+        "to have no reflection!\n(Press enter to continue...)\n"
     )
 
     center_print(
-        "Though startled, you feel compelled to touch the mirrors surface\n"
+        "Though startled, you feel compelled to touch the mirror's surface.\n"
     )
     center_print("Do you touch the mirror?\n")
     center_print("Yes(y) / No(n)\n")
@@ -234,7 +234,7 @@ def chapter_3a(player_character, player_name, homescreen, base_stats):
 
             center_input(
                 "As your finger comes into contact with the mirror, the "
-                "surface breaks like\nwater and begins to wrap intself around "
+                "surface breaks like\nwater and begins to wrap itself around "
                 "your arm in a slithering, tentacle-like\nfashion. Before you "
                 "can even attempt to struggle, you are enveloped in a living\n"
                 "silver goo. (Press enter to continue...)\n"
@@ -256,7 +256,7 @@ def chapter_3a(player_character, player_name, homescreen, base_stats):
                 )
 
                 center_print(
-                    "You notice small iridescent sphere sitting on the "
+                    "You notice a small iridescent sphere sitting on the "
                     "ground.\n"
                 )
 
@@ -323,7 +323,7 @@ def chapter_3b(player_character, player_name, homescreen, base_stats):
 
     center_print(
         "Walking down the winding staircase you begin to feel uneasy. Suddenly"
-        " a dark,\nghostly apparition meterializes in front of you and begins "
+        " a dark,\nghostly apparition materializes in front of you and begins "
         "to speak in a\ndistorted, otherworldly tone...\n"
     )
 
@@ -360,7 +360,7 @@ def chapter_4a(player_character, player_name, homescreen, base_stats):
     )
 
     center_input(
-        "Realizing that your only exit is about to be blocked, you attmpt to "
+        "Realizing that your only exit is about to be blocked, you attempt to "
         "run the\nlength of the room before the door can be sealed...\n"
         "(Press enter to continue...)\n"
     )
@@ -368,20 +368,20 @@ def chapter_4a(player_character, player_name, homescreen, base_stats):
     # Outcome determined by players cunning stat
     if player_character.cunning >= 9:
         center_input(
-            "You dash accross the room, nimbly avoiding the jutting up peices "
+            "You dash across the room, nimbly avoiding the jutting-up peices "
             "of cobblestone\nfloor. You manage to slip through the remaining "
             "gap in the door at the last\nsecond. (Press enter to continue...)"
             "\n"
         )
         center_input(
-            "You breath a sigh of relief for a moment, before the sudden "
+            "You breathe a sigh of relief for a moment, before the sudden "
             "realization hits\nyou... You are now in the room with whatever "
             "brutish abomination just sealed\nthe door!\n"
             "(Press enter to continue...)\n"
         )
         center_input(
-            "The beast lets out a snarl and bears it's teeth. It stoops into a"
-            " crouch\nready to pounce on it's prey before lunging towards you!"
+            "The beast lets out a snarl and bears its teeth. It stoops into a"
+            " crouch\nready to pounce on its prey before lunging towards you!"
             "(Press enter to continue...)\n"
         )
         center_print("You must defend yourself!\n")
@@ -395,14 +395,14 @@ def chapter_4a(player_character, player_name, homescreen, base_stats):
 
     else:  # If cunning check is failed
         center_input(
-            "You dash accross the room, trying to avoid the jutting up peices "
+            "You dash across the room, trying to avoid the jutting-up peices "
             "of cobblestone\non the floor, but in your panic you trip and "
             "fall, foiling your chances of\nreaching the door in time. "
             "(Press enter to continue...)\n"
         )
         center_input(
             "As the door seals shut the room is left pitch black until "
-            "suddenly the sconces\nlining the room ignite, as if by magic. "
+            "suddenly, the sconces\nlining the room ignite as if by magic. "
             "There is a brief silence before you\nhear a rumbling coming from"
             " above. (Press enter to continue...)\n"
         )
@@ -410,7 +410,7 @@ def chapter_4a(player_character, player_name, homescreen, base_stats):
             "You look upwards to see a ceiling covered in jagged metal spikes,"
             " slowly\ndecending towards you. (Press enter to continue...)\n"
         )
-        center_print("There in't much time! What do you do?!\n")
+        center_print("There isn't much time! What do you do?!\n")
         center_print(
             "Attempt to move the slab(m). Look for another way out(w)\n"
         )
@@ -439,7 +439,7 @@ def chapter_4a(player_character, player_name, homescreen, base_stats):
                         "paper. (Press enter to continue...)\n"
                     )
                     center_input(
-                        "As you walk through the door you see the beast like "
+                        "As you walk through the door you see the beast-like "
                         "humanoid who sealed the\ndoor. Intimidated by your "
                         "feat of strength it stares at you with a\nfearful "
                         "expression before fleeing. You notice it drops "
@@ -518,7 +518,7 @@ def chapter_4b(player_character, player_name, homescreen, base_stats):
 def chapter_5a(player_character, player_name, homescreen, base_stats):
     clear_terminal_in_game(player_character, player_name)
     center_input(
-        "You enter an throne room. You scan the room and see three doors. "
+        "You enter a throne room. You scan the room and see three doors. "
         "Each door is\nlabeled with a golden plaque. "
         "(Press enter to continue...)\n"
     )
@@ -626,7 +626,7 @@ def boss_a(player_character, player_name, homescreen, base_stats):
     center_input(
         "Suddenly you are forced to jump back as the suit of armor springs to "
         "life, and\nswings the sword at you, narrowly missing your chest. In a"
-        " fenzy the suit of\narmor charges at you! "
+        " fenzy, the suit of\narmor charges at you! "
         "(Press enter to continue...)\n"
     )
     center_print("You must defend yourself!\n")
@@ -648,7 +648,7 @@ def boss_b(player_character, player_name, homescreen, base_stats):
         "(Press enter to continue...)\n"
     )
     center_input(
-        "As you approch the center of the room you spot a pedestal sitting a "
+        "As you approach the center of the room you spot a pedestal sitting a "
         "large,\nexquisite looking book, bound in leather, with an intricate "
         "symbol on the front.\n(Press enter to continue...)\n"
     )
@@ -660,7 +660,7 @@ def boss_b(player_character, player_name, homescreen, base_stats):
     center_input(
         "Thinking it must have been a trick of the light you carry on opening "
         "the book,\nwhen you catch another shadow moving again. Only this "
-        "time much closer.\n(Press enter to continue...)\n"
+        "time, much closer.\n(Press enter to continue...)\n"
     )
     center_input(
         "This time you keep your eyes fixed where you saw the movement, while "
@@ -669,19 +669,19 @@ def boss_b(player_character, player_name, homescreen, base_stats):
         "(Press enter to continue...)\n"
     )
     center_input(
-        "It lands on stop of you, forcing you onto the ground. The creature "
+        "It lands on top of you, forcing you onto the ground. The creature "
         "is wrapped\nin a tattered brown robe with a large hood which covers "
-        "its face. Its hands are\ndark grey, with long boney fingers. "
+        "its face. Its hands are\ndark grey, with long bony fingers. "
         "(Press enter to continue...)\n"
     )
     center_input(
-        "As you wrestle the creature off you with a well placed kick. Its "
+        "As you wrestle the creature off you with a well-placed kick. Its "
         "hood flicks\nback over its head, revealing a grotesque pale face with"
         " sunken eyes, and a mass\nof tentacles where a mouth would usually "
         "sit! (Press enter to continue...)\n"
     )
     center_input(
-        "The creature roars with an almost reptilian sounding gargle, and "
+        "The creature roars with an almost reptilian-sounding gargle, and "
         "begins to\ncharge at you again! (Press enter to continue...)\n"
     )
     center_print("You must defend yourself!\n")
@@ -703,15 +703,15 @@ def boss_c(player_character, player_name, homescreen, base_stats):
         "(Press enter to continue...)\n"
     )
     center_input(
-        "You walk beteen the large piles of treasure, running your hand over "
+        "You walk between the large piles of treasure, running your hand over "
         "the coins,\nlistening to them clink against each other. As you walk"
         "around one pile of gold,\nyou see a large open chest in front of an "
         "impossibly large mountain of gold\ncoins. "
         "(Press enter to continue...)\n"
     )
     center_input(
-        "You approch the chest, and looking inside you see a magnificent "
-        "diamond, the\nsize of your head! (Press enter to continue...)\n"
+        "You approach the chest, and looking inside you see a magnificent "
+        "diamond the\nsize of your head! (Press enter to continue...)\n"
     )
     center_input(
         "As you reach into the chest to pick up the diamond, the mountain of "
