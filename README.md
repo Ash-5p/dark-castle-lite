@@ -634,6 +634,7 @@ You can fork this repository by using the following steps:
 | [Markdown Builder](https://tim.2bn.dev/markdown-builder) | README and TESTING | tool to help generate the Markdown files |
 | [Chris Beams](https://chris.beams.io/posts/git-commit) | version control | "How to Write a Git Commit Message" |
 | [marked-gil](https://github.com/marked-gil/guess-that-word/blob/main/utility_manager.py#L8-L13) | utilities | `clear_terminal()` function |
+| [Escape the Dark Castle](https://themeborne.com/products/escape-the-dark-castle) | Whole App | Used as the inspiration for the theme of the game. Many concepts such as nature names taken from the game |
 
 
 ### Media
