@@ -329,38 +329,42 @@ flowchart TD
   InstructionsScreen --> HomeScreen
   HomeScreen --> EnterName[Enter Name]
   EnterName --> CharacterSelect[Character Select]
-  CharacterSelect -->|Fighter| Chapter1a[Chapter 1a]
-  CharacterSelect -->|Scholar| OpenDoor{Open Door?}
-  CharacterSelect -->|Thief| Chapter1b[Chapter 1b]
+  CharacterSelect -->|Fighter| OpenDoor{Open Door}
+  CharacterSelect -->|Scholar| OpenDoor{Open Door}
+  CharacterSelect -->|Thief| OpenDoor{Open Door}
 
   OpenDoor -- Yes --> Chapter1a
   OpenDoor -- No --> Chapter1b
 
-  Chapter1a --> CellBlock{Cell Block?}
+  Chapter1a --> CellBlock{Cell Block}
+  Chapter1b --> CellBlock{Cell Block}
   CellBlock -- Left --> Chapter2a[Chapter 2a]
   CellBlock -- Right --> Chapter2b[Chapter 2b]
 
-  Chapter2a --> Stairs{Stairs?}
+  Chapter2a --> Stairs{Stairs}
+  Chapter2b --> Stairs{Stairs}
   Stairs -- Up --> Chapter3a[Chapter 3a]
   Stairs -- Down --> Chapter3b[Chapter 3b]
 
-  Chapter3a --> Corridor{Corridor?}
+  Chapter3a --> Corridor{Corridor}
+  Chapter3b --> Corridor{Corridor}
   Corridor -- Door --> Chapter4a[Chapter 4a]
   Corridor -- Passageway --> Chapter4b[Chapter 4b]
 
   Chapter4a --> TouchedMirror{Touched Mirror on Chapter 3a?}
+  Chapter4b --> TouchedMirror{Touched Mirror on Chapter 3a?}
   TouchedMirror -- False --> Chapter5b[Chapter 5b]
   TouchedMirror -- True --> Chapter5a[Chapter 5a]
 
   Chapter5a --> ThroneRoom{Throne Room}
-  Chapter5b --> ThroneRoom
+  Chapter5b --> Chapter5a[Chapter 5a]
 
   ThroneRoom -->|Armory| Boss1[Boss 1]
   ThroneRoom -->|Library| Boss2[Boss 2]
   ThroneRoom -->|Treasury| Boss3[Boss 3]
 
-  Boss1 --> Boss3
-  Boss2 --> Boss3
+  Boss1 --> YouWin[You Win]
+  Boss2 --> YouWin[You Win]
   Boss3 --> YouWin[You Win]
 
   YouWin --> HomeScreen
@@ -541,7 +545,6 @@ Deployment steps are as follows, after account setup:
 - Select **New** in the top-right corner of your Heroku Dashboard, and select **Create new app** from the dropdown menu.
 - Your app name must be unique, and then choose a region closest to you (EU or USA), and finally, select **Create App**.
 - From the new app **Settings**, click **Reveal Config Vars**, and set the value of KEY to `PORT`, and the value to `8000` then select *add*.
-- If using any confidential credentials, such as CREDS.JSON, then these should be pasted in the Config Variables as well.
 - Further down, to support dependencies, select **Add Buildpack**.
 - The order of the buildpacks is important, select `Python` first, then `Node.js` second. (if they are not in this order, you can drag them to rearrange them)
 
@@ -590,8 +593,6 @@ This project can be cloned or forked in order to make a local copy on your own s
 For either method, you will need to install any applicable packages found within the *requirements.txt* file.
 
 - `pip3 install -r requirements.txt`.
-
-If using any confidential credentials, such as `CREDS.json` or `env.py` data, these will need to be manually added to your own newly created project as well.
 
 #### Cloning
 
