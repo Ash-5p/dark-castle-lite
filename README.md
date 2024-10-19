@@ -216,50 +216,50 @@
 
     ![screenshot](documentation/features/feature-combat-item-drop.png)
 
-- ***Chainmail***
+    - ***Chainmail***
 
         - Chainmail is an in-game item which reduces damage taken in combat by 2 while held.
 
     ![screenshot](documentation/features/feature-item-chainmail.png)
 
-- ***Spiked Gloves***
+    - ***Spiked Gloves***
 
         - Spiked Gloves are an in-game item which increase the players Might stat by 3 while held.
 
     ![screenshot](documentation/features/feature-item-spiked-gloves.png)
 
-- ***Hooded Cloak***
+    - ***Hooded Cloak***
 
         - Hooded Cloak is an in-game item which increase the players Cunning stat by 3 while held.
 
     ![screenshot](documentation/features/feature-item-hooded-cloak.png)
 
-- ***Lexicon***
+    - ***Lexicon***
 
         - Lexicon is an in-game item which increase the players Wisdom stat by 3 while held.
 
     ![screenshot](documentation/features/feature-item-lexicon.png)
 
-- ***Focusing Crystal***
+    - ***Focusing Crystal***
 
         - Focusing Crystal is an in-game item which increase the player's accuracy by 10% while held. This means that light attacks have 100% chance to land, and heavy attacks have 60% chance to land.
 
     ![screenshot](documentation/features/feature-item-focusing-crystal.png)
 
-- ***Apple***
+    - ***Apple***
 
         - Apple an in-game item which restores +30hp to the players health when consumed in combat (One time use).
 
     ![screenshot](documentation/features/feature-item-apple.png)
 
 
-- ***Throwing Knife***
+    - ***Throwing Knife***
 
         - Throwing Knife is an in-game item which deals 15hp damage to the current enemy when used in combat (One time use). The player will not receive damage from the enemy when using this item.
 
     ![screenshot](documentation/features/feature-combat-item-y.png)
 
-- ***Mirror Sphere***
+    - ***Mirror Sphere***
 
         - Mirror Sphere is an in-game item which has 2 different effects depending if it is used against a normal enemy or a boss (One time use).
         - Normal Enemy - Allows the player guaranteed escape from combat when used.
@@ -297,10 +297,10 @@
 - [![Heroku](https://img.shields.io/badge/Heroku-grey?logo=heroku&logoColor=430098)](https://www.heroku.com) used for hosting the deployed back-end site.
 - [![Bootstrap](https://img.shields.io/badge/Bootstrap-grey?logo=bootstrap&logoColor=7952B3)](https://getbootstrap.com) used as the front-end CSS framework for modern responsiveness and pre-built components.
 - [![ChatGPT](https://img.shields.io/badge/ChatGPT-grey?logo=chromatic&logoColor=75A99C)](https://chat.openai.com) used to help debug, troubleshoot, and explain things.
-- [pep8](https://pep8ci.herokuapp.com/) used to check the Python script for compliance with PEP8 requirements.
-- [Lucidchart](https://www.lucidchart.com/) used to make flow diagrams for mapping the app's logic
-- [GIMP](https://www.gimp.org/) used to remove background from title image of README.
-- [Ezgif](https://ezgif.com/) used to ccreate GIFs for readme file.
+- [![CI PEP8](https://img.shields.io/badge/CI_PEP8-grey?logo=python&logoColor=3776AB)](https://chat.openai.com) used to help debug, troubleshoot, and explain things.
+- [![Lucidchart](https://img.shields.io/badge/Lucidchart-grey?logo=lucid&logoColor=F97B2C)](https://www.lucidchart.com) used to make flow diagrams for mapping the app's logic
+- [![GIMP](https://img.shields.io/badge/GIMP-grey?logo=gimp&logoColor=FFFFFF)](https://www.gimp.org) used to remove background from title image of README.
+- [![Ezgif](https://img.shields.io/badge/Ezgif-grey?logo=giphy&logoColor=00A4C2)](https://ezgif.com) used to create GIFs for readme file.
 
 ## Data Model
 
@@ -317,6 +317,92 @@ Below is the flowchart of the main process of this Python program. It shows the 
 Below is the flowchart of the combat function. It shows the flow of combat based on player decisions, and enemy/player health.
 
 ![screenshot](documentation/flowchart-combat.png)
+
+
+I've also used [Mermaid](https://www.mermaid.live) to generate these flowcharts.
+
+### Game Flow
+
+```mermaid
+flowchart TD
+  HomeScreen[Home Screen] --> InstructionsScreen[Instructions Screen]
+  InstructionsScreen --> HomeScreen
+  HomeScreen --> EnterName[Enter Name]
+  EnterName --> CharacterSelect[Character Select]
+  CharacterSelect -->|Fighter| Chapter1a[Chapter 1a]
+  CharacterSelect -->|Scholar| OpenDoor{Open Door?}
+  CharacterSelect -->|Thief| Chapter1b[Chapter 1b]
+
+  OpenDoor -- Yes --> Chapter1a
+  OpenDoor -- No --> Chapter1b
+
+  Chapter1a --> CellBlock{Cell Block?}
+  CellBlock -- Left --> Chapter2a[Chapter 2a]
+  CellBlock -- Right --> Chapter2b[Chapter 2b]
+
+  Chapter2a --> Stairs{Stairs?}
+  Stairs -- Up --> Chapter3a[Chapter 3a]
+  Stairs -- Down --> Chapter3b[Chapter 3b]
+
+  Chapter3a --> Corridor{Corridor?}
+  Corridor -- Door --> Chapter4a[Chapter 4a]
+  Corridor -- Passageway --> Chapter4b[Chapter 4b]
+
+  Chapter4a --> TouchedMirror{Touched Mirror on Chapter 3a?}
+  TouchedMirror -- False --> Chapter5b[Chapter 5b]
+  TouchedMirror -- True --> Chapter5a[Chapter 5a]
+
+  Chapter5a --> ThroneRoom{Throne Room}
+  Chapter5b --> ThroneRoom
+
+  ThroneRoom -->|Armory| Boss1[Boss 1]
+  ThroneRoom -->|Library| Boss2[Boss 2]
+  ThroneRoom -->|Treasury| Boss3[Boss 3]
+
+  Boss1 --> Boss3
+  Boss2 --> Boss3
+  Boss3 --> YouWin[You Win]
+
+  YouWin --> HomeScreen
+```
+
+source: [Mermaid](https://mermaid.live/edit#pako:eNp1VF1v2jAU_SuWnwERO0Cbh03rWLVJXTcVpqkLPDiJIVETGzmJGAv89_krOAH6Uh_fe-4555oqDYx5QmEANznfxykRFVjOVwyAr7ygi1hQykIFgcFrMBx-AN9YWYk6rjLOSsvpllqukrmmagWn3vfSzS-souKZFDTUCCioxc4NTfss05JYVhY0p3EVnu_AFPTIBUkNHh-zbSorR9XcSeCR0CLgkXenFnHKcyKnfuwom3MuGgWAQh9P7w0t04xunFHkjCJppKZaNUkHr7RsNzO5LgnPvNePjMSZbpo0zx9yHr81CgENbcC2o6Se6KbqiiH3CMg-Qpf-ot6sx3e7oHaXs5QmLiqSibIxh0lgsNL7teuKYWeOjbljzvme9bjOGF8YY_sCXIgskT9QC-z69mZE9XkW9V0A327fYf8kZUm2dE8OvRkXxL8I4psgS17HKU2-Z0LINPYGzBVwBtzOJmGPr4wfSV7SrufEeU6i9c2Zpaj7I261CenHnNiYqeCMvnBeNAYChU9dYnRBNDLurv_ZP4mCi8MRPPCy9EL1F3jrG7ynLBKkJSJDRLeIS0FJWbdMbJjY7qBddCzdbEvouoR16ZXXvzMWygPI04qY4tUnCQ5gQUVBskR-GRtFXMEqpQVdwUDChIi3FVyxk-SRuuKLA4thIL9zdADrXUIqOs_IVpACBhv1Cw7gjjAYNPAvDLDvje6mMzT18HiGxmN_NoAHGAzxaOoj7Ptocj-b3KF7NDsN4D_5EjDwRmMPI9-XY_KQPa33R_eMqeD1NrVmp_-zqfDx)
+
+### Combat Flow
+
+```mermaid
+flowchart TD
+  StartCombat([Start Combat]) --> CombatScreen[Combat Screen]
+
+  CombatScreen --> CombatAction{Combat Action}
+  CombatAction -->|Light Attack| HitMissCheck[Hit / Miss Check]
+  CombatAction -->|Heavy Attack| HitMissCheck
+
+  CombatAction -->|Item| DisplayItem[Display Item Description]
+  DisplayItem -->|Consumable| UseItem{Use Item?}
+  DisplayItem -->|Non-Consumable| ApplyEffect[Apply Item Effect]
+
+  UseItem -- Yes --> ApplyEffect
+  UseItem -- No --> CombatScreen
+
+  HitMissCheck --> DamageCalc[Damage Calculation]
+  DamageCalc --> DeductHealth[Deduct Health from Player & Enemy]
+
+  DeductHealth -->|Player & Enemy Health > 0| CombatScreen
+  DeductHealth -->|Enemy Health = 0| EndCombat([End Combat])
+  DeductHealth -->|Player Health = 0| Defeat[Defeat]
+
+  Defeat --> Homescreen[Homescreen]
+  EndCombat --> Homescreen
+  CombatScreen --> PlayerDamage[Player Takes Damage]
+  PlayerDamage -->|Health > 0| CombatScreen
+  PlayerDamage -->|Player Health = 0| EndCombat
+  CombatAction -->|Run| RunResult{Run}
+  RunResult -- Success --> EndCombat
+  RunResult -- Fail --> PlayerDamage
+```
+
+source: [Mermaid](https://mermaid.live/edit#pako:eNp9VF2PmkAU_SuTeWjaRK0iq7sk3WYjNjZpN826fWjBh9nhIkSYITB0a8H_3vlARKV9ce65nHPuncvFClMeAHZwmPBXGpFcoGfXZwithYwXPH0h4q2nATJo8w4Nh_cNWNMcgHkGIIM2PlMGXUJH8UBFzFnVKAw6nPgmofj1l3gbSYYQhO5qtIrF17goFhHQnScBeo8URjqx6TVYAfm17zXodtgRfBaQ1siNiywhewW8JkYKIBcKmseZouuCHaKWLzgrypS8JFCj7wWofCVPLf546FM8cjbsqh6yLNkvwxCo8HRsCptMM9fGWerRDyj0ZDuyC8Yjv3pZxqU7DU1xSUq2sCAJ9UyIVFwm5HTdlmEEEJRUyBknIvIMQAahMOcp-iYvCjl6g5YM0n3TfFekJ3DOOhrco3F90XSP9kzyQUmWLDiurAzbhf1f5a7chRCI8MzRdqyAvvGKp2oD1MKfQj2atu4Fr_c7MIXNNL2mi2eyk-_S5LRjl3Rc5n9O5orcc7e2xd7NfypZjeTPExRlIioZ6X1tM2qX1iWlUJiNO3M7Y30icXJ1TZ_hAU4hT0kcyP-aSql8LCJIwceODAOS73zss4PkkVLw9Z5R7Ii8hAEus4AIcGOyzUmKnZAkhcxmhGGnwr-xM7Uno9vZ3JpNpuO5NR7b8wHeY2c4Hc1sa2rb1s3d_ObWurPmhwH-w7n0mIzGk6ll21ImD_lM-_3Uz0zRnJfbqCl2-AvDcr0h)
 
 ### Classes & Functions
 
