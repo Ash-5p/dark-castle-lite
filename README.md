@@ -300,6 +300,7 @@
 - [![Lucidchart](https://img.shields.io/badge/Lucidchart-grey?logo=lucid&logoColor=F97B2C)](https://www.lucidchart.com) used to make flow diagrams for mapping the app's logic
 - [![GIMP](https://img.shields.io/badge/GIMP-grey?logo=gimp&logoColor=FFFFFF)](https://www.gimp.org) used to remove background from title image of README.
 - [![Ezgif](https://img.shields.io/badge/Ezgif-grey?logo=giphy&logoColor=00A4C2)](https://ezgif.com) used to create GIFs for readme file.
+- [![Grammarly](https://img.shields.io/badge/Grammarly-grey?logo=grammarly&logoColor=00A4C2)](https://www.grammarly.com/spell-checker) used to check spelling and grammar of print statements
 
 ## Data Model
 
