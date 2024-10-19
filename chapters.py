@@ -267,7 +267,7 @@ def chapter_3a(player_character, player_name, homescreen, base_stats):
                 center_input("(Press enter to continue...)\n")
 
                 center_print('"Those abscent of greed are rewarded..."')
-                center_print("(Mirror Sphere aquired!)\n")
+                center_print("(Mirror Sphere acquired!)\n")
                 center_input("(Press enter to continue...)")
                 player_character.item = "Mirror Sphere"
                 break

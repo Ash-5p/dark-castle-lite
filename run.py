@@ -205,7 +205,7 @@ def display_instructions_screen():
         clear_terminal_instructions()
         print("C̲O̲M̲B̲A̲T̲\n")
         print(
-            "Some decisions will result in combat. During combat you will be "
+            "Some decisions will result in combat. During combat, you will be "
             "presented with\nthe following options (shown below):\n"
         )
         print("Enemy Health: 50hp      <--  Current Enemy's Health")
@@ -225,7 +225,7 @@ def display_instructions_screen():
         print("C̲O̲M̲B̲A̲T̲ C̲O̲N̲T̲.\n")
 
         print(
-            "𝗘𝗻𝗲𝗺𝘆 𝗡𝗮𝘁𝘂𝗿𝗲 - Determines which of the players stats are "
+            "𝗘𝗻𝗲𝗺𝘆 𝗡𝗮𝘁𝘂𝗿𝗲 - Determines which of the players\' stats are "
             "used in damage\n               calculation.\n"
         )
         print("𝗟𝗶𝗴𝗵𝘁 𝗔𝘁𝘁𝗮𝗰𝗸 - Deals moderate damage. 90% hit chance.\n")
@@ -248,7 +248,7 @@ def display_instructions_screen():
         print("I̲T̲E̲M̲S̲\n")
 
         print(
-            "Items will sometimes be aquired through certain scenarios "
+            "Items will sometimes be acquired through certain scenarios "
             "throughout the game.\nMost defeated enemies will have a chance of"
             " dropping an item. You will always\nbe prompted with a yes or no "
             "choice before an item is added to your inventory.\nOnly one item "
@@ -282,8 +282,8 @@ def display_instructions_screen():
             "When fighting an enemy, the stat that is strong against the "
             "enemy's nature\nwill be the one used in damage calculations. "
             "For example, when fighting an\nenemy with the Might nature, the "
-            "players Wisdom stat will be use to determine\nboth damage dealt, "
-            "and damage taken.\n\n\n"
+            "players Wisdom stat will be used to determine\nboth damage dealt,"
+            " and damage taken.\n\n\n"
         )
 
         print("Page 5 of 5")
